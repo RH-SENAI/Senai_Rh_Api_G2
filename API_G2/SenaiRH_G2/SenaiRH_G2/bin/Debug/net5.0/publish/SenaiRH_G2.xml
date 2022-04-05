@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SenaiRH_G2</name>
+    </assembly>
+    <members>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ListarComenatarioCurso">
+            <summary>
+            Listar todos s comentarios dos cursos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ListarComentarioPorIdCurso(System.Int32)">
+            <summary>
+            Listar um comentario pelo seu id
+            </summary>
+            <param name="id">id Comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ExcluirComentarioCurso(System.Int32)">
+            <summary>
+            Deletar um comentario pelo seu id
+            </summary>
+            <param name="id">Id do cometario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.CadastrarComentarioCurso(SenaiRH_G2.Domains.Comentariocurso,System.Int32,System.Int32)">
+            <summary>
+            Cadastrar um novo comentario
+            </summary>
+            <param name="NovoComentario">Dados do novo comentario</param>
+            <param name="idcurso">id do curso cujo comentario faz parte </param>
+            <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.AlterarComentarioCurso(System.Int32,SenaiRH_G2.Domains.Comentariocurso)">
+            <summary>
+            Atualizar comentario
+            </summary>
+            <param name="Id">Id comentario</param>
+            <param name="comentarioAtualizado">dados a serem atualizados</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComenatarioDesconto">
+            <summary>
+            Listar todos s comentarios dos cursos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComentarioPorIdDesconto(System.Int32)">
+            <summary>
+            Listar um comentario pelo seu id
+            </summary>
+            <param name="id">id Comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ExcluirComentarioDesconto(System.Int32)">
+            <summary>
+            Deletar um comentario pelo seu id
+            </summary>
+            <param name="id">Id do cometario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.CadastrarComentarioDesconto(SenaiRH_G2.Domains.Comentariodesconto,System.Int32,System.Int32)">
+            <summary>
+            Cadastrar um novo comentario
+            </summary>
+            <param name="NovoComentario">Dados do novo comentario</param>
+            <param name="idcurso">id do curso cujo comentario faz parte </param>
+            <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.AlterarComentarioDesconto(System.Int32,SenaiRH_G2.Domains.Comentariodesconto)">
+            <summary>
+            Atualizar comentario
+            </summary>
+            <param name="Id">Id comentario</param>
+            <param name="comentarioAtualizado">dados a serem atualizados</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.AlterarComentarioCurso(System.Int32,SenaiRH_G2.Domains.Comentariocurso)">
+            <summary>
+            Alterar um cometario 
+            </summary>
+            <param name="Id">Id do comentario</param>
+            <param name="comentarioAtualizado">Dados do comentario atualizado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.CadastrarComentarioCurso(SenaiRH_G2.Domains.Comentariocurso)">
+            <summary>
+            Cadastrar um novo comentario
+            </summary>
+            <param name="NovoComentario">Dados no novo comentario</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ExcluirComentarioCurso(System.Int32)">
+            <summary>
+            Excluir um comentario 
+            </summary>
+            <param name="Id">Id do comentario</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ListarComenatarioCurso">
+            <summary>
+            Listar todos os comentarios 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ListarComentarioPorIdCurso(System.Int32)">
+            <summary>
+            Listar comentarios pelo seu id 
+            </summary>
+            <param name="Id">Id comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.AlterarComentarioDesconto(System.Int32,SenaiRH_G2.Domains.Comentariodesconto)">
+            <summary>
+            Alterar um cometario 
+            </summary>
+            <param name="Id">Id do comentario</param>
+            <param name="comentarioAtualizado">Dados do comentario atualizado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.CadastrarComentarioDesconto(SenaiRH_G2.Domains.Comentariodesconto)">
+            <summary>
+            Cadastrar um novo comentario
+            </summary>
+            <param name="NovoComentario">Dados no novo comentario</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.ExcluirComentarioDesconto(System.Int32)">
+            <summary>
+            Excluir um comentario 
+            </summary>
+            <param name="Id">Id do comentario</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.ListarComenatarioDesconto">
+            <summary>
+            Listar todos os comentarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.ListarComentarioPorIdDesconto(System.Int32)">
+            <summary>
+            Listar comentarios pelo seu id 
+            </summary>
+            <param name="Id">id comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Utils.Upload.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String[])">
+            <summary>
+            Faz o upload do arquivo para o servidor
+            </summary>
+            <param name="arquivo">Arquivo vindo de um formulário</param>
+            <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
+            <returns>Nome do arquivo salvo</returns>
+        </member>
+        <member name="M:SenaiRH_G2.Utils.Upload.ValidarExtensao(System.String[],System.String)">
+            <summary>
+            Valida o uso de enxtensões permitidas apenas
+            </summary>
+            <param name="extensoes">Array de extensões permitidas</param>
+            <param name="nomeDoArquivo">Nome do arquivo</param>
+            <returns>Verdadeiro/Falso</returns>
+        </member>
+        <member name="M:SenaiRH_G2.Utils.Upload.RemoverArquivo(System.String)">
+            <summary>
+            Remove um arquivo do servidor
+            </summary>
+            <param name="nomeDoArquivo">Nome do Arquivo</param>
+        </member>
+        <member name="M:SenaiRH_G2.Utils.Upload.RetornarExtensao(System.String)">
+            <summary>
+            Retorna a extensão de um arquivo
+            </summary>
+            <param name="nomeDoArquivo">Nome do Arquivo</param>
+            <returns>Retorna a extensão de um arquivo</returns>
+        </member>
+    </members>
+</doc>
