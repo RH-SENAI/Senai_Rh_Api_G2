@@ -87,6 +87,7 @@ namespace SenaiRH_G2.Controllers
                 if (fotoCurso == null)
                 {
                     novoCurso.CaminhoImagemCurso = "imagem-padrao.png";
+                    novoCurso.MediaAvaliacaoCurso = 0;
                 }
                 else
                 {

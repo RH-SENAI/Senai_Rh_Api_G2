@@ -33,7 +33,6 @@ namespace SenaiRH_G2.ViewModels
         [Required(ErrorMessage = "Todos os campos devem ser preenchidos !")]
         public DateTime DataFinalizacao { get; set; }
 
-        [Required(ErrorMessage = "Todos os campos devem ser preenchidos !")]
         public decimal MediaAvaliacaoCurso { get; set; }
 
 

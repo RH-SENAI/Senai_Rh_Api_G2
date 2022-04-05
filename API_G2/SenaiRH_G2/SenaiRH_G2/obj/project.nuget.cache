@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YDIU5OM3hSp1bw51B7dQtO1o9nLMmdrFSU9BXHITuDhqGRzOMZFIEbLDFQgq9s2IzYXWGmYpr4tpzT/AQgv+hA==",
+  "dgSpecHash": "RBM6VXF1NhdETqQMtg3KI6lc1y8nuuvWc6Xq6v0pyg9woCQDP0o/kvvZ0y51C+6/bJomnafqCh33k9zK7j4Pqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\43690999863.INFOSCS\\Desktop\\SENAI-RH-BACKEND\\GP2\\API_G2\\SenaiRH_G2\\SenaiRH_G2\\SenaiRH_G2.csproj",
+  "projectFilePath": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\API_G2\\SenaiRH_G2\\SenaiRH_G2\\SenaiRH_G2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\43690999863.INFOSCS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\43690999863.INFOSCS\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.14\\microsoft.aspnetcore.authentication.jwtbearer.5.0.14.nupkg.sha512",
