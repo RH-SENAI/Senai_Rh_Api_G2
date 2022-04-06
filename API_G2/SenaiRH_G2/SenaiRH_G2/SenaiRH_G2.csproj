@@ -22,6 +22,24 @@
     <Folder Include="StaticFiles\Images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="StaticFiles\Images\5bcdbb65-6ac5-42fb-a21a-d9cd42b9110c.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StaticFiles\Images\b2addbd0-87f3-4e43-84ce-9ff10edc06b0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StaticFiles\Images\d612cf0e-e714-49cb-93fa-39331fe25fd5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StaticFiles\Images\f677f45e-b3e6-4b53-8d9a-5d16f763e304.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StaticFiles\Images\imagem-padrao.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>$(NoWarn);1591</NoWarn>
