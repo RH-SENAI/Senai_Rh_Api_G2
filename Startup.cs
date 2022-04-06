@@ -114,7 +114,7 @@ namespace SenaiRH_G2
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles/Images")),
-                RequestPath = "/img"
+                RequestPath = "StaticFiles/Images"
             });
 
             app.UseEndpoints(endpoints =>
