@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenaiRH_G2", "SenaiRH_G2\SenaiRH_G2.csproj", "{9D734C52-265C-4575-A243-7690F014044E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenaiRH_G2", "SenaiRH_G2.csproj", "{9D734C52-265C-4575-A243-7690F014044E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
