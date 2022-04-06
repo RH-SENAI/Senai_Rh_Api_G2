@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="StaticFiles\**" />
+    <Content Remove="StaticFiles\**" />
+    <EmbeddedResource Remove="StaticFiles\**" />
+    <None Remove="StaticFiles\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="StaticFiles\Images\5bcdbb65-6ac5-42fb-a21a-d9cd42b9110c.jpg" />
+    <None Include="StaticFiles\Images\b2addbd0-87f3-4e43-84ce-9ff10edc06b0.png" />
+    <None Include="StaticFiles\Images\d612cf0e-e714-49cb-93fa-39331fe25fd5.png" />
+    <None Include="StaticFiles\Images\f677f45e-b3e6-4b53-8d9a-5d16f763e304.png" />
+    <None Include="StaticFiles\Images\imagem-padrao.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
@@ -16,28 +31,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="StaticFiles\Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="StaticFiles\Images\5bcdbb65-6ac5-42fb-a21a-d9cd42b9110c.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="StaticFiles\Images\b2addbd0-87f3-4e43-84ce-9ff10edc06b0.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="StaticFiles\Images\d612cf0e-e714-49cb-93fa-39331fe25fd5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="StaticFiles\Images\f677f45e-b3e6-4b53-8d9a-5d16f763e304.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="StaticFiles\Images\imagem-padrao.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 	<PropertyGroup>

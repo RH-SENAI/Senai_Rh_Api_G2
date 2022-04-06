@@ -223,8 +223,3 @@ C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\ref\SenaiR
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.xml
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.pdb
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.genruntimeconfig.cache
-C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\5bcdbb65-6ac5-42fb-a21a-d9cd42b9110c.jpg
-C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\b2addbd0-87f3-4e43-84ce-9ff10edc06b0.png
-C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\d612cf0e-e714-49cb-93fa-39331fe25fd5.png
-C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\f677f45e-b3e6-4b53-8d9a-5d16f763e304.png
-C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\imagem-padrao.png

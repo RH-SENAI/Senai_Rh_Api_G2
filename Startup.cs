@@ -81,6 +81,7 @@ namespace SenaiRH_G2
             services.AddTransient<IComentarioDescontoRepository, ComentarioDescontoRepository>();
             services.AddTransient<DbContext, senaiRhContext>();
             services.AddTransient<ICursoRepository, CursoRepository>();
+            services.AddTransient<IEmpresaRepository, EmpresaRepository>();
 
         }
 
@@ -114,7 +115,7 @@ namespace SenaiRH_G2
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles/Images")),
-                RequestPath = "StaticFiles/Images"
+                RequestPath = "/img"
             });
 
             app.UseEndpoints(endpoints =>
