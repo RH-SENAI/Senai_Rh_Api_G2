@@ -110,8 +110,6 @@ namespace SenaiRH_G2
 
             app.UseAuthorization();
 
-            app.UseStaticFiles();
-
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles/Images")),
