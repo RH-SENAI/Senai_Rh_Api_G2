@@ -18,7 +18,8 @@ namespace SenaiRH_G2.Repositories
             return ctx.Empresas
                     .Select(p => new Empresa
                     {
-
+                        IdEmpresa = p.IdEmpresa,
+                        IdLocalizacao = p.IdLocalizacao,
                         NomeEmpresa = p.NomeEmpresa,
                         EmailEmpresa = p.EmailEmpresa,
                         TelefoneEmpresa = p.TelefoneEmpresa,
