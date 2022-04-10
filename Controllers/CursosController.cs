@@ -34,7 +34,7 @@ namespace SenaiRH_G2.Controllers
                 {
                     return StatusCode(404, new
                     {
-                        Mensagem = "Não há nenhuma consulta cadastrada no sistema!"
+                        Mensagem = "Não há nenhuma curso cadastrada no sistema!"
                     });
                 }
                 return Ok(listarCurso);

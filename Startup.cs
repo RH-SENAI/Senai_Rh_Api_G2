@@ -82,6 +82,7 @@ namespace SenaiRH_G2
             services.AddTransient<DbContext, senaiRhContext>();
             services.AddTransient<ICursoRepository, CursoRepository>();
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
+            services.AddTransient<IDescontoRepository, DescontoRepository>();
 
         }
 
