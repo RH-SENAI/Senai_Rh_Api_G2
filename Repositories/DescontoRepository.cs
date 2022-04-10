@@ -17,7 +17,7 @@ namespace SenaiRH_G2.Repositories
             return ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
         }
 
-        public void CadastrarCurso(DescontoCadastroViewModel novoDesconto)
+        public void CadastrarDesconto(DescontoCadastroViewModel novoDesconto)
         {
             Desconto desconto = new Desconto()
             {

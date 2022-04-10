@@ -43,7 +43,7 @@
         </member>
         <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComenatarioDesconto">
             <summary>
-            Listar todos s comentarios dos cursos
+            Listar todos os comentarios dos descontos
             </summary>
             <returns></returns>
         </member>

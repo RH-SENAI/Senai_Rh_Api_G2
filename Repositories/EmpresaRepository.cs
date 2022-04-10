@@ -1,6 +1,7 @@
 ﻿using SenaiRH_G2.Contexts;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,36 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
+        public Empresa BuscarPorId(int id)
+        {
+            return ctx.Empresas.FirstOrDefault(c => c.IdEmpresa == id);
+        }
+
+        public void CadastrarEmpresa(EmpresaCadastroViewModel novoEmpresa)
+        {
+            Empresa empresa = new Empresa()
+            {
+
+                IdLocalizacao = novoEmpresa.IdLocalizacao,
+                NomeEmpresa = novoEmpresa.NomeEmpresa,
+                EmailEmpresa = novoEmpresa.EmailEmpresa,
+                TelefoneEmpresa = novoEmpresa.TelefoneEmpresa,
+                CaminhoImagemEmpresa = novoEmpresa.CaminhoImagemEmpresa,
+
+            };
+
+            ctx.Empresas.Add(empresa);
+            ctx.SaveChanges();
+        }
+
+        public void ExcluirEmpresa(int id)
+        {
+            Empresa buscarPorId = ctx.Empresas.FirstOrDefault(c => c.IdEmpresa == id);
+            ctx.Empresas.Remove(buscarPorId);
+            ctx.SaveChanges();
+        }
+
+
         public List<Empresa> ListarTodos()
         {
             return ctx.Empresas
@@ -23,7 +54,7 @@ namespace SenaiRH_G2.Repositories
                         NomeEmpresa = p.NomeEmpresa,
                         EmailEmpresa = p.EmailEmpresa,
                         TelefoneEmpresa = p.TelefoneEmpresa,
-                        CaminhoImagemEmpresa =p.CaminhoImagemEmpresa,
+                        CaminhoImagemEmpresa = p.CaminhoImagemEmpresa,
                         IdLocalizacaoNavigation = new Localizacao()
                         {
                             Numero = p.IdLocalizacaoNavigation.Numero,
@@ -40,6 +71,7 @@ namespace SenaiRH_G2.Repositories
 
                     })
                 .ToList();
+
         }
     }
 }

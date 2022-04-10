@@ -9,7 +9,7 @@ namespace SenaiRH_G2.Interfaces
         List<Desconto> ListarTodos();
         void ExcluirDesconto(int id);
         Desconto BuscarPorId(int id);
-        void CadastrarCurso(DescontoCadastroViewModel novoDesconto);
+        void CadastrarDesconto(DescontoCadastroViewModel novoDesconto);
 
     }
 }

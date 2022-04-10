@@ -62,7 +62,21 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public List<Comentariocurso> ListarComenatarioCurso()
         {
-            return ctx.Comentariocursos.ToList();
+            return ctx.Comentariocursos
+                                .Select(p => new Comentariocurso
+                                {
+
+                                    IdCurso = p.IdCurso,
+                                    IdUsuario = p.IdUsuario,
+                                    AvaliacaoComentario = p.AvaliacaoComentario,
+                                    ComentarioCurso1 = p.ComentarioCurso1,
+                                    IdUsuarioNavigation = new Usuario
+                                    {
+                                        Nome = p.IdUsuarioNavigation.Nome
+                                    }
+
+                                })
+                            .ToList();
         }
 
 

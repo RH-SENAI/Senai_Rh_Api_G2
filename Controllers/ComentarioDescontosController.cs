@@ -23,7 +23,7 @@ namespace SenaiRH_G2.Controllers
 
 
         /// <summary>
-        /// Listar todos s comentarios dos cursos
+        /// Listar todos os comentarios dos descontos
         /// </summary>
         /// <returns></returns>
         [HttpGet]
