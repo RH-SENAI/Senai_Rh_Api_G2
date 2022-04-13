@@ -78,6 +78,33 @@
             <param name="comentarioAtualizado">dados a serem atualizados</param>
             <returns></returns>
         </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.ListarTodos">
+            <summary>
+            Listar todos os cursos favoritos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.BuscarCursoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um curso nos favoritos pelo seu id
+            </summary>
+            <param name="Id">d do curso favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.ExcluirComentarioCurso(System.Int32)">
+            <summary>
+            Excluir um curso dos favoritoss
+            </summary>
+            <param name="Id">Id do curso favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.AdcionarFavoritos(SenaiRH_G2.Domains.Cursofavorito)">
+            <summary>
+            Adcionar um novo curso aos favoritos
+            </summary>
+            <param name="NovoFavorito">Dados obrigatorios para cadastro</param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.AlterarComentarioCurso(System.Int32,SenaiRH_G2.Domains.Comentariocurso)">
             <summary>
             Alterar um cometario 
@@ -140,6 +167,31 @@
             Listar comentarios pelo seu id 
             </summary>
             <param name="Id">id comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.AdcionarFavoritos(SenaiRH_G2.Domains.Cursofavorito)">
+            <summary>
+            Adcionar um curso dos favoritos
+            </summary>
+            <param name="Novofavorito"></param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.BuscarCursoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um favorito curso pelo seu id
+            </summary>
+            <param name="Id">id do curso favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.ExcluirFavoritos(System.Int32)">
+            <summary>
+            Excluir um curso dos favoritos 
+            </summary>
+            <param name="Id">Id do curso favorito</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.ListarTodos">
+            <summary>
+            Listar os cursos favoritos de um determinado usuario
+            </summary>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Utils.Upload.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String[])">
