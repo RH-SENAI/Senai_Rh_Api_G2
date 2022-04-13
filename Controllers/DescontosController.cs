@@ -9,6 +9,7 @@ using System.Collections.Generic;
 
 namespace SenaiRH_G2.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class DescontosController : ControllerBase

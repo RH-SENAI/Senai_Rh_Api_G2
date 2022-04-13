@@ -83,6 +83,12 @@ namespace SenaiRH_G2
             services.AddTransient<ICursoRepository, CursoRepository>();
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
             services.AddTransient<IDescontoRepository, DescontoRepository>();
+            services.AddTransient<ICepRepository, CepRepository>();
+            services.AddTransient<ILogradouroRepository, LogradouroRepository>();
+            services.AddTransient<IBairroRepository, BairroRepository>();
+            services.AddTransient<ICidadeRepository, CidadeRepository>();
+            services.AddTransient<IEstadoRepository, EstadoRepository>();
+            services.AddTransient<ILocalizacaoRepository, LocalizacaoRepository>();
 
         }
 
