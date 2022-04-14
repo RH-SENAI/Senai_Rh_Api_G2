@@ -84,6 +84,7 @@ namespace SenaiRH_G2
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
             services.AddTransient<IDescontoRepository, DescontoRepository>();
             services.AddTransient<IFavoritosCursoRepository, FavoritosCursoRepository>();
+            services.AddTransient<IFavoritosDescontoRepository, FavoritosDescontoRepository>();
 
 
         }
