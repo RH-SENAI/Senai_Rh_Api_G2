@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace SenaiRH_G2.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmpresasController : ControllerBase

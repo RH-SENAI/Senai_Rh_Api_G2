@@ -132,6 +132,33 @@
             <param name="NovoFavorito">Dados obrigatorios para cadastro</param>
             <returns></returns>
         </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.ListarTodos">
+            <summary>
+            Listar todos os registros de desconto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um registro de cursos pelo seu id
+            </summary>
+            <param name="id">Id do registro a ser encontrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.ExcluirRegistrocurso(System.Int32)">
+            <summary>
+            Deletar um registro 
+            </summary>
+            <param name="id">Id do registro a ser deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.CadastrarRegistrocurso(SenaiRH_G2.Domains.Registrocurso)">
+            <summary>
+            Cadastrar um novo registro curso
+            </summary>
+            <param name="novoRegistrocurso"></param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.AlterarComentarioCurso(System.Int32,SenaiRH_G2.Domains.Comentariocurso)">
             <summary>
             Alterar um cometario 
@@ -243,6 +270,33 @@
         <member name="M:SenaiRH_G2.Repositories.FavoritosDescontoRepository.ListarTodos">
             <summary>
             Listar os descontos favoritos de um determinado usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um registro de cursos pelo seu id
+            </summary>
+            <param name="id">Id do registro a ser encontrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.CadastrarRegistrocurso(SenaiRH_G2.Domains.Registrocurso)">
+            <summary>
+            Cadastrar um novo registro curso
+            </summary>
+            <param name="novoRegistrocurso"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.ExcluirRegistrocurso(System.Int32)">
+            <summary>
+            Deletar um registro 
+            </summary>
+            <param name="id">Id do registro a ser deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.ListarTodos">
+            <summary>
+            Listar todos os registros de desconto
             </summary>
             <returns></returns>
         </member>

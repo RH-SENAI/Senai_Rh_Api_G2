@@ -302,6 +302,7 @@ C:\Users\enzzo\OneDrive\Área de Trabalho\Senai_Rh_Api_G2\obj\Debug\net5.0\Senai
 C:\Users\enzzo\OneDrive\Área de Trabalho\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.pdb
 C:\Users\enzzo\OneDrive\Área de Trabalho\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.genruntimeconfig.cache
 C:\Users\enzzo\OneDrive\Área de Trabalho\Senai_Rh_Api_G2\obj\Debug\net5.0\ref\SenaiRH_G2.dll
+<<<<<<< HEAD
 C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\appsettings.json
 C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\SenaiRH_G2.exe
@@ -381,3 +382,9 @@ C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\obj\Deb
 C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.xml
 C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.pdb
 C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.genruntimeconfig.cache
+=======
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\3ed4dc9e-58c4-43f1-85e3-fa2bdba8cee9.jpg
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\a8e5c964-153b-458d-b2f2-bdf5d236263a.jpg
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\d612cf0e-e714-49cb-93fa-39331fe25fd5.png
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\imagem-padrao.png
+>>>>>>> c0ead0ca634524434f1e94246e2d39dba6dea355
