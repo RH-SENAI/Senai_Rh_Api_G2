@@ -13,9 +13,9 @@ namespace SenaiRH_G2.Interfaces
         void ExcluirRegistrodesconto(int id);
         Registrodesconto BuscarPorId(int id);
         void CadastrarRegistrodesconto(Registrodesconto novoRegistrodesconto);
-        Registrodesconto BuscarSaldoPorId(int id);
-        Registrodesconto BuscarValorPorId(int id);
-        void AlterarSaldoUsuario(int id, Registrodesconto saldoAtualizar);
+        int BuscarSaldo(int id);
+        int BuscarValor(int id);
+        void AlterarSaldoUsuario(int id, Usuario novoSaldoAtualizar);
 
 
 
