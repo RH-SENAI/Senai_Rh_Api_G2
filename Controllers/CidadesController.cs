@@ -22,6 +22,10 @@ namespace SenaiRH_G2.Controllers
             _cidadeRepository = repo;
         }
 
+        /// <summary>
+        /// Listar todas as cidades
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -47,6 +51,11 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar uma cidade pelo seu id 
+        /// </summary>
+        /// <param name="id">id do bairro a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
@@ -54,6 +63,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+        /// <summary>
+        /// Excluir uma cidade
+        /// </summary>
+        /// <param name="id">Id da cidade a ser excluida</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirCidade(int id)
         {
@@ -74,7 +87,10 @@ namespace SenaiRH_G2.Controllers
 
         }
 
-
+        /// <summary>
+        /// Cadastrar uma nova cidade
+        /// </summary>
+        /// <param name="novoCidade">Dados da nova cidade a ser cadastrada</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarCidade(Cidade novoCidade)
         {

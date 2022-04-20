@@ -12,11 +12,21 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
+        /// <summary>
+        /// Bsucar um desconto pelo seu id
+        /// </summary>
+        /// <param name="id">id do desconto a ser buscado</param>
+        /// <returns></returns>
         public Desconto BuscarPorId(int id)
         {
             return ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
         }
 
+
+        /// <summary>
+        /// Cadastrar um novo desconto
+        /// </summary>
+        /// <param name="novoDesconto">dados do desconto a ser cadastrado</param>
         public void CadastrarDesconto(DescontoCadastroViewModel novoDesconto)
         {
             Desconto desconto = new Desconto()
@@ -35,6 +45,10 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Excluir um desconto 
+        /// </summary>
+        /// <param name="id">Id do desconto a ser excluido</param>
         public void ExcluirDesconto(int id)
         {
             Desconto buscarPorId = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
@@ -42,6 +56,10 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Listar todos os descontos
+        /// </summary>
+        /// <returns></returns>
         public List<Desconto> ListarTodos()
         {
             return ctx.Descontos

@@ -23,7 +23,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-
+        /// <summary>
+        /// Listar todos os descontos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -49,13 +52,21 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Bsucar um desconto pelo seu id
+        /// </summary>
+        /// <param name="id">id do desconto a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_descontoRepository.BuscarPorId(id));
         }
 
+        /// <summary>
+        /// Excluir um desconto 
+        /// </summary>
+        /// <param name="id">Id do desconto a ser excluido</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirDesconto(int id)
         {
@@ -77,7 +88,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-
+        /// <summary>
+        /// Cadastrar um novo desconto
+        /// </summary>
+        /// <param name="novoDesconto">dados do desconto a ser cadastrado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarCurso([FromForm] DescontoCadastroViewModel novoDesconto, IFormFile fotoDesconto)
         {

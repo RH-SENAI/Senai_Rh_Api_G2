@@ -22,7 +22,10 @@ namespace SenaiRH_G2.Controllers
             _cepRepository = repo;
         }
 
-
+        /// <summary>
+        /// Listar todos os cep
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -48,13 +51,21 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar um cep pelo seu id 
+        /// </summary>
+        /// <param name="id">Id do cep a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_cepRepository.BuscarPorId(id));
         }
 
-
+        /// <summary>
+        /// Escluir um cep
+        /// </summary>
+        /// <param name="id">Id do cep a ser excluido</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirCurso(int id)
         {
@@ -75,7 +86,10 @@ namespace SenaiRH_G2.Controllers
 
         }
 
-
+        /// <summary>
+        /// Cadastrar um novo cep
+        /// </summary>
+        /// <param name="novoCep">Dados do cep a ser cadastrado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarCurso(Cep novoCep)
         {

@@ -24,6 +24,10 @@ namespace SenaiRH_G2.Controllers
             _cursoRepository = repo;
         }
 
+        /// <summary>
+        /// Listar todos os cursos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -50,14 +54,21 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-
+        /// <summary>
+        /// Buscar um curso pelo seu id 
+        /// </summary>
+        /// <param name="id">id do curso a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_cursoRepository.BuscarPorId(id));
         }
 
-
+        /// <summary>
+        /// Excluir um curso 
+        /// </summary>
+        /// <param name="id">id do curso a ser excluido</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirCurso(int id)
         {
@@ -79,6 +90,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+        /// <summary>
+        /// Cadastrar um novo curso
+        /// </summary>
+        /// <param name="novoCurso">dados desse novo curso a ser cadastrado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarCurso([FromForm] CursoCadastroViewModel novoCurso, IFormFile fotoCurso)
         {

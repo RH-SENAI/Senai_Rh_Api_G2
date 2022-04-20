@@ -22,6 +22,10 @@ namespace SenaiRH_G2.Controllers
             _bairroRepository = repo;
         }
 
+        /// <summary>
+        /// Listar todos os bairros
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -47,13 +51,21 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar um bairro pelo seu id 
+        /// </summary>
+        /// <param name="id">Id do bairro a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_bairroRepository.BuscarPorId(id));
         }
 
-
+        /// <summary>
+        /// Excluir um bairro 
+        /// </summary>
+        /// <param name="id">Id do bairro a ser excluido</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirBairro(int id)
         {
@@ -74,7 +86,10 @@ namespace SenaiRH_G2.Controllers
 
         }
 
-
+        /// <summary>
+        /// Cadastrar um novo bairro 
+        /// </summary>
+        /// <param name="novoBairro">Dados do bairro a ser cadastrado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarBairro(Bairro novoBairro)
         {
