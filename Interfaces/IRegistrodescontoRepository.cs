@@ -1,4 +1,5 @@
 ﻿using SenaiRH_G2.Domains;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,10 @@ namespace SenaiRH_G2.Interfaces
         List<Registrodesconto> ListarTodos();
         void ExcluirRegistrodesconto(int id);
         Registrodesconto BuscarPorId(int id);
-        void CadastrarRegistrodesconto(Registrodesconto novoRegistrodesconto);
+        void CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto);
         int BuscarSaldo(int id);
         int BuscarValor(int id);
-        void AlterarSaldoUsuario(int id, Usuario novoSaldoAtualizar);
-
-
+        void AlterarSaldoUsuario(int idRegistro);
 
     }
 }

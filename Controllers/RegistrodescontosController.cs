@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +75,7 @@ namespace SenaiRH_G2.Controllers
 
 
         [HttpPost("Cadastrar")]
-        public IActionResult CadastrarRegistrodesconto(Registrodesconto novoRegistrodesconto)
+        public IActionResult CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto)
         {
 
             try
@@ -98,12 +99,12 @@ namespace SenaiRH_G2.Controllers
 
         }
 
-        [HttpPut("atualizar/{id}")]
-        public IActionResult AlterarSaldoUsuario(int id, Usuario novoSaldoAtualizar)
+        [HttpPut("atualizar/{idRegistro}")]
+        public IActionResult AlterarSaldoUsuario(int idRegistro)
         {
             try
             {
-                _registrodescontoRepository.AlterarSaldoUsuario(Convert.ToInt16(id), novoSaldoAtualizar);
+                _registrodescontoRepository.AlterarSaldoUsuario(idRegistro);
                 return StatusCode(200, new
                 {
                     mensagem = "Dados atualizados!"

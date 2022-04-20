@@ -2,6 +2,7 @@
 using SenaiRH_G2.Contexts;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,80 +15,41 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
-        public void AlterarSaldoUsuario(int id, Usuario novoSaldoAtualizar)
+        // Saldo
+        // Valor desconto
+
+        public void AlterarSaldoUsuario(int idRegistro)
         {
 
-            Registrodesconto buscarSaldo = ctx.Registrodescontos.Include(i => i.IdUsuarioNavigation).FirstOrDefault(c => c.IdRegistroDesconto == id);
-            Registrodesconto buscarValor = ctx.Registrodescontos.Include(i => i.IdDescontoNavigation).FirstOrDefault(c => c.IdRegistroDesconto == id);
+
+            //Saldo
+            Registrodesconto buscarSaldo = ctx.Registrodescontos.Include(i => i.IdUsuarioNavigation).FirstOrDefault(c => c.IdRegistroDesconto == idRegistro);
+
+            //Usuario
+            Usuario Usuario = ctx.Usuarios.FirstOrDefault(c => c.IdUsuario == buscarSaldo.IdUsuario);
+            
+            //Valor Desconto
+            Registrodesconto buscarValor = ctx.Registrodescontos.Include(i => i.IdDescontoNavigation).FirstOrDefault(c => c.IdRegistroDesconto == idRegistro);
+
+            //usuario.IdUsuario = buscarSaldo.IdUsuario;
+
+            //int Saldo = buscarSaldo.IdUsuarioNavigation.SaldoMoeda;
+
+            int Valor = buscarValor.IdDescontoNavigation.ValorDesconto;
             
 
-            if (buscarSaldo != null && buscarValor != null)
+            if(buscarSaldo != null && buscarValor !=  null && Usuario != null)
             {
-                Usuario usuario = buscarSaldo.IdUsuarioNavigation;
-                int Saldo = buscarSaldo.IdUsuarioNavigation.SaldoMoeda;
-                int Valor = buscarValor.IdDescontoNavigation.ValorDesconto;
-                buscarSaldo.IdUsuario = novoSaldoAtualizar.IdUsuario;
+                Usuario.SaldoMoeda -= Valor;
 
-                if (usuario.Nome != null)
-                {
-                    novoSaldoAtualizar.Nome = usuario.Nome;
-                }
+                ctx.Usuarios.Update(Usuario);
 
-                if (usuario.Email != null)
-                {
-                    novoSaldoAtualizar.Email = usuario.Email;
-                }
-
-                if (usuario.Senha != null)
-                {
-                    novoSaldoAtualizar.Senha = usuario.Senha;
-                }
-
-                if (usuario.Cpf != null)
-                {
-                    novoSaldoAtualizar.Cpf = usuario.Cpf;
-                }
-
-                if (usuario.CaminhoFotoPerfil != null)
-                {
-                    novoSaldoAtualizar.CaminhoFotoPerfil = usuario.CaminhoFotoPerfil;
-                }
-
-                
-                    novoSaldoAtualizar.DataNascimento = usuario.DataNascimento;
-                
-
-                if (usuario.IdTipoUsuario != 0)
-                {
-                    novoSaldoAtualizar.IdTipoUsuario = usuario.IdTipoUsuario;
-                }
-
-                if (usuario.IdCargo != 0)
-                {
-                    novoSaldoAtualizar.IdCargo = usuario.IdCargo;
-                }
-
-                if (usuario.IdUnidadeSenai != 0)
-                {
-                    novoSaldoAtualizar.IdUnidadeSenai = usuario.IdUnidadeSenai;
-                }
-
-                if (usuario.LocalizacaoUsuario != null)
-                {
-                    novoSaldoAtualizar.LocalizacaoUsuario = usuario.LocalizacaoUsuario;
-                }
-
-                if (Saldo >= Valor)
-                {
-                    int saldoUsuario = Saldo - Valor;
-                    novoSaldoAtualizar.SaldoMoeda = saldoUsuario;
-                }
-
-                ctx.Usuarios.Update(novoSaldoAtualizar);
                 ctx.SaveChanges();
             }
 
         }
+
+        
 
         public Registrodesconto BuscarPorId(int id)
         {
@@ -114,17 +76,31 @@ namespace SenaiRH_G2.Repositories
             return 0;
         }
 
-        public void CadastrarRegistrodesconto(Registrodesconto novoRegistrodesconto)
+        public void CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto)
         {
-            Registrodesconto registrodesconto = new Registrodesconto()
+            Usuario usuario = new Usuario();
+            Desconto desconto = new Desconto();
+            Registrodesconto registrodesconto = new Registrodesconto();
+            registrodesconto.IdUsuario = novoRegistrodesconto.IdUsuario;
+            registrodesconto.IdDesconto = novoRegistrodesconto.IdDesconto;
+
+            usuario.IdUsuario = registrodesconto.IdUsuario;
+            desconto.IdDesconto = registrodesconto.IdDesconto;
+
+            Usuario buscarUsuario = ctx.Usuarios.FirstOrDefault(c => c.IdUsuario == usuario.IdUsuario);
+            Desconto buscarDesconto = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == desconto.IdDesconto);
+
+
+            if (buscarUsuario.SaldoMoeda >= buscarDesconto.ValorDesconto)
             {
-                IdUsuario = novoRegistrodesconto.IdUsuario,
-                IdDesconto = novoRegistrodesconto.IdDesconto
 
-            };
+                buscarUsuario.SaldoMoeda -= buscarDesconto.ValorDesconto;
 
-            ctx.Registrodescontos.Add(registrodesconto);
-            ctx.SaveChanges();
+
+                ctx.Usuarios.Update(buscarUsuario);
+                ctx.Registrodescontos.Add(registrodesconto);
+                ctx.SaveChanges();
+            }
         }
 
         public void ExcluirRegistrodesconto(int id)
