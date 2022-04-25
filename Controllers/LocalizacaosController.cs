@@ -22,6 +22,11 @@ namespace SenaiRH_G2.Controllers
             _localizacaoRepository = repo;
         }
 
+
+        /// <summary>
+        /// Lstar todase as localizacoes
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -47,13 +52,22 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Buscar uma localizacao pelo seu id
+        /// </summary>
+        /// <param name="id">Id da localizacao</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_localizacaoRepository.BuscarPorId(id));
         }
 
-
+        /// <summary>
+        /// Excluir uma localizacao 
+        /// </summary>
+        /// <param name="id">Id da localizacao a ser excluida</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirLocalizacao(int id)
         {
@@ -75,6 +89,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+        /// <summary>
+        /// Cadastrar um nova localizacao
+        /// </summary>
+        /// <param name="novoLocalizacao">Dados da localizacao a ser cadastrada</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarLocalizacao(Localizacao novoLocalizacao)
         {

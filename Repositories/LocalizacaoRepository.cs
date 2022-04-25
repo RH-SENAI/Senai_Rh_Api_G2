@@ -13,11 +13,20 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
+        /// <summary>
+        /// Buscar uma localizacao pelo seu id
+        /// </summary>
+        /// <param name="id">Id da localizacao</param>
+        /// <returns></returns>
         public Localizacao BuscarPorId(int id)
         {
             return ctx.Localizacaos.FirstOrDefault(c => c.IdLocalizacao== id);
         }
 
+        /// <summary>
+        /// Cadastrar um nova localizacao
+        /// </summary>
+        /// <param name="novoLocalizacao">Dados da localizacao a ser cadastrada</param>
         public void CadastrarLocalizacao(Localizacao novoLocalizacao)
         {
             Localizacao localizacao = new Localizacao()
@@ -35,6 +44,10 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Excluir uma localizacao 
+        /// </summary>
+        /// <param name="id">Id da localizacao a ser excluida</param>
         public void ExcluirLocalizacao(int id)
         {
             Localizacao buscarPorId = ctx.Localizacaos.FirstOrDefault(c => c.IdLocalizacao == id);
@@ -42,6 +55,10 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Lstar todase as localizacoes
+        /// </summary>
+        /// <returns></returns>
         public List<Localizacao> ListarTodos()
         {
             return ctx.Localizacaos.Select(p => new Localizacao

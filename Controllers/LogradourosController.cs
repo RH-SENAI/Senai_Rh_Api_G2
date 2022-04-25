@@ -22,7 +22,10 @@ namespace SenaiRH_G2.Controllers
             _logradouroRepository = repo;
         }
 
-
+        /// <summary>
+        /// Listar todos os logradouros
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -48,6 +51,12 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Buscar um logradouro pelo seu id
+        /// </summary>
+        /// <param name="id">Id do logradouro a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
@@ -55,6 +64,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+        /// <summary>
+        /// Excluir um logradouro 
+        /// </summary>
+        /// <param name="id">Id do logradouro a ser excluido</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirLogradouro(int id)
         {
@@ -75,7 +88,10 @@ namespace SenaiRH_G2.Controllers
 
         }
 
-
+        /// <summary>
+        /// Cadastrar um logradouro
+        /// </summary>
+        /// <param name="novoLogradouro">Dados do logradouro a ser cadatrado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarLogradouro(Logradouro novoLogradouro)
         {
