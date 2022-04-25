@@ -21,7 +21,6 @@ namespace SenaiRH_G2.Repositories
         public void AlterarSaldoUsuario(int idRegistro)
         {
 
-
             //Saldo
             Registrodesconto buscarSaldo = ctx.Registrodescontos.Include(i => i.IdUsuarioNavigation).FirstOrDefault(c => c.IdRegistroDesconto == idRegistro);
 
@@ -101,6 +100,7 @@ namespace SenaiRH_G2.Repositories
                 ctx.Registrodescontos.Add(registrodesconto);
                 ctx.SaveChanges();
             }
+
         }
 
         public void ExcluirRegistrodesconto(int id)

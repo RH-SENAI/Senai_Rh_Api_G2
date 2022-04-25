@@ -84,17 +84,20 @@ namespace SenaiRH_G2.Controllers
                 if (novoRegistrodesconto == null)
                 {
                     return BadRequest("Todos os campos do usuario devem ser preenchidos !");
-                }
+                } 
                 else
                 {
                     _registrodescontoRepository.CadastrarRegistrodesconto(novoRegistrodesconto);
                     return StatusCode(201);
                 }
             }
-            catch (Exception exp)
+            catch (Exception erro)
             {
-
-                return BadRequest(exp);
+                if (novoRegistrodesconto != null)
+                {
+                    return BadRequest("Saldo Insuficiente");
+                }
+                return BadRequest(erro);
             }
 
         }
