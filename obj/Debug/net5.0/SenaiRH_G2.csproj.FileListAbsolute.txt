@@ -388,3 +388,9 @@ C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFile
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\d612cf0e-e714-49cb-93fa-39331fe25fd5.png
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\StaticFiles\Images\imagem-padrao.png
 >>>>>>> c0ead0ca634524434f1e94246e2d39dba6dea355
+C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\Azure.Core.dll
+C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\Azure.Storage.Blobs.dll
+C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\Azure.Storage.Common.dll
+C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\System.IO.Hashing.dll
+C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\bin\Debug\net5.0\System.Memory.Data.dll

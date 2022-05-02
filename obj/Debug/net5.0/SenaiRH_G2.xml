@@ -177,6 +177,7 @@
             Cadastrar um novo curso
             </summary>
             <param name="novoCurso">dados desse novo curso a ser cadastrado</param>
+            <param name="fotoCurso">foto desse novo curso a ser cadastrado</param>
         </member>
         <member name="M:SenaiRH_G2.Controllers.DescontosController.ListarTodos">
             <summary>
@@ -202,6 +203,7 @@
             Cadastrar um novo desconto
             </summary>
             <param name="novoDesconto">dados do desconto a ser cadastrado</param>
+            <param name="fotoDesconto">foto do desconto a ser cadastrado</param>
         </member>
         <member name="M:SenaiRH_G2.Controllers.EmpresasController.ListarTodos">
             <summary>
@@ -227,6 +229,7 @@
             Cadastrar um nova empresa
             </summary>
             <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
+            <param name="fotoEmpresa">foto da empresa a ser cadastrada</param>
         </member>
         <member name="M:SenaiRH_G2.Controllers.EstadosController.ListarTodos">
             <summary>
@@ -749,12 +752,11 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Utils.Upload.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String[])">
+        <member name="M:SenaiRH_G2.Utils.Upload.EnviarFoto(Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
-            Faz o upload do arquivo para o servidor
+            Faz o upload do arquivo para o blob
             </summary>
-            <param name="arquivo">Arquivo vindo de um formulário</param>
-            <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
+            <param name="fotoPerfil">Arquivo vindo de um formulário</param>
             <returns>Nome do arquivo salvo</returns>
         </member>
         <member name="M:SenaiRH_G2.Utils.Upload.ValidarExtensao(System.String[],System.String)">
@@ -762,14 +764,22 @@
             Valida o uso de enxtensões permitidas apenas
             </summary>
             <param name="extensoes">Array de extensões permitidas</param>
-            <param name="nomeDoArquivo">Nome do arquivo</param>
+            <param name="nomeDaFoto">Nome do arquivo</param>
             <returns>Verdadeiro/Falso</returns>
         </member>
-        <member name="M:SenaiRH_G2.Utils.Upload.RemoverArquivo(System.String)">
+        <member name="M:SenaiRH_G2.Utils.Upload.RemoverFoto(System.String)">
             <summary>
             Remove um arquivo do servidor
             </summary>
-            <param name="nomeDoArquivo">Nome do Arquivo</param>
+            <param name="nomeDaFoto">Nome do Arquivo</param>
+        </member>
+        <member name="M:SenaiRH_G2.Utils.Upload.AtualizarFoto(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Atualiza a foto de perfil
+            </summary>
+            <param name="nomeFotoAntiga">Nome da foto antiga</param>
+            <param name="novaFoto">Arquivo da nova foto</param>
+            <returns>O nome da nova foto</returns>
         </member>
         <member name="M:SenaiRH_G2.Utils.Upload.RetornarExtensao(System.String)">
             <summary>

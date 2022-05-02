@@ -94,6 +94,7 @@ namespace SenaiRH_G2.Controllers
         /// Cadastrar um novo curso
         /// </summary>
         /// <param name="novoCurso">dados desse novo curso a ser cadastrado</param>
+        /// <param name="fotoCurso">foto desse novo curso a ser cadastrado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarCurso([FromForm] CursoCadastroViewModel novoCurso, IFormFile fotoCurso)
         {
@@ -109,7 +110,7 @@ namespace SenaiRH_G2.Controllers
                 {
                     #region Upload da Imagem com extensões permitidas apenas
                     string[] extensoesPermitidas = { "jpg", "png", "jpeg" };
-                    string uploadResultado = Upload.UploadFile(fotoCurso, extensoesPermitidas);
+                    string uploadResultado = Upload.EnviarFoto(fotoCurso).ToString();
 
                     if (uploadResultado == "")
                     {

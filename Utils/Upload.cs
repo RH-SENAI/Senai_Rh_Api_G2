@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,33 +12,56 @@ namespace SenaiRH_G2.Utils
     public class Upload
     {
 
-        /// <summary>
-        /// Faz o upload do arquivo para o servidor
-        /// </summary>
-        /// <param name="arquivo">Arquivo vindo de um formulário</param>
-        /// <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
-        /// <returns>Nome do arquivo salvo</returns>
-        public static string UploadFile(IFormFile arquivo, string[] extensoesPermitidas)
+        //String de conexão que recebemos do serviço no da AZURE
+        private const string STRING_DE_CONEXAO = "DefaultEndpointsProtocol=https;AccountName=armazenamentogrupo3;AccountKey=Y4K/lMSydo5BhOrGW1NdiyLYWJdqHsm6ohUG9SWvEGJeZmxWPbmjy6DrGYlJgIqn6ADyIH/gAfaKF1NgTQ391Q==;EndpointSuffix=core.windows.net";
+        private const string BLOB_CONTAINER_NAME = "armazenamento-simples-grp2";
+
+        //Permite que consigamos manipular um container
+        private static BlobContainerClient BlobContainerClient { get; set; }
+
+        static Upload()
         {
+            //Permite que manipulemos um container
+            BlobContainerClient = new BlobContainerClient(STRING_DE_CONEXAO, BLOB_CONTAINER_NAME);
+        }
+
+
+        /// <summary>
+        /// Faz o upload do arquivo para o blob
+        /// </summary>
+        /// <param name="fotoPerfil">Arquivo vindo de um formulário</param>
+        /// <returns>Nome do arquivo salvo</returns>
+        public static string EnviarFoto(IFormFile fotoPerfil)
+        {
+
             try
             {
-                var pasta = Path.Combine("StaticFiles", "Images");
-                var caminho = Path.Combine(Directory.GetCurrentDirectory(), pasta);
 
-                if (arquivo.Length > 0)
+                string[] extensoesPermitidas = { "jpg", "png", "jpeg" };
+
+
+                if (fotoPerfil.Length > 0)
                 {
-                    var fileName = ContentDispositionHeaderValue.Parse(arquivo.ContentDisposition).FileName.Trim('"');
+                    //Pega a nome do IFormFile
+                    var fileName = ContentDispositionHeaderValue.Parse(fotoPerfil.ContentDisposition).FileName.Trim('"');
 
+
+                    //Valida a estensão 
                     if (ValidarExtensao(extensoesPermitidas, fileName))
                     {
                         var extensao = RetornarExtensao(fileName);
-                        var novoNome = $"{Guid.NewGuid()}.{extensao}";
-                        var caminhoCompleto = Path.Combine(caminho, novoNome);
 
-                        using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
-                        {
-                            arquivo.CopyTo(stream);
-                        }
+                        //Atribui um novo idenfificador baseado no nome do IFormFile + extensão
+                        var novoNome = $"{Guid.NewGuid()}.{extensao}";
+
+                        Console.WriteLine(novoNome);
+
+                        //Permite que consigamos manipular um blob
+                        BlobClient blobClient = BlobContainerClient.GetBlobClient(novoNome);
+
+                        //Cria um novo block blob (arquivo)
+                        blobClient.Upload(fotoPerfil.OpenReadStream());
+
                         return novoNome;
                     }
                     return "Extensão não permitida";
@@ -55,11 +79,11 @@ namespace SenaiRH_G2.Utils
         /// Valida o uso de enxtensões permitidas apenas
         /// </summary>
         /// <param name="extensoes">Array de extensões permitidas</param>
-        /// <param name="nomeDoArquivo">Nome do arquivo</param>
+        /// <param name="nomeDaFoto">Nome do arquivo</param>
         /// <returns>Verdadeiro/Falso</returns>
-        public static bool ValidarExtensao(string[] extensoes, string nomeDoArquivo)
+        public static bool ValidarExtensao(string[] extensoes, string nomeDaFoto)
         {
-            string[] dados = nomeDoArquivo.Split(".");
+            string[] dados = nomeDaFoto.Split(".");
             string extensao = dados[dados.Length - 1];
 
             foreach (var item in extensoes)
@@ -75,14 +99,55 @@ namespace SenaiRH_G2.Utils
         /// <summary>
         /// Remove um arquivo do servidor
         /// </summary>
-        /// <param name="nomeDoArquivo">Nome do Arquivo</param>
-        public static void RemoverArquivo(string nomeDoArquivo)
+        /// <param name="nomeDaFoto">Nome do Arquivo</param>
+        public static void RemoverFoto(string nomeDaFoto)
         {
-            var pasta = Path.Combine("StaticFile", "Images");
-            var caminho = Path.Combine(Directory.GetCurrentDirectory(), pasta);
-            var caminhoCompleto = Path.Combine(caminho, nomeDoArquivo);
 
-            File.Delete(caminhoCompleto);
+            //Permite que manipulemos um block blob (arquivo)
+            BlobClient blobClient = BlobContainerClient.GetBlobClient(nomeDaFoto);
+
+            blobClient.Delete();
+        }
+
+
+        /// <summary>
+        /// Atualiza a foto de perfil
+        /// </summary>
+        /// <param name="nomeFotoAntiga">Nome da foto antiga</param>
+        /// <param name="novaFoto">Arquivo da nova foto</param>
+        /// <returns>O nome da nova foto</returns>
+        public static string AtualizarFoto(string nomeFotoAntiga, IFormFile novaFoto )
+        {
+            try
+            {
+                //Remove a foto antiga
+                RemoverFoto("marrom");
+
+                //Coloca a nova foto que foi inserida
+                string nomeFotoAtualizada = EnviarFoto(novaFoto);
+
+                // retorna o nome da foto com a guid
+                return nomeFotoAtualizada;
+            }
+            catch (Azure.RequestFailedException azureExecp)
+            {
+                //Pega o status code da requisição
+                string statusCode = azureExecp.Status.ToString();
+
+                if (statusCode == "404")
+                {
+                    string nomeFotoAtualizada = EnviarFoto(novaFoto);
+
+                    return nomeFotoAtualizada;
+                }
+
+                // Retorna o erro.
+                return azureExecp.ToString();
+            }
+            catch (Exception exp)
+            {
+                return exp.ToString();
+            }
         }
 
         /// <summary>
@@ -94,7 +159,6 @@ namespace SenaiRH_G2.Utils
         {
             string[] dados = nomeDoArquivo.Split('.');
             return dados[dados.Length - 1];
-
         }
     }
 }
