@@ -9,6 +9,7 @@ namespace SenaiRH_G2.Domains
     {
         public Usuario()
         {
+            Atividades = new HashSet<Atividade>();
             Avaliacaounidadesenais = new HashSet<Avaliacaounidadesenai>();
             AvaliacaousuarioIdUsuarioAvaliadoNavigations = new HashSet<Avaliacaousuario>();
             AvaliacaousuarioIdUsuarioAvaliadorNavigations = new HashSet<Avaliacaousuario>();
@@ -38,11 +39,12 @@ namespace SenaiRH_G2.Domains
         public int Trofeus { get; set; }
         public string LocalizacaoUsuario { get; set; }
         public string CaminhoFotoPerfil { get; set; }
-        public decimal Salario { get; set; }
+        public bool? UsuarioAtivo { get; set; }
 
         public virtual Cargo IdCargoNavigation { get; set; }
         public virtual Tipousuario IdTipoUsuarioNavigation { get; set; }
         public virtual Unidadesenai IdUnidadeSenaiNavigation { get; set; }
+        public virtual ICollection<Atividade> Atividades { get; set; }
         public virtual ICollection<Avaliacaounidadesenai> Avaliacaounidadesenais { get; set; }
         public virtual ICollection<Avaliacaousuario> AvaliacaousuarioIdUsuarioAvaliadoNavigations { get; set; }
         public virtual ICollection<Avaliacaousuario> AvaliacaousuarioIdUsuarioAvaliadorNavigations { get; set; }

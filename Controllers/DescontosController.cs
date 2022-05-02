@@ -79,7 +79,7 @@ namespace SenaiRH_G2.Controllers
 
 
         [HttpPost("Cadastrar")]
-        public IActionResult CadastrarCurso([FromForm] DescontoCadastroViewModel novoDesconto, IFormFile fotoDesconto)
+        public IActionResult CadastrarDesconto([FromForm] DescontoCadastroViewModel novoDesconto, IFormFile fotoDesconto)
         {
 
             try
@@ -87,7 +87,6 @@ namespace SenaiRH_G2.Controllers
                 if (fotoDesconto == null)
                 {
                     novoDesconto.CaminhoImagemDesconto = "imagem-padrao.png";
-                    novoDesconto.MediaAvaliacaoDesconto = 0;
                 }
                 else
                 {

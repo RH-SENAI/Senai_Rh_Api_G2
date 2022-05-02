@@ -37,8 +37,31 @@ namespace SenaiRH_G2.Repositories
         /// <param name="NovoComentario">Dados no novo comentario</param>
         public void CadastrarComentarioDesconto(Comentariodesconto NovoComentario)
         {
-            ctx.Comentariodescontos.Add(NovoComentario);
-            ctx.SaveChanges();
+
+            Desconto desconto = new Desconto();
+            Comentariodesconto comentariodesconto = new Comentariodesconto();
+            comentariodesconto.IdUsuario = NovoComentario.IdUsuario;
+            comentariodesconto.IdDesconto = NovoComentario.IdDesconto;
+            comentariodesconto.ComentarioDesconto1 = NovoComentario.ComentarioDesconto1;
+            comentariodesconto.AvaliacaoDesconto = NovoComentario.AvaliacaoDesconto;
+
+            desconto.IdDesconto = NovoComentario.IdDesconto;
+
+            Desconto buscarMediaDesconto = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == desconto.IdDesconto);
+
+            if (buscarMediaDesconto.MediaAvaliacaoDesconto == 0)
+            {
+                buscarMediaDesconto.MediaAvaliacaoDesconto += NovoComentario.AvaliacaoDesconto;
+                ctx.Descontos.Update(buscarMediaDesconto);
+                ctx.Comentariodescontos.Add(NovoComentario);
+                ctx.SaveChanges();
+            } else
+            {
+                buscarMediaDesconto.MediaAvaliacaoDesconto = (buscarMediaDesconto.MediaAvaliacaoDesconto + NovoComentario.AvaliacaoDesconto) / 2;
+                ctx.Descontos.Update(buscarMediaDesconto);
+                ctx.Comentariodescontos.Add(NovoComentario);
+                ctx.SaveChanges();
+            }
         }
 
         /// <summary>
@@ -60,7 +83,7 @@ namespace SenaiRH_G2.Repositories
             return ctx.Comentariodescontos
                                 .Select(p => new Comentariodesconto
                                 {
-                                  
+                                    IdComentarioDesconto = p.IdComentarioDesconto,
                                     IdDesconto = p.IdDesconto,
                                     IdUsuario = p.IdUsuario,
                                     AvaliacaoDesconto = p.AvaliacaoDesconto,

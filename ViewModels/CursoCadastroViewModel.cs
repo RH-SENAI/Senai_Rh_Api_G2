@@ -36,5 +36,11 @@ namespace SenaiRH_G2.ViewModels
         public decimal MediaAvaliacaoCurso { get; set; }
 
 
+        public byte? IdSituacaoInscricao { get; set; }
+
+        [Required(ErrorMessage = "Todos os campos devem ser preenchidos !")]
+        public int? ValorCurso { get; set; }
+
+
     }
 }

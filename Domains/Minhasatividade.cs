@@ -12,6 +12,9 @@ namespace SenaiRH_G2.Domains
         public int IdAtividade { get; set; }
         public byte IdSetor { get; set; }
         public int IdUsuario { get; set; }
+        public DateTime? DataInicio { get; set; }
+        public DateTime? DataConclusao { get; set; }
+        public string Anotacoes { get; set; }
 
         public virtual Atividade IdAtividadeNavigation { get; set; }
         public virtual Setor IdSetorNavigation { get; set; }

@@ -32,7 +32,9 @@ namespace SenaiRH_G2.Repositories
                 CaminhoImagemCurso = novoCurso.CaminhoImagemCurso,
                 CargaHoraria = novoCurso.CargaHoraria,
                 DataFinalizacao = novoCurso.DataFinalizacao,
-                MediaAvaliacaoCurso = novoCurso.MediaAvaliacaoCurso
+                MediaAvaliacaoCurso = novoCurso.MediaAvaliacaoCurso = 0,
+                IdSituacaoInscricao = novoCurso.IdSituacaoInscricao = 4,
+                ValorCurso = novoCurso.ValorCurso
             };
 
             ctx.Cursos.Add(curso);
@@ -63,6 +65,13 @@ namespace SenaiRH_G2.Repositories
                     CargaHoraria = p.CargaHoraria,
                     DataFinalizacao = p.DataFinalizacao,
                     MediaAvaliacaoCurso = p.MediaAvaliacaoCurso,
+                    ValorCurso = p.ValorCurso,
+                    IdSituacaoInscricao = p.IdSituacaoInscricao,
+                    IdSituacaoInscricaoNavigation = new Situacaoatividade()
+                    {
+                        NomeSituacaoAtividade = p.IdSituacaoInscricaoNavigation.NomeSituacaoAtividade,
+                        IdSituacaoAtividade = p.IdSituacaoInscricaoNavigation.IdSituacaoAtividade,
+                    },
                     IdEmpresaNavigation = new Empresa()
                     {
 

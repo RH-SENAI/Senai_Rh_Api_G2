@@ -9,12 +9,14 @@ namespace SenaiRH_G2.Domains
     {
         public Situacaoatividade()
         {
+            Cursos = new HashSet<Curso>();
             Minhasatividades = new HashSet<Minhasatividade>();
         }
 
         public byte IdSituacaoAtividade { get; set; }
         public string NomeSituacaoAtividade { get; set; }
 
+        public virtual ICollection<Curso> Cursos { get; set; }
         public virtual ICollection<Minhasatividade> Minhasatividades { get; set; }
     }
 }

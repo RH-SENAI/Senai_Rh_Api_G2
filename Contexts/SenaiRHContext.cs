@@ -85,6 +85,8 @@ namespace SenaiRH_G2.Contexts
                     .IsUnicode(false)
                     .HasColumnName("descricaoAtividade");
 
+                entity.Property(e => e.IdGestorCadastro).HasColumnName("idGestorCadastro");
+
                 entity.Property(e => e.NecessarioValidar).HasColumnName("necessarioValidar");
 
                 entity.Property(e => e.NomeAtividade)
@@ -96,6 +98,11 @@ namespace SenaiRH_G2.Contexts
                 entity.Property(e => e.RecompensaMoeda).HasColumnName("recompensaMoeda");
 
                 entity.Property(e => e.RecompensaTrofeu).HasColumnName("recompensaTrofeu");
+
+                entity.HasOne(d => d.IdGestorCadastroNavigation)
+                    .WithMany(p => p.Atividades)
+                    .HasForeignKey(d => d.IdGestorCadastro)
+                    .HasConstraintName("FK__ATIVIDADE__idGes__3F115E1A");
             });
 
             modelBuilder.Entity<Avaliacaounidadesenai>(entity =>
@@ -359,6 +366,8 @@ namespace SenaiRH_G2.Contexts
 
                 entity.Property(e => e.IdEmpresa).HasColumnName("idEmpresa");
 
+                entity.Property(e => e.IdSituacaoInscricao).HasColumnName("idSituacaoInscricao");
+
                 entity.Property(e => e.MediaAvaliacaoCurso)
                     .HasColumnType("decimal(2, 1)")
                     .HasColumnName("mediaAvaliacaoCurso");
@@ -377,11 +386,18 @@ namespace SenaiRH_G2.Contexts
                     .IsUnicode(false)
                     .HasColumnName("siteCurso");
 
+                entity.Property(e => e.ValorCurso).HasColumnName("valorCurso");
+
                 entity.HasOne(d => d.IdEmpresaNavigation)
                     .WithMany(p => p.Cursos)
                     .HasForeignKey(d => d.IdEmpresa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__CURSO__idEmpresa__245D67DE");
+
+                entity.HasOne(d => d.IdSituacaoInscricaoNavigation)
+                    .WithMany(p => p.Cursos)
+                    .HasForeignKey(d => d.IdSituacaoInscricao)
+                    .HasConstraintName("FK__CURSO__idSituaca__40058253");
             });
 
             modelBuilder.Entity<Cursofavorito>(entity =>
@@ -719,6 +735,19 @@ namespace SenaiRH_G2.Contexts
 
                 entity.Property(e => e.IdMinhasAtividades).HasColumnName("idMinhasAtividades");
 
+                entity.Property(e => e.Anotacoes)
+                    .HasMaxLength(300)
+                    .IsUnicode(false)
+                    .HasColumnName("anotacoes");
+
+                entity.Property(e => e.DataConclusao)
+                    .HasColumnType("date")
+                    .HasColumnName("dataConclusao");
+
+                entity.Property(e => e.DataInicio)
+                    .HasColumnType("date")
+                    .HasColumnName("dataInicio");
+
                 entity.Property(e => e.IdAtividade).HasColumnName("idAtividade");
 
                 entity.Property(e => e.IdSetor).HasColumnName("idSetor");
@@ -979,10 +1008,6 @@ namespace SenaiRH_G2.Contexts
                     .IsUnicode(false)
                     .HasColumnName("nome");
 
-                entity.Property(e => e.Salario)
-                    .HasColumnType("money")
-                    .HasColumnName("salario");
-
                 entity.Property(e => e.SaldoMoeda).HasColumnName("saldoMoeda");
 
                 entity.Property(e => e.Senha)
@@ -992,6 +1017,8 @@ namespace SenaiRH_G2.Contexts
                     .HasColumnName("senha");
 
                 entity.Property(e => e.Trofeus).HasColumnName("trofeus");
+
+                entity.Property(e => e.UsuarioAtivo).HasColumnName("usuarioAtivo");
 
                 entity.Property(e => e.Vantagens).HasColumnName("vantagens");
 

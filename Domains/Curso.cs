@@ -24,8 +24,11 @@ namespace SenaiRH_G2.Domains
         public int CargaHoraria { get; set; }
         public DateTime DataFinalizacao { get; set; }
         public decimal MediaAvaliacaoCurso { get; set; }
+        public byte? IdSituacaoInscricao { get; set; }
+        public int? ValorCurso { get; set; }
 
         public virtual Empresa IdEmpresaNavigation { get; set; }
+        public virtual Situacaoatividade IdSituacaoInscricaoNavigation { get; set; }
         public virtual ICollection<Comentariocurso> Comentariocursos { get; set; }
         public virtual ICollection<Cursofavorito> Cursofavoritos { get; set; }
         public virtual ICollection<Registrocurso> Registrocursos { get; set; }
