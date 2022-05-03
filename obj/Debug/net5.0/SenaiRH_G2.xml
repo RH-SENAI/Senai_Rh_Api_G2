@@ -568,6 +568,7 @@
             Excluir um desconto 
             </summary>
             <param name="id">Id do desconto a ser excluido</param>
+            /// <param name="idComentario">Id do comentario cadastrado nele a ser excluido</param>
         </member>
         <member name="M:SenaiRH_G2.Repositories.DescontoRepository.ListarTodos">
             <summary>

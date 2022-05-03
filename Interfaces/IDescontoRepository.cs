@@ -10,6 +10,6 @@ namespace SenaiRH_G2.Interfaces
         void ExcluirDesconto(int id);
         Desconto BuscarPorId(int id);
         void CadastrarDesconto(DescontoCadastroViewModel novoDesconto);
-
+        //void ExcluirDesconto(int id);
     }
 }

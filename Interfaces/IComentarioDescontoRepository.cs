@@ -12,6 +12,7 @@ namespace SenaiRH_G2.Interfaces
         void CadastrarComentarioDesconto(Comentariodesconto NovoComentario);
         Comentariodesconto ListarComentarioPorIdDesconto(int Id);
         void ExcluirComentarioDesconto(int Id);
+        void ExcluirComentarioDesconto2(int idDesconto);
 
         void AlterarComentarioDesconto(int Id, Comentariodesconto comentarioAtualizado);
     }

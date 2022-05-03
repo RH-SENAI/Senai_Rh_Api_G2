@@ -51,6 +51,13 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public void ExcluirComentarioDesconto2(int idDesconto)
+        {
+            Comentariodesconto buscarPorId = ctx.Comentariodescontos.FirstOrDefault(c => c.IdDesconto == idDesconto);
+            ctx.Comentariodescontos.Remove(buscarPorId);
+            ctx.SaveChanges();
+        }
+
         /// <summary>
         /// Listar todos os comentarios
         /// </summary>

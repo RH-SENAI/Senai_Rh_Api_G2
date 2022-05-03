@@ -39,7 +39,7 @@ namespace SenaiRH_G2.Repositories
                 ValorDesconto = novoDesconto.ValorDesconto,
                 NumeroCupom = novoDesconto.NumeroCupom,
                 MediaAvaliacaoDesconto = novoDesconto.MediaAvaliacaoDesconto
-                
+
             };
 
             ctx.Descontos.Add(desconto);
@@ -50,12 +50,27 @@ namespace SenaiRH_G2.Repositories
         /// Excluir um desconto 
         /// </summary>
         /// <param name="id">Id do desconto a ser excluido</param>
+        /// /// <param name="idComentario">Id do comentario cadastrado nele a ser excluido</param>
+
         public void ExcluirDesconto(int id)
         {
             Desconto buscarPorId = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
+            
             ctx.Descontos.Remove(buscarPorId);
+            
             ctx.SaveChanges();
         }
+
+        //public void ExcluirDesconto(int id)
+        //{
+        //    Desconto buscarPorId = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
+        //    //ctx.Comentariodescontos.RemoveRange(ctx.Comentariodescontos.Where(x => x.IdDesconto == buscarPorId.IdDesconto));
+        //    List<Comentariodesconto> comentariodescontos = ctx.Comentariodescontos.ToList();
+
+        //    comentariodescontos.RemoveAll(x => x.IdDesconto == buscarPorId.IdDesconto);
+        //    ctx.Descontos.Remove(buscarPorId);
+        //    ctx.SaveChanges();
+        //}
 
         /// <summary>
         /// Listar todos os descontos
