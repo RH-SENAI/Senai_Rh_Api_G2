@@ -12,27 +12,16 @@ namespace SenaiRH_G2.Repositories
     {
         senaiRhContext ctx = new senaiRhContext();
 
-        
 
         /// <summary>
-        /// Alterar um cometario 
+        /// Listar comentarios pelo seu id 
         /// </summary>
-        /// <param name="Id">Id do comentario</param>
-        /// <param name="comentarioAtualizado">Dados do comentario atualizado</param>
-
-        public void AlterarComentarioCurso(int Id, Comentariocurso comentarioAtualizado)
+        /// <param name="Id">Id comentario</param>
+        /// <returns></returns>
+        public Comentariocurso ListarComentarioPorIdCurso(int Id)
         {
-            Comentariocurso comentarioBuscado = ListarComentarioPorIdCurso(Id);
-            if (comentarioBuscado != null)
-            {
-                comentarioBuscado.AvaliacaoComentario = comentarioAtualizado.AvaliacaoComentario;
-                comentarioBuscado.ComentarioCurso1 = comentarioAtualizado.ComentarioCurso1;
-
-                ctx.Comentariocursos.Update(comentarioBuscado);
-                ctx.SaveChanges();
-            }
+            return ctx.Comentariocursos.FirstOrDefault(c => c.IdComentarioCurso == Id);
         }
-
 
         /// <summary>
         /// Cadastrar um novo comentario
@@ -40,20 +29,33 @@ namespace SenaiRH_G2.Repositories
         /// <param name="NovoComentario">Dados no novo comentario</param>
         public void CadastrarComentarioCurso(Comentariocurso NovoComentario)
         {
-            ctx.Comentariocursos.Add(NovoComentario);
-            ctx.SaveChanges();
+            Curso curso = new Curso();
+            Comentariocurso comentariocurso = new Comentariocurso();
+            comentariocurso.IdUsuario = NovoComentario.IdUsuario;
+            comentariocurso.IdCurso = NovoComentario.IdCurso;
+            comentariocurso.ComentarioCurso1 = NovoComentario.ComentarioCurso1;
+            comentariocurso.AvaliacaoComentario = NovoComentario.AvaliacaoComentario;
+
+            curso.IdCurso = NovoComentario.IdCurso;
+
+            Curso buscarMediaCurso = ctx.Cursos.FirstOrDefault(c => c.IdCurso == curso.IdCurso);
+
+            if (buscarMediaCurso.MediaAvaliacaoCurso == 0)
+            {
+                buscarMediaCurso.MediaAvaliacaoCurso += NovoComentario.AvaliacaoComentario;
+                ctx.Cursos.Update(buscarMediaCurso);
+                ctx.Comentariocursos.Add(NovoComentario);
+                ctx.SaveChanges();
+            }
+            else
+            {
+                buscarMediaCurso.MediaAvaliacaoCurso = (buscarMediaCurso.MediaAvaliacaoCurso + NovoComentario.AvaliacaoComentario) / 2;
+                ctx.Cursos.Update(buscarMediaCurso);
+                ctx.Comentariocursos.Add(NovoComentario);
+                ctx.SaveChanges();
+            }
         }
 
-
-        /// <summary>
-        /// Excluir um comentario 
-        /// </summary>
-        /// <param name="Id">Id do comentario</param>
-        public void ExcluirComentarioCurso(int Id)
-        {
-            ctx.Comentariocursos.Remove(ListarComentarioPorIdCurso(Id));
-            ctx.SaveChanges();
-        }
 
 
         /// <summary>
@@ -80,14 +82,16 @@ namespace SenaiRH_G2.Repositories
         }
 
 
+
         /// <summary>
-        /// Listar comentarios pelo seu id 
+        /// Excluir um comentario 
         /// </summary>
-        /// <param name="Id">Id comentario</param>
-        /// <returns></returns>
-        public Comentariocurso ListarComentarioPorIdCurso(int Id)
+        /// <param name="Id">Id do comentario</param>
+        public void ExcluirComentarioCurso(int Id)
         {
-            return ctx.Comentariocursos.FirstOrDefault(c => c.IdComentarioCurso == Id);
+            ctx.Comentariocursos.Remove(ListarComentarioPorIdCurso(Id));
+            ctx.SaveChanges();
         }
+
     }
 }

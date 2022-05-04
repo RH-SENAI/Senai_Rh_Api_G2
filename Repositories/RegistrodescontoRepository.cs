@@ -15,65 +15,11 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
-        // Saldo
-        // Valor desconto
-
-        public void AlterarSaldoUsuario(int idRegistro)
-        {
-
-            //Saldo
-            Registrodesconto buscarSaldo = ctx.Registrodescontos.Include(i => i.IdUsuarioNavigation).FirstOrDefault(c => c.IdRegistroDesconto == idRegistro);
-
-            //Usuario
-            Usuario Usuario = ctx.Usuarios.FirstOrDefault(c => c.IdUsuario == buscarSaldo.IdUsuario);
-            
-            //Valor Desconto
-            Registrodesconto buscarValor = ctx.Registrodescontos.Include(i => i.IdDescontoNavigation).FirstOrDefault(c => c.IdRegistroDesconto == idRegistro);
-
-            //usuario.IdUsuario = buscarSaldo.IdUsuario;
-
-            //int Saldo = buscarSaldo.IdUsuarioNavigation.SaldoMoeda;
-
-            int Valor = buscarValor.IdDescontoNavigation.ValorDesconto;
-            
-
-            if(buscarSaldo != null && buscarValor !=  null && Usuario != null)
-            {
-                Usuario.SaldoMoeda -= Valor;
-
-                ctx.Usuarios.Update(Usuario);
-
-                ctx.SaveChanges();
-            }
-
-        }
-
-        
-
         public Registrodesconto BuscarPorId(int id)
         {
              return ctx.Registrodescontos.FirstOrDefault(c => c.IdRegistroDesconto == id);
         }
 
-        public int BuscarSaldo(int id)
-        {
-            Registrodesconto buscarSaldo = ctx.Registrodescontos.Include(i => i.IdUsuarioNavigation).FirstOrDefault(c => c.IdRegistroDesconto == id);
-            if (buscarSaldo != null)
-            {
-                return buscarSaldo.IdUsuarioNavigation.SaldoMoeda;
-            }
-            return 0;
-        }
-
-        public int BuscarValor(int id)
-        {
-            Registrodesconto buscarValor = ctx.Registrodescontos.Include(i => i.IdDescontoNavigation).FirstOrDefault(c => c.IdRegistroDesconto == id);
-            if (buscarValor != null)
-            {
-                return buscarValor.IdDescontoNavigation.ValorDesconto;
-            }
-            return 0;
-        }
 
         public void CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto)
         {

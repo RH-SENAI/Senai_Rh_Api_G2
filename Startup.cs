@@ -77,9 +77,9 @@ namespace SenaiRH_G2
 
                     });
 
+            services.AddTransient<DbContext, senaiRhContext>();
             services.AddTransient<IComentarioCursoRepository, ComentarioCursoRepository>();
             services.AddTransient<IComentarioDescontoRepository, ComentarioDescontoRepository>();
-            services.AddTransient<DbContext, senaiRhContext>();
             services.AddTransient<ICursoRepository, CursoRepository>();
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
             services.AddTransient<IDescontoRepository, DescontoRepository>();
@@ -90,6 +90,7 @@ namespace SenaiRH_G2
             services.AddTransient<IEstadoRepository, EstadoRepository>();
             services.AddTransient<ILocalizacaoRepository, LocalizacaoRepository>();
             services.AddTransient<IRegistrodescontoRepository, RegistrodescontoRepository>();
+            services.AddTransient<IRegistrocursoRepository, RegistrocursoRepository>();
 
         }
 

@@ -41,7 +41,6 @@ namespace SenaiRH_G2.Controllers
                 return BadRequest(erro);
             }
         }
-
         /// <summary>
         /// Listar um comentario pelo seu id
         /// </summary>
@@ -50,7 +49,7 @@ namespace SenaiRH_G2.Controllers
         [HttpGet("{id}")]
         public IActionResult ListarComentarioPorIdCurso(int id)
         {
-            if (_comentarioCurso.ListarComentarioPorIdCurso(id)== null)
+            if (_comentarioCurso.ListarComentarioPorIdCurso(id) == null)
             {
                 return BadRequest(new
                 {
@@ -59,7 +58,6 @@ namespace SenaiRH_G2.Controllers
             }
             return Ok(_comentarioCurso.ListarComentarioPorIdCurso(id));
         }
-
 
         /// <summary>
         /// Deletar um comentario pelo seu id
@@ -119,29 +117,6 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-        /// <summary>
-        /// Atualizar comentario
-        /// </summary>
-        /// <param name="Id">Id comentario</param>
-        /// <param name="comentarioAtualizado">dados a serem atualizados</param>
-        /// <returns></returns>
-        [HttpPut("{id}")]
-        public IActionResult AlterarComentarioCurso(int Id, Comentariocurso comentarioAtualizado)
-        {
-            try
-            {
-                _comentarioCurso.AlterarComentarioCurso(Convert.ToInt16(Id), comentarioAtualizado);
-                return StatusCode(200, new
-                {
-                    mensagem = "Dados atualizados!"
-                });
-            }
-            catch (Exception erro)
-            {
-
-                return BadRequest(erro);
-            }
-        }
 
 
 

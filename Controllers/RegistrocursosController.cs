@@ -13,15 +13,14 @@ namespace SenaiRH_G2.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class RegistrodescontosController : ControllerBase
+    public class RegistrocursosController : ControllerBase
     {
 
-        private IRegistrodescontoRepository _registrodescontoRepository { get; set; }
-      
+        private IRegistrocursoRepository _registrocursoRepository { get; set; }
 
-        public RegistrodescontosController(IRegistrodescontoRepository repo)
+        public RegistrocursosController(IRegistrocursoRepository repo)
         {
-            _registrodescontoRepository = repo;
+            _registrocursoRepository = repo;
         }
 
 
@@ -31,15 +30,15 @@ namespace SenaiRH_G2.Controllers
             try
             {
 
-                List<Registrodesconto> listarRegistrodesconto = _registrodescontoRepository.ListarTodos();
-                if (listarRegistrodesconto.Count == 0)
+                List<Registrocurso> listarRegistrocurso = _registrocursoRepository.ListarTodos();
+                if (listarRegistrocurso.Count == 0)
                 {
                     return StatusCode(404, new
                     {
-                        Mensagem = "Não há nenhuma Registro Desconto cadastrada no sistema!"
+                        Mensagem = "Não há nenhuma Registro Curso cadastrada no sistema!"
                     });
                 }
-                return Ok(listarRegistrodesconto);
+                return Ok(listarRegistrocurso);
 
             }
             catch (Exception ex)
@@ -50,33 +49,33 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
-
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
-            return Ok(_registrodescontoRepository.BuscarPorId(id));
+            return Ok(_registrocursoRepository.BuscarPorId(id));
         }
 
+
         [HttpPost("Cadastrar")]
-        public IActionResult CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto)
+        public IActionResult CadastrarRegistrodesconto(RegistroCursoCadastrarViewModel novoRegistrocurso)
         {
 
             try
             {
 
-                if (novoRegistrodesconto == null)
+                if (novoRegistrocurso == null)
                 {
                     return BadRequest("Todos os campos do usuario devem ser preenchidos !");
-                } 
+                }
                 else
                 {
-                    _registrodescontoRepository.CadastrarRegistrodesconto(novoRegistrodesconto);
+                    _registrocursoRepository.CadastrarRegistrocurso(novoRegistrocurso);
                     return StatusCode(201);
                 }
             }
             catch (Exception erro)
             {
-                if (novoRegistrodesconto != null)
+                if (novoRegistrocurso != null)
                 {
                     return BadRequest("Saldo Insuficiente");
                 }
@@ -85,14 +84,15 @@ namespace SenaiRH_G2.Controllers
 
         }
 
+
         [HttpDelete("Deletar/{id}")]
-        public IActionResult ExcluirRegistrodesconto(int id)
+        public IActionResult ExcluirRegistrocurso(int id)
         {
             try
             {
                 if (id != 0)
                 {
-                    _registrodescontoRepository.ExcluirRegistrodesconto(id);
+                    _registrocursoRepository.ExcluirRegistrocurso(id);
                     return StatusCode(204);
                 }
 
@@ -104,6 +104,8 @@ namespace SenaiRH_G2.Controllers
             }
 
         }
+
+
 
     }
 }

@@ -10,10 +10,8 @@ namespace SenaiRH_G2.Interfaces
     {
 
         List<Comentariocurso> ListarComenatarioCurso();
-        void CadastrarComentarioCurso(Comentariocurso NovoComentario);
         Comentariocurso ListarComentarioPorIdCurso(int Id);
         void ExcluirComentarioCurso(int Id);
-
-        void AlterarComentarioCurso(int Id, Comentariocurso comentarioAtualizado);
+        void CadastrarComentarioCurso(Comentariocurso NovoComentario);
     }
 }

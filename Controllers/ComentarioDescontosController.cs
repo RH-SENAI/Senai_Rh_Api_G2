@@ -114,28 +114,5 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
-        /// <summary>
-        /// Atualizar comentario
-        /// </summary>
-        /// <param name="Id">Id comentario</param>
-        /// <param name="comentarioAtualizado">dados a serem atualizados</param>
-        /// <returns></returns>
-        [HttpPut("{id}")]
-        public IActionResult AlterarComentarioDesconto(int Id, Comentariodesconto comentarioAtualizado)
-        {
-            try
-            {
-                _comentarioDesconto.AlterarComentarioDesconto(Convert.ToInt16(Id), comentarioAtualizado);
-                return StatusCode(200, new
-                {
-                    mensagem = "Dados atualizados!"
-                });
-            }
-            catch (Exception erro)
-            {
-
-                return BadRequest(erro);
-            }
-        }
     }
 }

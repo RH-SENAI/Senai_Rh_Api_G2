@@ -28,7 +28,7 @@ namespace SenaiRH_G2.Repositories
                 ValidadeDesconto = novoDesconto.ValidadeDesconto,
                 ValorDesconto = novoDesconto.ValorDesconto,
                 NumeroCupom = novoDesconto.NumeroCupom,
-                MediaAvaliacaoDesconto = novoDesconto.MediaAvaliacaoDesconto
+                MediaAvaliacaoDesconto = novoDesconto.MediaAvaliacaoDesconto = 0
             };
 
             ctx.Descontos.Add(desconto);

@@ -1,4 +1,5 @@
 ﻿using SenaiRH_G2.Domains;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,7 @@ namespace SenaiRH_G2.Interfaces
         List<Registrocurso> ListarTodos();
         void ExcluirRegistrocurso(int id);
         Registrocurso BuscarPorId(int id);
-        void CadastrarRegistrocurso(Registrocurso novoRegistrocurso);
-        void DescontarMoedaCurso(int id, Registrocurso descontarMoedaCurso);
+        void CadastrarRegistrocurso(RegistroCursoCadastrarViewModel novoRegistrocurso);
 
     }
 }

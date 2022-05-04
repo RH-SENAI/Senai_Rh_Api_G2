@@ -13,6 +13,5 @@ namespace SenaiRH_G2.Interfaces
         Comentariodesconto ListarComentarioPorIdDesconto(int Id);
         void ExcluirComentarioDesconto(int Id);
 
-        void AlterarComentarioDesconto(int Id, Comentariodesconto comentarioAtualizado);
     }
 }

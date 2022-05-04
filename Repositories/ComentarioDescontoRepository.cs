@@ -14,24 +14,6 @@ namespace SenaiRH_G2.Repositories
 
 
         /// <summary>
-        /// Alterar um cometario 
-        /// </summary>
-        /// <param name="Id">Id do comentario</param>
-        /// <param name="comentarioAtualizado">Dados do comentario atualizado</param>
-        public void AlterarComentarioDesconto(int Id, Comentariodesconto comentarioAtualizado)
-        {
-            Comentariodesconto comentarioBuscado = ListarComentarioPorIdDesconto(Id);
-            if (comentarioBuscado != null)
-            {
-                comentarioBuscado.AvaliacaoDesconto = comentarioAtualizado.AvaliacaoDesconto;
-                comentarioBuscado.ComentarioDesconto1 = comentarioAtualizado.ComentarioDesconto1;
-
-                ctx.Comentariodescontos.Update(comentarioBuscado);
-                ctx.SaveChanges();
-            }
-        }
-
-        /// <summary>
         /// Cadastrar um novo comentario
         /// </summary>
         /// <param name="NovoComentario">Dados no novo comentario</param>
