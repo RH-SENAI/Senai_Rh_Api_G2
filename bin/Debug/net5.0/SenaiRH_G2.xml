@@ -141,7 +141,7 @@
             Cadastrar um novo comentario
             </summary>
             <param name="NovoComentario">Dados do novo comentario</param>
-            <param name="idcurso">id do curso cujo comentario faz parte </param>
+            <param name="idDesconto">id do desconto cujo comentario faz parte </param>
             <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
             <returns></returns>
         </member>
@@ -567,8 +567,7 @@
             <summary>
             Excluir um desconto 
             </summary>
-            <param name="id">Id do desconto a ser excluido</param>
-            /// <param name="idComentario">Id do comentario cadastrado nele a ser excluido</param>
+            <param name="idDesconto">Id do desconto a ser excluido</param>
         </member>
         <member name="M:SenaiRH_G2.Repositories.DescontoRepository.ListarTodos">
             <summary>

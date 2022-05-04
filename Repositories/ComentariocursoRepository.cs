@@ -65,7 +65,7 @@ namespace SenaiRH_G2.Repositories
             return ctx.Comentariocursos
                                 .Select(p => new Comentariocurso
                                 {
-
+                                    IdComentarioCurso= p.IdComentarioCurso,
                                     IdCurso = p.IdCurso,
                                     IdUsuario = p.IdUsuario,
                                     AvaliacaoComentario = p.AvaliacaoComentario,

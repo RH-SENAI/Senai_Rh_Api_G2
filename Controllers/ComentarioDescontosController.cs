@@ -75,27 +75,17 @@ namespace SenaiRH_G2.Controllers
             return StatusCode(204);
         }
 
-        [HttpDelete("deletar/{idDesconto}")]
-        public IActionResult ExcluirComentarioDesconto2(int idDesconto)
-        {
-            if (_comentarioDesconto.ListarComentarioPorIdDesconto(idDesconto) == null)
-            {
-                return BadRequest(new { menssagem = "Esse id nao existe" });
-            }
 
-            _comentarioDesconto.ExcluirComentarioDesconto2(idDesconto);
-            return StatusCode(204);
-        }
 
         /// <summary>
         /// Cadastrar um novo comentario
         /// </summary>
         /// <param name="NovoComentario">Dados do novo comentario</param>
-        /// <param name="idcurso">id do curso cujo comentario faz parte </param>
+        /// <param name="idDesconto">id do desconto cujo comentario faz parte </param>
         /// <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult CadastrarComentarioDesconto(Comentariodesconto NovoComentario, int idcurso, int idUsuario)
+        public IActionResult CadastrarComentarioDesconto(Comentariodesconto NovoComentario, int idDesconto, int idUsuario)
         {
             try
             {

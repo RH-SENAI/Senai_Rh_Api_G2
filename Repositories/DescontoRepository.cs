@@ -49,28 +49,39 @@ namespace SenaiRH_G2.Repositories
         /// <summary>
         /// Excluir um desconto 
         /// </summary>
-        /// <param name="id">Id do desconto a ser excluido</param>
-        /// /// <param name="idComentario">Id do comentario cadastrado nele a ser excluido</param>
+        /// <param name="idDesconto">Id do desconto a ser excluido</param>
 
-        public void ExcluirDesconto(int id)
+
+        public void ExcluirDesconto(int idDesconto)
         {
-            Desconto buscarPorId = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
-            
-            ctx.Descontos.Remove(buscarPorId);
-            
+            Desconto desconto = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == idDesconto);
+
+            foreach (var comentario in ctx.Comentariodescontos)
+            {
+                if(comentario.IdDesconto == desconto.IdDesconto)
+                {
+                    ctx.Comentariodescontos.Remove(comentario);
+                }
+            }
+            foreach (var registro in ctx.Registrodescontos)
+            {
+                if (registro.IdDesconto == desconto.IdDesconto)
+                {
+                    ctx.Registrodescontos.Remove(registro);
+                }
+            }
+            foreach (var favoritos in ctx.Descontofavoritos)
+            {
+                if (favoritos.IdDesconto == desconto.IdDesconto)
+                {
+                    ctx.Descontofavoritos.Remove(favoritos);
+                }
+            }
+            ctx.Descontos.Remove(desconto);
             ctx.SaveChanges();
         }
 
-        //public void ExcluirDesconto(int id)
-        //{
-        //    Desconto buscarPorId = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
-        //    //ctx.Comentariodescontos.RemoveRange(ctx.Comentariodescontos.Where(x => x.IdDesconto == buscarPorId.IdDesconto));
-        //    List<Comentariodesconto> comentariodescontos = ctx.Comentariodescontos.ToList();
 
-        //    comentariodescontos.RemoveAll(x => x.IdDesconto == buscarPorId.IdDesconto);
-        //    ctx.Descontos.Remove(buscarPorId);
-        //    ctx.SaveChanges();
-        //}
 
         /// <summary>
         /// Listar todos os descontos

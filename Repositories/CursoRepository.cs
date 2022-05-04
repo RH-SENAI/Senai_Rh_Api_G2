@@ -57,8 +57,29 @@ namespace SenaiRH_G2.Repositories
         /// <param name="id">id do curso a ser excluido</param>
         public void ExcluirCurso(int id)
         {
-            Curso buscarPorId = ctx.Cursos.FirstOrDefault(c => c.IdCurso == id);
-            ctx.Cursos.Remove(buscarPorId);
+            Curso curso = ctx.Cursos.FirstOrDefault(c => c.IdCurso == id);
+            foreach (var comentario in ctx.Comentariocursos)
+            {
+                if (comentario.IdCurso == curso.IdCurso)
+                {
+                    ctx.Comentariocursos.Remove(comentario);
+                }
+            }
+            foreach (var registro in ctx.Registrocursos)
+            {
+                if (registro.IdCurso == curso.IdCurso)
+                {
+                    ctx.Registrocursos.Remove(registro);
+                }
+            }
+            foreach (var favoritos in ctx.Cursofavoritos)
+            {
+                if (favoritos.IdCurso == curso.IdCurso)
+                {
+                    ctx.Cursofavoritos.Remove(favoritos);
+                }
+            }
+            ctx.Cursos.Remove(curso);
             ctx.SaveChanges();
         }
 
@@ -71,6 +92,7 @@ namespace SenaiRH_G2.Repositories
             return ctx.Cursos
                     .Select(p => new Curso
                 {
+                    
                     IdCurso = p.IdCurso,
                     IdEmpresa = p.IdEmpresa,
                     NomeCurso = p.NomeCurso,

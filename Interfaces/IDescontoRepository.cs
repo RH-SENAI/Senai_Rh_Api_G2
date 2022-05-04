@@ -7,9 +7,9 @@ namespace SenaiRH_G2.Interfaces
     public interface IDescontoRepository
     {
         List<Desconto> ListarTodos();
-        void ExcluirDesconto(int id);
+        void ExcluirDesconto(int idDesconto);
         Desconto BuscarPorId(int id);
         void CadastrarDesconto(DescontoCadastroViewModel novoDesconto);
-        //void ExcluirDesconto(int id);
+        
     }
 }
