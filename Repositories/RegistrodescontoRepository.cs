@@ -17,7 +17,7 @@ namespace SenaiRH_G2.Repositories
 
         public Registrodesconto BuscarPorId(int id)
         {
-             return ctx.Registrodescontos.FirstOrDefault(c => c.IdRegistroDesconto == id);
+            return ctx.Registrodescontos.FirstOrDefault(c => c.IdRegistroDesconto == id);
         }
 
 
@@ -62,6 +62,8 @@ namespace SenaiRH_G2.Repositories
             {
 
                 IdRegistroDesconto = p.IdRegistroDesconto,
+                IdDesconto = p.IdDesconto,
+                IdUsuario = p.IdUsuario,
                 IdUsuarioNavigation = new Usuario()
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
@@ -78,5 +80,6 @@ namespace SenaiRH_G2.Repositories
 
             }).ToList();
         }
+
     }
 }

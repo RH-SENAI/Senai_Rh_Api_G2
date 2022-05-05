@@ -111,6 +111,7 @@ namespace SenaiRH_G2.Controllers
                     string[] extensoesPermitidas = { "jpg", "png", "jpeg" };
                     string uploadResultado = Upload.EnviarFoto(fotoCurso).ToString();
 
+
                     if (uploadResultado == "")
                     {
                         return BadRequest("Arquivo não encontrado !");

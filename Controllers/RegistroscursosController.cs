@@ -124,5 +124,27 @@ namespace SenaiRH_G2.Controllers
             }
 
         }
+
+
+        [HttpPut("{idRegistroCurso}")]
+        public IActionResult AtualizarSituacao(int idRegistroCurso)
+        {
+            try
+            {
+                _registrocursoRepository.AtualizarSituacao(Convert.ToInt16(idRegistroCurso));
+                return StatusCode(200, new
+                {
+                    mensagem = "Dados atualizados!"
+                });
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
+
     }
 }

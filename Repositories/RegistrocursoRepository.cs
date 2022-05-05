@@ -84,6 +84,8 @@ namespace SenaiRH_G2.Repositories
             {
 
                 IdRegistroCurso = p.IdRegistroCurso,
+                IdCurso = p.IdCurso,
+                IdUsuario = p.IdUsuario,
                 IdSituacaoAtividade = p.IdSituacaoAtividade,
                 IdUsuarioNavigation = new Usuario()
                 {
@@ -105,5 +107,17 @@ namespace SenaiRH_G2.Repositories
 
             }).ToList();
         }
+
+        public void AtualizarSituacao(int idRegistroCurso)
+        {
+
+            Registrocurso buscarPoId = ctx.Registrocursos.FirstOrDefault(c => c.IdRegistroCurso == idRegistroCurso);
+            buscarPoId.IdSituacaoAtividade = 1;
+            ctx.Registrocursos.Update(buscarPoId);
+            ctx.SaveChanges();
+
+
+        }
+
     }
 }
