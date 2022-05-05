@@ -56,6 +56,8 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+
+
         /// <summary>
         /// Listar todos os comentarios
         /// </summary>

@@ -4,6 +4,81 @@
         <name>SenaiRH_G2</name>
     </assembly>
     <members>
+        <member name="M:SenaiRH_G2.Controllers.BairrosController.ListarTodos">
+            <summary>
+            Listar todos os bairros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.BairrosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um bairro pelo seu id 
+            </summary>
+            <param name="id">Id do bairro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.BairrosController.ExcluirBairro(System.Int32)">
+            <summary>
+            Excluir um bairro 
+            </summary>
+            <param name="id">Id do bairro a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.BairrosController.CadastrarBairro(SenaiRH_G2.Domains.Bairro)">
+            <summary>
+            Cadastrar um novo bairro 
+            </summary>
+            <param name="novoBairro">Dados do bairro a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CepsController.ListarTodos">
+            <summary>
+            Listar todos os cep
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CepsController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um cep pelo seu id 
+            </summary>
+            <param name="id">Id do cep a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CepsController.ExcluirCurso(System.Int32)">
+            <summary>
+            Escluir um cep
+            </summary>
+            <param name="id">Id do cep a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CepsController.CadastrarCurso(SenaiRH_G2.Domains.Cep)">
+            <summary>
+            Cadastrar um novo cep
+            </summary>
+            <param name="novoCep">Dados do cep a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CidadesController.ListarTodos">
+            <summary>
+            Listar todas as cidades
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CidadesController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar uma cidade pelo seu id 
+            </summary>
+            <param name="id">id do bairro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CidadesController.ExcluirCidade(System.Int32)">
+            <summary>
+            Excluir uma cidade
+            </summary>
+            <param name="id">Id da cidade a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CidadesController.CadastrarCidade(SenaiRH_G2.Domains.Cidade)">
+            <summary>
+            Cadastrar uma nova cidade
+            </summary>
+            <param name="novoCidade">Dados da nova cidade a ser cadastrada</param>
+        </member>
         <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ListarComenatarioCurso">
             <summary>
             Listar todos s comentarios dos cursos
@@ -58,8 +133,316 @@
             Cadastrar um novo comentario
             </summary>
             <param name="NovoComentario">Dados do novo comentario</param>
-            <param name="idcurso">id do curso cujo comentario faz parte </param>
+            <param name="idDesconto">id do desconto cujo comentario faz parte </param>
             <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CursosController.ListarTodos">
+            <summary>
+            Listar todos os cursos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CursosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um curso pelo seu id 
+            </summary>
+            <param name="id">id do curso a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CursosController.ExcluirCurso(System.Int32)">
+            <summary>
+            Excluir um curso 
+            </summary>
+            <param name="id">id do curso a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CursosController.CadastrarCurso(SenaiRH_G2.ViewModels.CursoCadastroViewModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Cadastrar um novo curso
+            </summary>
+            <param name="novoCurso">dados desse novo curso a ser cadastrado</param>
+            <param name="fotoCurso">foto desse novo curso a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.DescontosController.ListarTodos">
+            <summary>
+            Listar todos os descontos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.DescontosController.BuscarPorId(System.Int32)">
+            <summary>
+            Bsucar um desconto pelo seu id
+            </summary>
+            <param name="id">id do desconto a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.DescontosController.ExcluirDesconto(System.Int32)">
+            <summary>
+            Excluir um desconto 
+            </summary>
+            <param name="id">Id do desconto a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.DescontosController.CadastrarDesconto(SenaiRH_G2.ViewModels.DescontoCadastroViewModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Cadastrar um novo desconto
+            </summary>
+            <param name="novoDesconto">dados do desconto a ser cadastrado</param>
+            <param name="fotoDesconto">foto do desconto a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EmpresasController.ListarTodos">
+            <summary>
+            Listar todas as empresas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EmpresasController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um empresa pelo seu id 
+            </summary>
+            <param name="id">id da empresa a ser buscada </param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EmpresasController.ExcluirEmpresa(System.Int32)">
+            <summary>
+            Excluir uma empresa 
+            </summary>
+            <param name="id">Id da empresa a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EmpresasController.CadastrarCurso(SenaiRH_G2.ViewModels.EmpresaCadastroViewModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Cadastrar um nova empresa
+            </summary>
+            <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
+            <param name="fotoEmpresa">foto da empresa a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EstadosController.ListarTodos">
+            <summary>
+            Listar todos estados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EstadosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar ym estado pelo seu id
+            </summary>
+            <param name="id">Id do estado a e buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EstadosController.ExcluirCidade(System.Int32)">
+            <summary>
+            Excluir um estado
+            </summary>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.EstadosController.CadastrarEstado(SenaiRH_G2.Domains.Estado)">
+            <summary>
+            Cadasrar u novo estado
+            </summary>
+            <param name="novoEstado">Dados do id a ser buscado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.ListarTodos">
+            <summary>
+            Listar todos os cursos favoritos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.BuscarCursoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um curso nos favoritos pelo seu id
+            </summary>
+            <param name="Id">d do curso favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.ExcluirComentarioCurso(System.Int32)">
+            <summary>
+            Excluir um curso dos favoritoss
+            </summary>
+            <param name="Id">Id do curso favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.AdcionarFavoritos(SenaiRH_G2.Domains.Cursofavorito)">
+            <summary>
+            Adcionar um novo curso aos favoritos
+            </summary>
+            <param name="NovoFavorito">Dados obrigatorios para cadastro</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosDescontosController.ListarComenatarioDesconto">
+            <summary>
+            Listar todos os descontos favoritos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosDescontosController.BuscarCursoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um desconto nos favoritos pelo seu id
+            </summary>
+            <param name="Id">d do curso favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosDescontosController.ExcluirComentarioCurso(System.Int32)">
+            <summary>
+            Excluir um desconto dos favoritoss
+            </summary>
+            <param name="Id">Id do desconto favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosDescontosController.AdcionarFavoritos(SenaiRH_G2.Domains.Descontofavorito)">
+            <summary>
+            Adcionar um novo desconto aos favoritos
+            </summary>
+            <param name="NovoFavorito">Dados obrigatorios para cadastro</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LocalizacaosController.ListarTodos">
+            <summary>
+            Lstar todase as localizacoes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LocalizacaosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar uma localizacao pelo seu id
+            </summary>
+            <param name="id">Id da localizacao</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LocalizacaosController.ExcluirLocalizacao(System.Int32)">
+            <summary>
+            Excluir uma localizacao 
+            </summary>
+            <param name="id">Id da localizacao a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LocalizacaosController.CadastrarLocalizacao(SenaiRH_G2.Domains.Localizacao)">
+            <summary>
+            Cadastrar um nova localizacao
+            </summary>
+            <param name="novoLocalizacao">Dados da localizacao a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LogradourosController.ListarTodos">
+            <summary>
+            Listar todos os logradouros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LogradourosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um logradouro pelo seu id
+            </summary>
+            <param name="id">Id do logradouro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LogradourosController.ExcluirLogradouro(System.Int32)">
+            <summary>
+            Excluir um logradouro 
+            </summary>
+            <param name="id">Id do logradouro a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.LogradourosController.CadastrarLogradouro(SenaiRH_G2.Domains.Logradouro)">
+            <summary>
+            Cadastrar um logradouro
+            </summary>
+            <param name="novoLogradouro">Dados do logradouro a ser cadatrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.ListarTodos">
+            <summary>
+            Listar todos os registros de desconto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um registro de cursos pelo seu id
+            </summary>
+            <param name="id">Id do registro a ser encontrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.ExcluirRegistrocurso(System.Int32)">
+            <summary>
+            Deletar um registro 
+            </summary>
+            <param name="id">Id do registro a ser deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.CadastrarRegistrodesconto(SenaiRH_G2.ViewModels.RegistroCursoCadastrarViewModel)">
+            <summary>
+            Cadastrar um novo registro curso
+            </summary>
+            <param name="novoRegistrocurso"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.BairroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um bairro pelo seu id 
+            </summary>
+            <param name="id">Id do bairro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.BairroRepository.CadastrarBairro(SenaiRH_G2.Domains.Bairro)">
+            <summary>
+            Cadastrar um novo bairro 
+            </summary>
+            <param name="novoBairro">Dados do bairro a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.BairroRepository.ExcluirBairro(System.Int32)">
+            <summary>
+            Excluir um bairro 
+            </summary>
+            <param name="id">Id do bairro a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.BairroRepository.ListarTodos">
+            <summary>
+            Listar todos os bairros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CepRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um cep pelo seu id 
+            </summary>
+            <param name="id">Id do cep a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CepRepository.CadastrarCep(SenaiRH_G2.Domains.Cep)">
+            <summary>
+            Cadastrar um novo cep
+            </summary>
+            <param name="novoCep">Dados do cep a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CepRepository.ExcluirCep(System.Int32)">
+            <summary>
+            Escluir um cep
+            </summary>
+            <param name="id">Id do cep a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CepRepository.ListarTodos">
+            <summary>
+            Listar todos os cep
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CidadeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar uma cidade pelo seu id 
+            </summary>
+            <param name="id">id do bairro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CidadeRepository.CadastrarCidade(SenaiRH_G2.Domains.Cidade)">
+            <summary>
+            Cadastrar uma nova cidade
+            </summary>
+            <param name="novoCidade">Dados da nova cidade a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CidadeRepository.ExcluirCidade(System.Int32)">
+            <summary>
+            Excluir uma cidade
+            </summary>
+            <param name="id">Id da cidade a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CidadeRepository.ListarTodos">
+            <summary>
+            Listar todas as cidades
+            </summary>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ListarComentarioPorIdCurso(System.Int32)">
@@ -112,12 +495,238 @@
             <param name="Id">id comentario</param>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Utils.Upload.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String[])">
+        <member name="M:SenaiRH_G2.Repositories.CursoRepository.BuscarPorId(System.Int32)">
             <summary>
-            Faz o upload do arquivo para o servidor
+            Buscar um curso pelo seu id 
             </summary>
-            <param name="arquivo">Arquivo vindo de um formulário</param>
-            <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
+            <param name="id">id do curso a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CursoRepository.CadastrarCurso(SenaiRH_G2.ViewModels.CursoCadastroViewModel)">
+            <summary>
+            Cadastrar um novo curso
+            </summary>
+            <param name="novoCurso">dados desse novo curso a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CursoRepository.ExcluirCurso(System.Int32)">
+            <summary>
+            Excluir um curso 
+            </summary>
+            <param name="id">id do curso a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CursoRepository.ListarTodos">
+            <summary>
+            Listar todos os cursos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.DescontoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Bsucar um desconto pelo seu id
+            </summary>
+            <param name="id">id do desconto a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.DescontoRepository.CadastrarDesconto(SenaiRH_G2.ViewModels.DescontoCadastroViewModel)">
+            <summary>
+            Cadastrar um novo desconto
+            </summary>
+            <param name="novoDesconto">dados do desconto a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.DescontoRepository.ExcluirDesconto(System.Int32)">
+            <summary>
+            Excluir um desconto 
+            </summary>
+            <param name="idDesconto">Id do desconto a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.DescontoRepository.ListarTodos">
+            <summary>
+            Listar todos os descontos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EmpresaRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um empresa pelo seu id 
+            </summary>
+            <param name="id">id da empresa a ser buscada </param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EmpresaRepository.CadastrarEmpresa(SenaiRH_G2.ViewModels.EmpresaCadastroViewModel)">
+            <summary>
+            Cadastrar um nova empresa
+            </summary>
+            <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EmpresaRepository.ExcluirEmpresa(System.Int32)">
+            <summary>
+            Excluir uma empresa 
+            </summary>
+            <param name="id">Id da empresa a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EmpresaRepository.ListarTodos">
+            <summary>
+            Listar todas as empresas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EstadoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar ym estado pelo seu id
+            </summary>
+            <param name="id">Id do estado a e buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EstadoRepository.CadastrarEstado(SenaiRH_G2.Domains.Estado)">
+            <summary>
+            Cadasrar u novo estado
+            </summary>
+            <param name="novoEstado">Dados do id a ser buscado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EstadoRepository.ExcluirEstado(System.Int32)">
+            <summary>
+            Excluir um estado
+            </summary>
+            <param name="id">Id do estado a ser excludo</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EstadoRepository.ListarTodos">
+            <summary>
+            Listar todos estados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.AdcionarFavoritos(SenaiRH_G2.Domains.Cursofavorito)">
+            <summary>
+            Adcionar um curso dos favoritos
+            </summary>
+            <param name="Novofavorito"></param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.BuscarCursoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um favorito curso pelo seu id
+            </summary>
+            <param name="Id">id do curso favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.ExcluirFavoritos(System.Int32)">
+            <summary>
+            Excluir um curso dos favoritos 
+            </summary>
+            <param name="Id">Id do curso favorito</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosCursoRepository.ListarTodos">
+            <summary>
+            Listar os cursos favoritos de um determinado usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosDescontoRepository.AdcionarFavoritos(SenaiRH_G2.Domains.Descontofavorito)">
+            <summary>
+            Adcionar um desconto dos favoritos
+            </summary>
+            <param name="Novofavorito"></param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosDescontoRepository.BuscarDescontoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um favorito desconto pelo seu id
+            </summary>
+            <param name="Id">id do desconto favorito</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosDescontoRepository.ExcluirFavoritos(System.Int32)">
+            <summary>
+            Excluir um desconto dos favoritos 
+            </summary>
+            <param name="Id">Id do desconto favorito</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.FavoritosDescontoRepository.ListarTodos">
+            <summary>
+            Listar os descontos favoritos de um determinado usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LocalizacaoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar uma localizacao pelo seu id
+            </summary>
+            <param name="id">Id da localizacao</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LocalizacaoRepository.CadastrarLocalizacao(SenaiRH_G2.Domains.Localizacao)">
+            <summary>
+            Cadastrar um nova localizacao
+            </summary>
+            <param name="novoLocalizacao">Dados da localizacao a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LocalizacaoRepository.ExcluirLocalizacao(System.Int32)">
+            <summary>
+            Excluir uma localizacao 
+            </summary>
+            <param name="id">Id da localizacao a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LocalizacaoRepository.ListarTodos">
+            <summary>
+            Lstar todase as localizacoes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LogradouroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um logradouro pelo seu id
+            </summary>
+            <param name="id">Id do logradouro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LogradouroRepository.CadastrarLogradouro(SenaiRH_G2.Domains.Logradouro)">
+            <summary>
+            Cadastrar um logradouro
+            </summary>
+            <param name="novoLogradouro">Dados do logradouro a ser cadatrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LogradouroRepository.ExcluirLogradouro(System.Int32)">
+            <summary>
+            Excluir um logradouro 
+            </summary>
+            <param name="id">Id do logradouro a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.LogradouroRepository.ListarTodos">
+            <summary>
+            Listar todos os logradouros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um registro de cursos pelo seu id
+            </summary>
+            <param name="id">Id do registro a ser encontrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.CadastrarRegistrocurso(SenaiRH_G2.ViewModels.RegistroCursoCadastrarViewModel)">
+            <summary>
+            Cadastrar um novo registro curso
+            </summary>
+            <param name="novoRegistrocurso"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.ExcluirRegistrocurso(System.Int32)">
+            <summary>
+            Deletar um registro 
+            </summary>
+            <param name="id">Id do registro a ser deletado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.ListarTodos">
+            <summary>
+            Listar todos os registros de desconto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Utils.Upload.EnviarFoto(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Faz o upload do arquivo para o blob
+            </summary>
+            <param name="fotoPerfil">Arquivo vindo de um formulário</param>
             <returns>Nome do arquivo salvo</returns>
         </member>
         <member name="M:SenaiRH_G2.Utils.Upload.ValidarExtensao(System.String[],System.String)">
@@ -125,14 +734,22 @@
             Valida o uso de enxtensões permitidas apenas
             </summary>
             <param name="extensoes">Array de extensões permitidas</param>
-            <param name="nomeDoArquivo">Nome do arquivo</param>
+            <param name="nomeDaFoto">Nome do arquivo</param>
             <returns>Verdadeiro/Falso</returns>
         </member>
-        <member name="M:SenaiRH_G2.Utils.Upload.RemoverArquivo(System.String)">
+        <member name="M:SenaiRH_G2.Utils.Upload.RemoverFoto(System.String)">
             <summary>
             Remove um arquivo do servidor
             </summary>
-            <param name="nomeDoArquivo">Nome do Arquivo</param>
+            <param name="nomeDaFoto">Nome do Arquivo</param>
+        </member>
+        <member name="M:SenaiRH_G2.Utils.Upload.AtualizarFoto(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Atualiza a foto de perfil
+            </summary>
+            <param name="nomeFotoAntiga">Nome da foto antiga</param>
+            <param name="novaFoto">Arquivo da nova foto</param>
+            <returns>O nome da nova foto</returns>
         </member>
         <member name="M:SenaiRH_G2.Utils.Upload.RetornarExtensao(System.String)">
             <summary>

@@ -13,11 +13,20 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
+        /// <summary>
+        /// Buscar um logradouro pelo seu id
+        /// </summary>
+        /// <param name="id">Id do logradouro a ser buscado</param>
+        /// <returns></returns>
         public Logradouro BuscarPorId(int id)
         {
             return ctx.Logradouros.FirstOrDefault(c => c.IdLogradouro == id);
         }
 
+        /// <summary>
+        /// Cadastrar um logradouro
+        /// </summary>
+        /// <param name="novoLogradouro">Dados do logradouro a ser cadatrado</param>
         public void CadastrarLogradouro(Logradouro novoLogradouro)
         {
             Logradouro logradouro = new Logradouro()
@@ -29,6 +38,10 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Excluir um logradouro 
+        /// </summary>
+        /// <param name="id">Id do logradouro a ser excluido</param>
         public void ExcluirLogradouro(int id)
         {
             Logradouro buscarPorId = ctx.Logradouros.FirstOrDefault(c => c.IdLogradouro == id);
@@ -36,6 +49,11 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+
+        /// <summary>
+        /// Listar todos os logradouros
+        /// </summary>
+        /// <returns></returns>
         public List<Logradouro> ListarTodos()
         {
             return ctx.Logradouros.Select(p => new Logradouro

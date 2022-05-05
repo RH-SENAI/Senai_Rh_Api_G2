@@ -22,7 +22,10 @@ namespace SenaiRH_G2.Controllers
             _estadoRepository = repo;
         }
 
-
+        /// <summary>
+        /// Listar todos estados
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -48,13 +51,20 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+        /// <summary>
+        /// Buscar ym estado pelo seu id
+        /// </summary>
+        /// <param name="id">Id do estado a e buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_estadoRepository.BuscarPorId(id));
         }
 
-
+        /// <summary>
+        /// Excluir um estado
+        /// </summary>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirCidade(int id)
         {
@@ -75,7 +85,10 @@ namespace SenaiRH_G2.Controllers
 
         }
 
-
+        /// <summary>
+        /// Cadasrar u novo estado
+        /// </summary>
+        /// <param name="novoEstado">Dados do id a ser buscado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarEstado(Estado novoEstado)
         {

@@ -23,6 +23,10 @@ namespace SenaiRH_G2.Controllers
             _empresaRepository = repo;
         }
 
+        /// <summary>
+        /// Listar todas as empresas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -49,7 +53,11 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-
+        /// <summary>
+        /// Buscar um empresa pelo seu id 
+        /// </summary>
+        /// <param name="id">id da empresa a ser buscada </param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
@@ -57,7 +65,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-
+        /// <summary>
+        /// Excluir uma empresa 
+        /// </summary>
+        /// <param name="id">Id da empresa a ser excluida</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirEmpresa(int id)
         {
@@ -79,7 +90,11 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-
+        /// <summary>
+        /// Cadastrar um nova empresa
+        /// </summary>
+        /// <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
+        /// <param name="fotoEmpresa">foto da empresa a ser cadastrada</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarCurso([FromForm] EmpresaCadastroViewModel novoEmpresa, IFormFile fotoEmpresa)
         {
@@ -94,7 +109,7 @@ namespace SenaiRH_G2.Controllers
                 {
                     #region Upload da Imagem com extensões permitidas apenas
                     string[] extensoesPermitidas = { "jpg", "png", "jpeg" };
-                    string uploadResultado = Upload.UploadFile(fotoEmpresa, extensoesPermitidas);
+                    string uploadResultado = Upload.EnviarFoto(fotoEmpresa).ToString();
 
                     if (uploadResultado == "")
                     {

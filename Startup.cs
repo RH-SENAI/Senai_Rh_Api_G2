@@ -83,6 +83,8 @@ namespace SenaiRH_G2
             services.AddTransient<ICursoRepository, CursoRepository>();
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
             services.AddTransient<IDescontoRepository, DescontoRepository>();
+            services.AddTransient<IFavoritosCursoRepository, FavoritosCursoRepository>();
+            services.AddTransient<IFavoritosDescontoRepository, FavoritosDescontoRepository>();
             services.AddTransient<ICepRepository, CepRepository>();
             services.AddTransient<ILogradouroRepository, LogradouroRepository>();
             services.AddTransient<IBairroRepository, BairroRepository>();
@@ -91,7 +93,6 @@ namespace SenaiRH_G2
             services.AddTransient<ILocalizacaoRepository, LocalizacaoRepository>();
             services.AddTransient<IRegistrodescontoRepository, RegistrodescontoRepository>();
             services.AddTransient<IRegistrocursoRepository, RegistrocursoRepository>();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

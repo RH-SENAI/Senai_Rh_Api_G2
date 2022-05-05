@@ -12,26 +12,30 @@ namespace SenaiRH_G2.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class ComentarioDescontosController : ControllerBase
+    public class FavoritosDescontosController : ControllerBase
     {
-        private IComentarioDescontoRepository _comentarioDesconto { get; set; }
 
-        public ComentarioDescontosController(IComentarioDescontoRepository repo)
+
+        private IFavoritosDescontoRepository _favoritoDesconto { get; set; }
+
+
+        public FavoritosDescontosController(IFavoritosDescontoRepository repo)
         {
-            _comentarioDesconto = repo;
+            _favoritoDesconto = repo;
         }
 
 
         /// <summary>
-        /// Listar todos os comentarios dos descontos
+        /// Listar todos os descontos favoritos
         /// </summary>
         /// <returns></returns>
+
         [HttpGet]
         public IActionResult ListarComenatarioDesconto()
         {
             try
             {
-                return Ok(_comentarioDesconto.ListarComenatarioDesconto());
+                return Ok(_favoritoDesconto.ListarTodos());
             }
             catch (Exception erro)
             {
@@ -40,56 +44,54 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+
         /// <summary>
-        /// Listar um comentario pelo seu id
+        /// Buscar um desconto nos favoritos pelo seu id
         /// </summary>
-        /// <param name="id">id Comentario</param>
+        /// <param name="Id">d do curso favorito</param>
         /// <returns></returns>
-        [HttpGet("{id}")]
-        public IActionResult ListarComentarioPorIdDesconto(int id)
+        [HttpGet("{Id}")]
+        public IActionResult BuscarCursoFavoritoPorId(int Id)
         {
-            if (_comentarioDesconto.ListarComentarioPorIdDesconto(id) == null)
+            if (_favoritoDesconto.BuscarDescontoFavoritoPorId(Id) == null)
             {
                 return BadRequest(new
                 {
                     mensagem = "Id nao existente!!"
                 });
             }
-            return Ok(_comentarioDesconto.ListarComentarioPorIdDesconto(id));
+            return Ok(_favoritoDesconto.BuscarDescontoFavoritoPorId(Id));
         }
 
+
         /// <summary>
-        /// Deletar um comentario pelo seu id
+        /// Excluir um desconto dos favoritoss
         /// </summary>
-        /// <param name="id">Id do cometario</param>
+        /// <param name="Id">Id do desconto favorito</param>
         /// <returns></returns>
-        [HttpDelete("deletar/{id}")]
-        public IActionResult ExcluirComentarioDesconto(int id)
+        [HttpDelete("deletar/{Id}")]
+        public IActionResult ExcluirComentarioCurso(int Id)
         {
-            if (_comentarioDesconto.ListarComentarioPorIdDesconto(id) == null)
+            if (_favoritoDesconto.BuscarDescontoFavoritoPorId(Id) == null)
             {
                 return BadRequest(new { menssagem = "Esse id nao existe" });
             }
 
-            _comentarioDesconto.ExcluirComentarioDesconto(id);
+            _favoritoDesconto.ExcluirFavoritos(Id);
             return StatusCode(204);
         }
 
-
-
         /// <summary>
-        /// Cadastrar um novo comentario
+        /// Adcionar um novo desconto aos favoritos
         /// </summary>
-        /// <param name="NovoComentario">Dados do novo comentario</param>
-        /// <param name="idDesconto">id do desconto cujo comentario faz parte </param>
-        /// <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
+        /// <param name="NovoFavorito">Dados obrigatorios para cadastro</param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult CadastrarComentarioDesconto(Comentariodesconto NovoComentario, int idDesconto, int idUsuario)
+        public IActionResult AdcionarFavoritos(Descontofavorito NovoFavorito)
         {
             try
             {
-                if (_comentarioDesconto.ListarComentarioPorIdDesconto(Convert.ToInt16(NovoComentario.IdComentarioDesconto)) != null)
+                if (_favoritoDesconto.BuscarDescontoFavoritoPorId(Convert.ToInt16(NovoFavorito.IdDescontoFavorito)) != null)
                 {
                     return BadRequest(new
                     {
@@ -97,7 +99,7 @@ namespace SenaiRH_G2.Controllers
                     });
                 }
 
-                if (NovoComentario.IdDesconto <= 0 || NovoComentario.IdUsuario <= 0 || NovoComentario.AvaliacaoDesconto == 0 || NovoComentario.ComentarioDesconto1 == null)
+                if (NovoFavorito.IdDesconto <= 0 || NovoFavorito.IdUsuario <= 0)
                 {
                     return BadRequest(new
                     {
@@ -105,7 +107,7 @@ namespace SenaiRH_G2.Controllers
                     });
                 }
 
-                _comentarioDesconto.CadastrarComentarioDesconto(NovoComentario);
+                _favoritoDesconto.AdcionarFavoritos(NovoFavorito);
 
                 return StatusCode(201);
             }
@@ -115,6 +117,5 @@ namespace SenaiRH_G2.Controllers
                 return BadRequest(erro);
             }
         }
-
     }
 }

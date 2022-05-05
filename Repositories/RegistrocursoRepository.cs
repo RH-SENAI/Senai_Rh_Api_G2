@@ -16,11 +16,23 @@ namespace SenaiRH_G2.Repositories
         senaiRhContext ctx = new senaiRhContext();
 
 
+        /// <summary>
+        /// Buscar um registro de cursos pelo seu id
+        /// </summary>
+        /// <param name="id">Id do registro a ser encontrado</param>
+        /// <returns></returns>
         public Registrocurso BuscarPorId(int id)
         {
             return ctx.Registrocursos.FirstOrDefault(c => c.IdRegistroCurso == id);
         }
 
+
+
+        /// <summary>
+        /// Cadastrar um novo registro curso
+        /// </summary>
+        /// <param name="novoRegistrocurso"></param>
+        /// <returns></returns>
         public void CadastrarRegistrocurso(RegistroCursoCadastrarViewModel novoRegistrocurso)
         {
             Usuario usuario = new Usuario();
@@ -48,6 +60,12 @@ namespace SenaiRH_G2.Repositories
 
         }
 
+
+        /// <summary>
+        /// Deletar um registro 
+        /// </summary>
+        /// <param name="id">Id do registro a ser deletado</param>
+        /// <returns></returns>
         public void ExcluirRegistrocurso(int id)
         {
             Registrocurso buscarPorId = ctx.Registrocursos.FirstOrDefault(c => c.IdRegistroCurso == id);
@@ -55,6 +73,11 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+
+        /// <summary>
+        /// Listar todos os registros de desconto
+        /// </summary>
+        /// <returns></returns>
         public List<Registrocurso> ListarTodos()
         {
             return ctx.Registrocursos.Select(p => new Registrocurso

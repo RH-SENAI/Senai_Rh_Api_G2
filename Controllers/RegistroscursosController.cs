@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +13,19 @@ namespace SenaiRH_G2.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class BairrosController : ControllerBase
+    public class RegistroscursosController : ControllerBase
     {
 
-        private IBairroRepository _bairroRepository { get; set; }
+        private IRegistrocursoRepository _registrocursoRepository { get; set; }
 
-        public BairrosController(IBairroRepository repo)
+        public RegistroscursosController(IRegistrocursoRepository repo)
         {
-            _bairroRepository = repo;
+            _registrocursoRepository = repo;
         }
 
+
         /// <summary>
-        /// Listar todos os bairros
+        /// Listar todos os registros de desconto
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -32,15 +34,15 @@ namespace SenaiRH_G2.Controllers
             try
             {
 
-                List<Bairro> listarBairro = _bairroRepository.ListarTodos();
-                if (listarBairro.Count == 0)
+                List<Registrocurso> listaRegistro = _registrocursoRepository.ListarTodos();
+                if (listaRegistro.Count == 0)
                 {
                     return StatusCode(404, new
                     {
-                        Mensagem = "Não há nenhuma Bairro cadastrada no sistema!"
+                        Mensagem = "Não há nenhuma regisro cadastrada no sistema!"
                     });
                 }
-                return Ok(listarBairro);
+                return Ok(listaRegistro);
 
             }
             catch (Exception ex)
@@ -51,29 +53,32 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+
         /// <summary>
-        /// Buscar um bairro pelo seu id 
+        /// Buscar um registro de cursos pelo seu id
         /// </summary>
-        /// <param name="id">Id do bairro a ser buscado</param>
+        /// <param name="id">Id do registro a ser encontrado</param>
         /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
-            return Ok(_bairroRepository.BuscarPorId(id));
+            return Ok(_registrocursoRepository.BuscarPorId(id));
         }
 
+
         /// <summary>
-        /// Excluir um bairro 
+        /// Deletar um registro 
         /// </summary>
-        /// <param name="id">Id do bairro a ser excluido</param>
+        /// <param name="id">Id do registro a ser deletado</param>
+        /// <returns></returns>
         [HttpDelete("Deletar/{id}")]
-        public IActionResult ExcluirBairro(int id)
+        public IActionResult ExcluirRegistrocurso(int id)
         {
             try
             {
-                if (id != 0)
+                if (_registrocursoRepository.BuscarPorId(id)!= null)
                 {
-                    _bairroRepository.ExcluirBairro(id);
+                    _registrocursoRepository.ExcluirRegistrocurso(id);
                     return StatusCode(204);
                 }
 
@@ -86,34 +91,38 @@ namespace SenaiRH_G2.Controllers
 
         }
 
+
         /// <summary>
-        /// Cadastrar um novo bairro 
+        /// Cadastrar um novo registro curso
         /// </summary>
-        /// <param name="novoBairro">Dados do bairro a ser cadastrado</param>
+        /// <param name="novoRegistrocurso"></param>
+        /// <returns></returns>
         [HttpPost("Cadastrar")]
-        public IActionResult CadastrarBairro(Bairro novoBairro)
+        public IActionResult CadastrarRegistrodesconto(RegistroCursoCadastrarViewModel novoRegistrocurso)
         {
 
             try
             {
 
-                if (novoBairro == null)
+                if (novoRegistrocurso == null)
                 {
                     return BadRequest("Todos os campos do usuario devem ser preenchidos !");
                 }
                 else
                 {
-                    _bairroRepository.CadastrarBairro(novoBairro);
+                    _registrocursoRepository.CadastrarRegistrocurso(novoRegistrocurso);
                     return StatusCode(201);
                 }
             }
-            catch (Exception exp)
+            catch (Exception erro)
             {
-
-                return BadRequest(exp);
+                if (novoRegistrocurso != null)
+                {
+                    return BadRequest("Saldo Insuficiente");
+                }
+                return BadRequest(erro);
             }
 
         }
-
     }
 }

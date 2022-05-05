@@ -14,11 +14,20 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
+        /// <summary>
+        /// Buscar um empresa pelo seu id 
+        /// </summary>
+        /// <param name="id">id da empresa a ser buscada </param>
+        /// <returns></returns>
         public Empresa BuscarPorId(int id)
         {
             return ctx.Empresas.FirstOrDefault(c => c.IdEmpresa == id);
         }
 
+        /// <summary>
+        /// Cadastrar um nova empresa
+        /// </summary>
+        /// <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
         public void CadastrarEmpresa(EmpresaCadastroViewModel novoEmpresa)
         {
             Empresa empresa = new Empresa()
@@ -36,6 +45,10 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Excluir uma empresa 
+        /// </summary>
+        /// <param name="id">Id da empresa a ser excluida</param>
         public void ExcluirEmpresa(int id)
         {
             Empresa buscarPorId = ctx.Empresas.FirstOrDefault(c => c.IdEmpresa == id);
@@ -43,7 +56,10 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
-
+        /// <summary>
+        /// Listar todas as empresas
+        /// </summary>
+        /// <returns></returns>
         public List<Empresa> ListarTodos()
         {
             return ctx.Empresas
