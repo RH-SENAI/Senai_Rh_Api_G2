@@ -50,6 +50,7 @@ namespace SenaiRH_G2.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
+
                 optionsBuilder.UseSqlServer("Data Source=senairh.database.windows.net; initial catalog=DBProjetoSenaiRH; user Id=admin_projeto; pwd=SenaiRH123*\n;");
             }
         }
@@ -792,6 +793,8 @@ namespace SenaiRH_G2.Contexts
 
                 entity.Property(e => e.IdCurso).HasColumnName("idCurso");
 
+                entity.Property(e => e.IdSituacaoAtividade).HasColumnName("idSituacaoAtividade");
+
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
 
                 entity.HasOne(d => d.IdCursoNavigation)
@@ -799,6 +802,11 @@ namespace SenaiRH_G2.Contexts
                     .HasForeignKey(d => d.IdCurso)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__REGISTROC__idCur__2B0A656D");
+
+                entity.HasOne(d => d.IdSituacaoAtividadeNavigation)
+                    .WithMany(p => p.Registrocursos)
+                    .HasForeignKey(d => d.IdSituacaoAtividade)
+                    .HasConstraintName("FK__REGISTROC__idSit__51300E55");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Registrocursos)
@@ -933,6 +941,8 @@ namespace SenaiRH_G2.Contexts
                     .IsUnicode(false)
                     .HasColumnName("nomeUnidadeSenai");
 
+                entity.Property(e => e.NotaProdutividade).HasColumnType("decimal(2, 1)");
+
                 entity.Property(e => e.TelefoneUnidadeSenai)
                     .IsRequired()
                     .HasMaxLength(13)
@@ -1007,6 +1017,10 @@ namespace SenaiRH_G2.Contexts
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("nome");
+
+                entity.Property(e => e.NotaProdutividade)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("notaProdutividade");
 
                 entity.Property(e => e.SaldoMoeda).HasColumnName("saldoMoeda");
 

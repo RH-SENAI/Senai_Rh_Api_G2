@@ -28,6 +28,7 @@ namespace SenaiRH_G2.Repositories
             Registrocurso registrocurso = new Registrocurso();
             registrocurso.IdUsuario = novoRegistrocurso.IdUsuario;
             registrocurso.IdCurso = novoRegistrocurso.IdCurso;
+            registrocurso.IdSituacaoAtividade = novoRegistrocurso.IdSituacaoAtividade = 2;
 
             usuario.IdUsuario = registrocurso.IdUsuario;
             curso.IdCurso = registrocurso.IdCurso;
@@ -39,10 +40,8 @@ namespace SenaiRH_G2.Repositories
             {
 
                 buscarUsuario.SaldoMoeda -=(int) buscarCurso.ValorCurso;
-                buscarCurso.IdSituacaoInscricao = 2;
 
                 ctx.Usuarios.Update(buscarUsuario);
-                ctx.Cursos.Update(buscarCurso);
                 ctx.Registrocursos.Add(registrocurso);
                 ctx.SaveChanges();
             }
@@ -62,6 +61,7 @@ namespace SenaiRH_G2.Repositories
             {
 
                 IdRegistroCurso = p.IdRegistroCurso,
+                IdSituacaoAtividade = p.IdSituacaoAtividade,
                 IdUsuarioNavigation = new Usuario()
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
@@ -73,6 +73,11 @@ namespace SenaiRH_G2.Repositories
                     IdCurso = p.IdCursoNavigation.IdCurso,
                     NomeCurso = p.IdCursoNavigation.NomeCurso,
                     ValorCurso = p.IdCursoNavigation.ValorCurso
+                },
+                IdSituacaoAtividadeNavigation = new Situacaoatividade()
+                {
+                    IdSituacaoAtividade = p.IdSituacaoAtividadeNavigation.IdSituacaoAtividade,
+                    NomeSituacaoAtividade = p.IdSituacaoAtividadeNavigation.NomeSituacaoAtividade
                 }
 
             }).ToList();

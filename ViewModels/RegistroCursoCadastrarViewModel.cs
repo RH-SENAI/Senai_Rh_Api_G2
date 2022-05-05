@@ -10,6 +10,7 @@ namespace SenaiRH_G2.ViewModels
 
         public int IdCurso { get; set; }
         public int IdUsuario { get; set; }
+        public byte? IdSituacaoAtividade { get; set; }
 
     }
 }

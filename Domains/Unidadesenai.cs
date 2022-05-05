@@ -20,6 +20,7 @@ namespace SenaiRH_G2.Domains
         public decimal MediaSatisfacaoUnidadeSenai { get; set; }
         public string TelefoneUnidadeSenai { get; set; }
         public string EmailUnidadeSenai { get; set; }
+        public decimal? NotaProdutividade { get; set; }
 
         public virtual Localizacao IdLocalizacaoNavigation { get; set; }
         public virtual ICollection<Avaliacaounidadesenai> Avaliacaounidadesenais { get; set; }
