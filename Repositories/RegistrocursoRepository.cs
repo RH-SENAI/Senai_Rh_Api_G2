@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
 
 namespace SenaiRH_G2.Repositories
 {
@@ -51,7 +54,7 @@ namespace SenaiRH_G2.Repositories
             if (buscarUsuario.SaldoMoeda >= (int)buscarCurso.ValorCurso)
             {
 
-                buscarUsuario.SaldoMoeda -=(int) buscarCurso.ValorCurso;
+                buscarUsuario.SaldoMoeda -= (int)buscarCurso.ValorCurso;
 
                 ctx.Usuarios.Update(buscarUsuario);
                 ctx.Registrocursos.Add(registrocurso);
@@ -119,5 +122,45 @@ namespace SenaiRH_G2.Repositories
 
         }
 
+
+        public void EnviaEmailDescricao(string email)
+        {
+            Usuario user = ctx.Usuarios.FirstOrDefault(u => u.Email == email);
+
+            if (user != null)
+            {
+                MimeMessage message = new MimeMessage();
+                message.From.Add(new MailboxAddress("SenaiRHteste", "senairhteste@gmail.com"));
+                message.To.Add(MailboxAddress.Parse(user.Email));
+                message.Subject = "Seu Cadastro do Curso foi Realizado";
+                message.Body = new TextPart("plain")
+                {
+                    Text = @"Olá, " + user.Nome + ". Parabens seus cadastro foi realizado com sucesso. Em breve, você receberá mais notificações sobre o curso." +
+                    "Obrigado por comprar nossos cursos."
+                };
+
+                SmtpClient client = new SmtpClient();
+
+                try
+                {
+
+                    client.Connect("smtp.gmail.com", 465, true);
+                    client.Authenticate("senairhteste@gmail.com", "SesiSenai@132");
+                    client.Send(message);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    client.Disconnect(true);
+                    client.Dispose();
+
+                }
+            }
+
+        }
     }
 }

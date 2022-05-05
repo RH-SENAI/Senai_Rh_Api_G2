@@ -144,6 +144,23 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+        [HttpPost("EnviaEmailDescricao/{email}")]
+        public IActionResult EnviaEmailDescricao(string email)
+        {
+            try
+            {
+                _registrocursoRepository.EnviaEmailDescricao(email);
+                return Ok(new
+                {
+                    Mensagem = "Email enviado com sucesso"
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+                throw;
+            }
+        }
 
 
     }

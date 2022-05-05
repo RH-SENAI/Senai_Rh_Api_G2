@@ -15,6 +15,7 @@ namespace SenaiRH_G2.Interfaces
         Registrocurso BuscarPorId(int id);
         void CadastrarRegistrocurso(RegistroCursoCadastrarViewModel novoRegistrocurso);
         void AtualizarSituacao(int idRegistroCurso);
+        void EnviaEmailDescricao(string email);
 
     }
 }

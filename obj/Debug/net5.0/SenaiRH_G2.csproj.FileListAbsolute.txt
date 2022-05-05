@@ -82,3 +82,7 @@ C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\ref\SenaiR
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.xml
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.pdb
 C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.genruntimeconfig.cache
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\obj\Debug\net5.0\SenaiRH_G2.csproj.AssemblyReference.cache
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\MailKit.dll
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\MimeKit.dll
+C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\bin\Debug\net5.0\BouncyCastle.Crypto.dll
