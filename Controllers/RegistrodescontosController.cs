@@ -24,7 +24,10 @@ namespace SenaiRH_G2.Controllers
             _registrodescontoRepository = repo;
         }
 
-
+        /// <summary>
+        /// Listar todos os registros de desconto
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -50,13 +53,22 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Buscar um Registro de um descontro atraves de seu id
+        /// </summary>
+        /// <param name="id">Id do registro desconto a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_registrodescontoRepository.BuscarPorId(id));
         }
 
+
+        /// <summary>
+        /// Cadastrar um registro de desconto
+        /// </summary>
+        /// <param name="novoRegistrodesconto">Dados do registro desconto a ser cadastrado</param>
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto)
         {
@@ -85,6 +97,11 @@ namespace SenaiRH_G2.Controllers
 
         }
 
+
+        /// <summary>
+        /// Excluir um registro de um desconto
+        /// </summary>
+        /// <param name="id">Id do registro desconto a ser excluido</param>
         [HttpDelete("Deletar/{id}")]
         public IActionResult ExcluirRegistrodesconto(int id)
         {

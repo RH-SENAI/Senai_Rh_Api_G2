@@ -126,6 +126,10 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+        /// <summary>
+        /// Atualizar situação
+        /// </summary>
+        /// <param name="idRegistroCurso">Id do curso registrado</param>
         [HttpPut("{idRegistroCurso}")]
         public IActionResult AtualizarSituacao(int idRegistroCurso)
         {
@@ -144,6 +148,11 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Enviar Comunicado sobre o registro d curso atraves do email
+        /// </summary>
+        /// <param name="email"></param>
         [HttpPost("EnviaEmailDescricao/{email}")]
         public IActionResult EnviaEmailDescricao(string email)
         {

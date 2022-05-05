@@ -16,12 +16,20 @@ namespace SenaiRH_G2.Repositories
 
         senaiRhContext ctx = new senaiRhContext();
 
+        /// <summary>
+        /// Buscar um Registro de um descontro atraves de seu id
+        /// </summary>
+        /// <param name="id">Id do registro desconto a ser buscado</param>
+        /// <returns></returns>
         public Registrodesconto BuscarPorId(int id)
         {
             return ctx.Registrodescontos.FirstOrDefault(c => c.IdRegistroDesconto == id);
         }
 
-
+        /// <summary>
+        /// Cadastrar um registro de desconto
+        /// </summary>
+        /// <param name="novoRegistrodesconto">Dados do registro desconto a ser cadastrado</param>
         public void CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto)
         {
             Usuario usuario = new Usuario();
@@ -50,6 +58,11 @@ namespace SenaiRH_G2.Repositories
 
         }
 
+
+        /// <summary>
+        /// Excluir um registro de um desconto
+        /// </summary>
+        /// <param name="id">Id do registro desconto a ser excluido</param>
         public void ExcluirRegistrodesconto(int id)
         {
             Registrodesconto buscarPorId = ctx.Registrodescontos.FirstOrDefault(c => c.IdRegistroDesconto == id);
@@ -57,6 +70,11 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+
+        /// <summary>
+        /// Listar todos os registros de desconto
+        /// </summary>
+        /// <returns></returns>
         public List<Registrodesconto> ListarTodos()
         {
             return ctx.Registrodescontos.Select(p => new Registrodesconto
