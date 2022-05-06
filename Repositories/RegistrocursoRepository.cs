@@ -111,6 +111,10 @@ namespace SenaiRH_G2.Repositories
             }).ToList();
         }
 
+        /// <summary>
+        /// Atualizar situação
+        /// </summary>
+        /// <param name="idRegistroCurso">Id do curso registrado</param>
         public void AtualizarSituacao(int idRegistroCurso)
         {
 
@@ -122,7 +126,10 @@ namespace SenaiRH_G2.Repositories
 
         }
 
-
+        /// <summary>
+        /// Enviar Comunicado sobre o registro d curso atraves do email
+        /// </summary>
+        /// <param name="email"></param>
         public void EnviaEmailDescricao(string email)
         {
             Usuario user = ctx.Usuarios.FirstOrDefault(u => u.Email == email);
