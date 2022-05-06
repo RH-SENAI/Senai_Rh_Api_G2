@@ -121,6 +121,12 @@ namespace SenaiRH_G2.Repositories
                         IdLocalizacaoNavigation = new Localizacao()
                         {
                             Numero = p.IdEmpresaNavigation.IdLocalizacaoNavigation.Numero,
+                            IdCep = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCep,
+                            IdCepNavigation = new Cep()
+                            {
+                                IdCep = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.IdCep,
+                                Cep1 = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.Cep1
+                            },
                             IdLogradouroNavigation = new Logradouro()
                             {
                                 NomeLogradouro = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdLogradouroNavigation.NomeLogradouro
