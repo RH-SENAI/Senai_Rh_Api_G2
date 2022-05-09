@@ -106,7 +106,19 @@ namespace SenaiRH_G2.Repositories
                 }
             }
 
-            return comentarioCurso;
+            return ctx.Comentariocursos.Select(p => new Comentariocurso
+            {
+                IdComentarioCurso = p.IdComentarioCurso,
+                IdCurso = p.IdCurso,
+                IdUsuario = p.IdUsuario,
+                ComentarioCurso1 = p.ComentarioCurso1,
+                AvaliacaoComentario = p.AvaliacaoComentario,
+                IdUsuarioNavigation = new Usuario
+                {
+                    IdUsuario = p.IdUsuarioNavigation.IdUsuario,
+                    Nome = p.IdUsuarioNavigation.Nome,
+                }
+            }).ToList();
         }
 
     }
