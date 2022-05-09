@@ -14,5 +14,6 @@ namespace SenaiRH_G2.Interfaces
         void AdcionarFavoritos(Descontofavorito Novofavorito);
         void ExcluirFavoritos(int Id);
         Descontofavorito BuscarDescontoFavoritoPorId(int Id);
+        List<Descontofavorito> ListarPorIdFavoritoDesconto(int Id);
     }
 }

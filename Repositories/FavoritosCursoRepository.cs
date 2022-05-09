@@ -49,6 +49,80 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Cursofavorito> ListarPorIdFavoritoCurso(int Id)
+        {
+            List<Cursofavorito> cursofavoritos = new();
+
+            foreach (var favorito in ctx.Cursofavoritos)
+            {
+                if (favorito.IdUsuario == Id)
+                {
+                    cursofavoritos.Add(favorito);
+                }
+            }
+
+            return ctx.Cursofavoritos.Select(p => new Cursofavorito
+            {
+                IdCursoFavorito = p.IdCursoFavorito,
+                IdCurso = p.IdCurso,
+                IdUsuario = p.IdUsuario,
+                IdUsuarioNavigation = new Usuario
+                {
+                    Nome = p.IdUsuarioNavigation.Nome,
+                    Email = p.IdUsuarioNavigation.Email,
+                    Cpf = p.IdUsuarioNavigation.Cpf,
+                    SaldoMoeda = p.IdUsuarioNavigation.SaldoMoeda
+                },
+                IdCursoNavigation = new Curso
+                {
+
+                    IdCurso = p.IdCursoNavigation.IdCurso,
+                    IdEmpresa = p.IdCursoNavigation.IdEmpresa,
+                    NomeCurso = p.IdCursoNavigation.NomeCurso,
+                    DescricaoCurso = p.IdCursoNavigation.DescricaoCurso,
+                    SiteCurso = p.IdCursoNavigation.SiteCurso,
+                    ModalidadeCurso = p.IdCursoNavigation.ModalidadeCurso,
+                    CaminhoImagemCurso = p.IdCursoNavigation.CaminhoImagemCurso,
+                    CargaHoraria = p.IdCursoNavigation.CargaHoraria,
+                    DataFinalizacao = p.IdCursoNavigation.DataFinalizacao,
+                    MediaAvaliacaoCurso = p.IdCursoNavigation.MediaAvaliacaoCurso,
+                    ValorCurso = p.IdCursoNavigation.ValorCurso,
+                    IdSituacaoInscricao = p.IdCursoNavigation.IdSituacaoInscricao,
+                    IdSituacaoInscricaoNavigation = new Situacaoatividade()
+                    {
+                        NomeSituacaoAtividade = p.IdCursoNavigation.IdSituacaoInscricaoNavigation.NomeSituacaoAtividade,
+                        IdSituacaoAtividade = p.IdCursoNavigation.IdSituacaoInscricaoNavigation.IdSituacaoAtividade,
+                    },
+                    IdEmpresaNavigation = new Empresa()
+                    {
+
+                        NomeEmpresa = p.IdCursoNavigation.IdEmpresaNavigation.NomeEmpresa,
+                        EmailEmpresa = p.IdCursoNavigation.IdEmpresaNavigation.EmailEmpresa,
+                        TelefoneEmpresa = p.IdCursoNavigation.IdEmpresaNavigation.TelefoneEmpresa,
+                        IdLocalizacaoNavigation = new Localizacao()
+                        {
+                            Numero = p.IdCursoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.Numero,
+                            IdCep = p.IdCursoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCep,
+                            IdCepNavigation = new Cep()
+                            {
+                                IdCep = p.IdCursoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.IdCep,
+                                Cep1 = p.IdCursoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.Cep1
+                            },
+                            IdLogradouroNavigation = new Logradouro()
+                            {
+                                NomeLogradouro = p.IdCursoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdLogradouroNavigation.NomeLogradouro
+                            },
+                            IdEstadoNavigation = new Estado()
+                            {
+                                NomeEstado = p.IdCursoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdEstadoNavigation.NomeEstado
+                            },
+
+                        }
+                    },
+                }
+            }).ToList();
+        }
+
 
         /// <summary>
         /// Listar os cursos favoritos de um determinado usuario

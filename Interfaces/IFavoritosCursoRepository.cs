@@ -13,6 +13,7 @@ namespace SenaiRH_G2.Interfaces
         void AdcionarFavoritos(Cursofavorito Novofavorito);
         void ExcluirFavoritos(int Id);
         Cursofavorito BuscarCursoFavoritoPorId(int Id);
+        List<Cursofavorito> ListarPorIdFavoritoCurso(int Id);
 
 
     }

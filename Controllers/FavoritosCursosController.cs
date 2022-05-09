@@ -77,6 +77,26 @@ namespace SenaiRH_G2.Controllers
         }
 
         /// <summary>
+        /// Listar um comentario pelo seu idcurso
+        /// </summary>
+        /// <param name="IdUsuario">id Usuario</param>
+        /// <returns></returns>
+        [HttpGet("Favorito/{IdUsuario}")]
+        public IActionResult ListarPorIdFavoritoCurso(int IdUsuario)
+        {
+            try
+            {
+                return Ok(_favoritoCurso.ListarPorIdFavoritoCurso(IdUsuario));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
+        /// <summary>
         /// Adcionar um novo curso aos favoritos
         /// </summary>
         /// <param name="NovoFavorito">Dados obrigatorios para cadastro</param>
