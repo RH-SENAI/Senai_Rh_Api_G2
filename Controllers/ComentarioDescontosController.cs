@@ -46,17 +46,37 @@ namespace SenaiRH_G2.Controllers
         /// <param name="id">id Comentario</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public IActionResult ListarComentarioPorIdDesconto(int id)
+        public IActionResult ListarComentarioPorId(int id)
         {
-            if (_comentarioDesconto.ListarComentarioPorIdDesconto(id) == null)
+            if (_comentarioDesconto.ListarComentarioPorId(id) == null)
             {
                 return BadRequest(new
                 {
                     mensagem = "Id nao existente!!"
                 });
             }
-            return Ok(_comentarioDesconto.ListarComentarioPorIdDesconto(id));
+            return Ok(_comentarioDesconto.ListarComentarioPorId(id));
         }
+
+        /// <summary>
+        /// Listar um comentario pelo seu idDesconto
+        /// </summary>
+        /// <param name="idDesconto">id Comentario</param>
+        /// <returns></returns>
+        [HttpGet("Comentario/{idDesconto}")]
+        public IActionResult ListarComentarioPorIdDesconto(int idDesconto)
+        {
+            try
+            {
+                return Ok(_comentarioDesconto.ListarComentarioPorIdDesconto(idDesconto));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
 
         /// <summary>
         /// Deletar um comentario pelo seu id
@@ -66,7 +86,7 @@ namespace SenaiRH_G2.Controllers
         [HttpDelete("deletar/{id}")]
         public IActionResult ExcluirComentarioDesconto(int id)
         {
-            if (_comentarioDesconto.ListarComentarioPorIdDesconto(id) == null)
+            if (_comentarioDesconto.ListarComentarioPorId(id) == null)
             {
                 return BadRequest(new { menssagem = "Esse id nao existe" });
             }
@@ -89,7 +109,7 @@ namespace SenaiRH_G2.Controllers
         {
             try
             {
-                if (_comentarioDesconto.ListarComentarioPorIdDesconto(Convert.ToInt16(NovoComentario.IdComentarioDesconto)) != null)
+                if (_comentarioDesconto.ListarComentarioPorId(Convert.ToInt16(NovoComentario.IdComentarioDesconto)) != null)
                 {
                     return BadRequest(new
                     {

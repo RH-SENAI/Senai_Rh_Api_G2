@@ -41,22 +41,44 @@ namespace SenaiRH_G2.Controllers
                 return BadRequest(erro);
             }
         }
+
+
         /// <summary>
         /// Listar um comentario pelo seu id
         /// </summary>
         /// <param name="id">id Comentario</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public IActionResult ListarComentarioPorIdCurso(int id)
+        public IActionResult ListarComentarioPorId(int id)
         {
-            if (_comentarioCurso.ListarComentarioPorIdCurso(id) == null)
+            if (_comentarioCurso.ListarComentarioPorId(id) == null)
             {
                 return BadRequest(new
                 {
                     mensagem = "Id nao existente!!"
                 });
             }
-            return Ok(_comentarioCurso.ListarComentarioPorIdCurso(id));
+            return Ok(_comentarioCurso.ListarComentarioPorId(id));
+        }
+
+
+        /// <summary>
+        /// Listar um comentario pelo seu idcurso
+        /// </summary>
+        /// <param name="idCurso">id Comentario</param>
+        /// <returns></returns>
+        [HttpGet("Comentario/{idCurso}")]
+        public IActionResult ListarComentarioPorIdCurso(int idCurso)
+        {
+            try
+            {
+                return Ok(_comentarioCurso.ListarComentarioPorIdCurso(idCurso));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
         }
 
         /// <summary>
@@ -67,7 +89,7 @@ namespace SenaiRH_G2.Controllers
         [HttpDelete("deletar/{id}")]
         public IActionResult ExcluirComentarioCurso(int id)
         {
-            if (_comentarioCurso.ListarComentarioPorIdCurso(id)==null)
+            if (_comentarioCurso.ListarComentarioPorId(id)==null)
             {
                 return BadRequest(new { menssagem = "Esse id nao existe" });
             }
@@ -89,7 +111,7 @@ namespace SenaiRH_G2.Controllers
         {
             try
             {
-                if (_comentarioCurso.ListarComentarioPorIdCurso(Convert.ToInt16(NovoComentario.IdComentarioCurso))!=null)
+                if (_comentarioCurso.ListarComentarioPorId(Convert.ToInt16(NovoComentario.IdComentarioCurso))!=null)
                 {
                     return BadRequest(new
                     {

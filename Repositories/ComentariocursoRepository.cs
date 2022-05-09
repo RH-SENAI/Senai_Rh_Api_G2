@@ -18,8 +18,9 @@ namespace SenaiRH_G2.Repositories
         /// </summary>
         /// <param name="Id">Id comentario</param>
         /// <returns></returns>
-        public Comentariocurso ListarComentarioPorIdCurso(int Id)
+        public Comentariocurso ListarComentarioPorId(int Id)
         {
+
             return ctx.Comentariocursos.FirstOrDefault(c => c.IdComentarioCurso == Id);
         }
 
@@ -89,8 +90,23 @@ namespace SenaiRH_G2.Repositories
         /// <param name="Id">Id do comentario</param>
         public void ExcluirComentarioCurso(int Id)
         {
-            ctx.Comentariocursos.Remove(ListarComentarioPorIdCurso(Id));
+            ctx.Comentariocursos.Remove(ListarComentarioPorId(Id));
             ctx.SaveChanges();
+        }
+
+        public List<Comentariocurso> ListarComentarioPorIdCurso(int Id)
+        {
+            List<Comentariocurso> comentarioCurso = new();
+
+            foreach (var comentario in ctx.Comentariocursos)
+            {
+                if (comentario.IdCurso == Id)
+                {
+                    comentarioCurso.Add(comentario);
+                }
+            }
+
+            return comentarioCurso;
         }
 
     }

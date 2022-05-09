@@ -85,11 +85,18 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ListarComentarioPorIdCurso(System.Int32)">
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ListarComentarioPorId(System.Int32)">
             <summary>
             Listar um comentario pelo seu id
             </summary>
             <param name="id">id Comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ListarComentarioPorIdCurso(System.Int32)">
+            <summary>
+            Listar um comentario pelo seu idcurso
+            </summary>
+            <param name="idCurso">id Comentario</param>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ExcluirComentarioCurso(System.Int32)">
@@ -114,11 +121,18 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComentarioPorIdDesconto(System.Int32)">
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComentarioPorId(System.Int32)">
             <summary>
             Listar um comentario pelo seu id
             </summary>
             <param name="id">id Comentario</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComentarioPorIdDesconto(System.Int32)">
+            <summary>
+            Listar um comentario pelo seu idDesconto
+            </summary>
+            <param name="idDesconto">id Comentario</param>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ExcluirComentarioDesconto(System.Int32)">
@@ -343,6 +357,31 @@
             </summary>
             <param name="novoLogradouro">Dados do logradouro a ser cadatrado</param>
         </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistrodescontosController.ListarTodos">
+            <summary>
+            Listar todos os registros de desconto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistrodescontosController.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um Registro de um descontro atraves de seu id
+            </summary>
+            <param name="id">Id do registro desconto a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistrodescontosController.CadastrarRegistrodesconto(SenaiRH_G2.ViewModels.RegistroDescontoCadastrarViewModel)">
+            <summary>
+            Cadastrar um registro de desconto
+            </summary>
+            <param name="novoRegistrodesconto">Dados do registro desconto a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistrodescontosController.ExcluirRegistrodesconto(System.Int32)">
+            <summary>
+            Excluir um registro de um desconto
+            </summary>
+            <param name="id">Id do registro desconto a ser excluido</param>
+        </member>
         <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.ListarTodos">
             <summary>
             Listar todos os registros de desconto
@@ -369,6 +408,18 @@
             </summary>
             <param name="novoRegistrocurso"></param>
             <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.AtualizarSituacao(System.Int32)">
+            <summary>
+            Atualizar situação
+            </summary>
+            <param name="idRegistroCurso">Id do curso registrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.EnviaEmailDescricao(System.String)">
+            <summary>
+            Enviar Comunicado sobre o registro d curso atraves do email
+            </summary>
+            <param name="email"></param>
         </member>
         <member name="M:SenaiRH_G2.Repositories.BairroRepository.BuscarPorId(System.Int32)">
             <summary>
@@ -445,7 +496,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ListarComentarioPorIdCurso(System.Int32)">
+        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ListarComentarioPorId(System.Int32)">
             <summary>
             Listar comentarios pelo seu id 
             </summary>
@@ -488,7 +539,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.ListarComentarioPorIdDesconto(System.Int32)">
+        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.ListarComentarioPorId(System.Int32)">
             <summary>
             Listar comentarios pelo seu id 
             </summary>
@@ -717,6 +768,43 @@
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.ListarTodos">
+            <summary>
+            Listar todos os registros de desconto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.AtualizarSituacao(System.Int32)">
+            <summary>
+            Atualizar situação
+            </summary>
+            <param name="idRegistroCurso">Id do curso registrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrocursoRepository.EnviaEmailDescricao(System.String)">
+            <summary>
+            Enviar Comunicado sobre o registro d curso atraves do email
+            </summary>
+            <param name="email"></param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrodescontoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um Registro de um descontro atraves de seu id
+            </summary>
+            <param name="id">Id do registro desconto a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrodescontoRepository.CadastrarRegistrodesconto(SenaiRH_G2.ViewModels.RegistroDescontoCadastrarViewModel)">
+            <summary>
+            Cadastrar um registro de desconto
+            </summary>
+            <param name="novoRegistrodesconto">Dados do registro desconto a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrodescontoRepository.ExcluirRegistrodesconto(System.Int32)">
+            <summary>
+            Excluir um registro de um desconto
+            </summary>
+            <param name="id">Id do registro desconto a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.RegistrodescontoRepository.ListarTodos">
             <summary>
             Listar todos os registros de desconto
             </summary>

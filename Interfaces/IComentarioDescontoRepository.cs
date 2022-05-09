@@ -10,7 +10,8 @@ namespace SenaiRH_G2.Interfaces
     {
         List<Comentariodesconto> ListarComenatarioDesconto();
         void CadastrarComentarioDesconto(Comentariodesconto NovoComentario);
-        Comentariodesconto ListarComentarioPorIdDesconto(int Id);
+        List<Comentariodesconto> ListarComentarioPorIdDesconto(int Id);
+        Comentariodesconto ListarComentarioPorId(int Id);
         void ExcluirComentarioDesconto(int Id);
     }
 }
