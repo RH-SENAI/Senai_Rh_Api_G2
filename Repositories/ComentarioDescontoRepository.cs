@@ -95,15 +95,7 @@ namespace SenaiRH_G2.Repositories
         public List<Comentariodesconto> ListarComentarioPorIdDesconto(int Id)
         {
             List<Comentariodesconto> comentariodescontos = new();
-            foreach (var comentario in ctx.Comentariodescontos)
-            {
-                if(comentario.IdDesconto == Id)
-                {
-                    comentariodescontos.Add(comentario);
-                }
-            }
-
-            return ctx.Comentariodescontos.Select(p => new Comentariodesconto
+            foreach (var comentario in ctx.Comentariodescontos.Select(p => new Comentariodesconto
             {
                 IdComentarioDesconto = p.IdComentarioDesconto,
                 IdDesconto = p.IdDesconto,
@@ -115,7 +107,15 @@ namespace SenaiRH_G2.Repositories
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
                     Nome = p.IdUsuarioNavigation.Nome,
                 }
-            }).ToList();
+            }).ToList())
+            {
+                if(comentario.IdDesconto == Id)
+                {
+                    comentariodescontos.Add(comentario);
+                }
+            }
+
+            return comentariodescontos;
 
         }
     }

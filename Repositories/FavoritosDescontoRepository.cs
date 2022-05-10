@@ -53,15 +53,7 @@ namespace SenaiRH_G2.Repositories
         {
             List<Descontofavorito> descontofavoritos = new();
 
-            foreach (var favorito in ctx.Descontofavoritos)
-            {
-                if (favorito.IdUsuario == Id)
-                {
-                    descontofavoritos.Add(favorito);
-                }
-            }
-
-            return ctx.Descontofavoritos.Select(p => new Descontofavorito
+            foreach (var favorito in ctx.Descontofavoritos.Select(p => new Descontofavorito()
             {
                 IdDescontoFavorito = p.IdDescontoFavorito,
                 IdDesconto = p.IdDesconto,
@@ -113,7 +105,15 @@ namespace SenaiRH_G2.Repositories
 
                     }
                 }
-            }).ToList();
+            }).ToList())
+            {
+                if (favorito.IdUsuario == Id)
+                {
+                    descontofavoritos.Add(favorito);
+                }
+            }
+
+            return descontofavoritos;
         }
 
         /// <summary>

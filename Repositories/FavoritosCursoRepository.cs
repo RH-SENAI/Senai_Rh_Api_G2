@@ -53,15 +53,7 @@ namespace SenaiRH_G2.Repositories
         {
             List<Cursofavorito> cursofavoritos = new();
 
-            foreach (var favorito in ctx.Cursofavoritos)
-            {
-                if (favorito.IdUsuario == Id)
-                {
-                    cursofavoritos.Add(favorito);
-                }
-            }
-
-            return ctx.Cursofavoritos.Select(p => new Cursofavorito
+            foreach (var favorito in ctx.Cursofavoritos.Select(p => new Cursofavorito
             {
                 IdCursoFavorito = p.IdCursoFavorito,
                 IdCurso = p.IdCurso,
@@ -120,7 +112,15 @@ namespace SenaiRH_G2.Repositories
                         }
                     },
                 }
-            }).ToList();
+            }).ToList())
+            {
+                if (favorito.IdUsuario == Id)
+                {
+                    cursofavoritos.Add(favorito);
+                }
+            }
+
+            return cursofavoritos;
         }
 
 

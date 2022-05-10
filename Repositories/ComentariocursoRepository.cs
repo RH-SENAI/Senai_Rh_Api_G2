@@ -98,15 +98,7 @@ namespace SenaiRH_G2.Repositories
         {
             List<Comentariocurso> comentarioCurso = new();
 
-            foreach (var comentario in ctx.Comentariocursos)
-            {
-                if (comentario.IdCurso == Id)
-                {
-                    comentarioCurso.Add(comentario);
-                }
-            }
-
-            return ctx.Comentariocursos.Select(p => new Comentariocurso
+            foreach (var comentario in ctx.Comentariocursos.Select(p => new Comentariocurso
             {
                 IdComentarioCurso = p.IdComentarioCurso,
                 IdCurso = p.IdCurso,
@@ -118,7 +110,15 @@ namespace SenaiRH_G2.Repositories
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
                     Nome = p.IdUsuarioNavigation.Nome,
                 }
-            }).ToList();
+            }).ToList())
+            {
+                if (comentario.IdCurso == Id)
+                {
+                    comentarioCurso.Add(comentario);
+                }
+            }
+
+            return comentarioCurso;
         }
 
     }
