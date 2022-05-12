@@ -95,7 +95,12 @@ namespace SenaiRH_G2.Repositories
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
                     Nome = p.IdUsuarioNavigation.Nome,
                     SaldoMoeda = p.IdUsuarioNavigation.SaldoMoeda,
-                    Email = p.IdUsuarioNavigation.Email
+                    Email = p.IdUsuarioNavigation.Email, 
+                    IdCargoNavigation = new Cargo()
+                    {
+                        IdCargo = p.IdUsuarioNavigation.IdCargoNavigation.IdCargo,
+                        NomeCargo = p.IdUsuarioNavigation.IdCargoNavigation.NomeCargo
+                    }
                 },
                 IdCursoNavigation = new Curso()
                 {
