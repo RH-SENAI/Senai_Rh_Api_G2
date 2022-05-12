@@ -94,7 +94,8 @@ namespace SenaiRH_G2.Repositories
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
                     Nome = p.IdUsuarioNavigation.Nome,
-                    SaldoMoeda = p.IdUsuarioNavigation.SaldoMoeda
+                    SaldoMoeda = p.IdUsuarioNavigation.SaldoMoeda,
+                    Email = p.IdUsuarioNavigation.Email
                 },
                 IdCursoNavigation = new Curso()
                 {
