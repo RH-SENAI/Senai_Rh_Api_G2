@@ -30,6 +30,7 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="Id">id do favorito a ser buscado</param>
         /// <returns></returns>
         Cursofavorito BuscarCursoFavoritoPorId(int Id);
+        List<Cursofavorito> ListarPorIdFavoritoCurso(int Id);
 
 
     }

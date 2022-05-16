@@ -32,7 +32,7 @@ namespace SenaiRH_G2.Repositories
         /// <param name="novoCurso">dados desse novo curso a ser cadastrado</param>
         public void CadastrarCurso(CursoCadastroViewModel novoCurso)
         {
-
+            novoCurso.IdSituacaoInscricao = 1;
             Curso curso = new Curso()
             {
                 IdEmpresa = novoCurso.IdEmpresa,
@@ -44,8 +44,8 @@ namespace SenaiRH_G2.Repositories
                 CargaHoraria = novoCurso.CargaHoraria,
                 DataFinalizacao = novoCurso.DataFinalizacao,
                 MediaAvaliacaoCurso = novoCurso.MediaAvaliacaoCurso = 0,
-                IdSituacaoInscricao = novoCurso.IdSituacaoInscricao = 4,
-                ValorCurso = novoCurso.ValorCurso
+                IdSituacaoInscricao = (byte)novoCurso.IdSituacaoInscricao,
+                ValorCurso = (int)novoCurso.ValorCurso
             };
 
             ctx.Cursos.Add(curso);

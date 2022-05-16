@@ -273,6 +273,13 @@
             <param name="Id">Id do curso favorito</param>
             <returns></returns>
         </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.ListarPorIdFavoritoCurso(System.Int32)">
+            <summary>
+            Listar um comentario pelo seu idcurso
+            </summary>
+            <param name="IdUsuario">id Usuario</param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Controllers.FavoritosCursosController.AdcionarFavoritos(SenaiRH_G2.Domains.Cursofavorito)">
             <summary>
             Adcionar um novo curso aos favoritos
@@ -284,6 +291,13 @@
             <summary>
             Listar todos os descontos favoritos
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.FavoritosDescontosController.ListarPorIdFavoritoDesconto(System.Int32)">
+            <summary>
+            Listar um comentario pelo seu idcurso
+            </summary>
+            <param name="IdUsuario">id Usuario</param>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Controllers.FavoritosDescontosController.BuscarCursoFavoritoPorId(System.Int32)">
@@ -386,6 +400,13 @@
             <summary>
             Listar todos os registros de desconto
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.ListarRegistroCursoPorIdSituação(System.Int32)">
+            <summary>
+            Listar um registro cursos pelo seu idSituacaoAtividade
+            </summary>
+            <param name="IdSituacaoAtividade">id Situação Atividade</param>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Controllers.RegistroscursosController.BuscarPorId(System.Int32)">

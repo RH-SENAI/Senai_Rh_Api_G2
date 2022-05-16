@@ -25,11 +25,15 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="id">id do registro a ser buscado</param>
         /// <returns></returns>
         Registrocurso BuscarPorId(int id);
+<<<<<<< HEAD
         /// <summary>
         /// Cadastrar um registro de curso
         /// </summary>
         /// <param name="novoRegistrocurso">Dados do registro a ser cadastrado</param>
         
+=======
+        List<Registrocurso> ListarRegistroCursoPorIdSituação(int Id);
+>>>>>>> 4386ac277116cf15d81a4cdc6079ba0d99603610
         void CadastrarRegistrocurso(RegistroCursoCadastrarViewModel novoRegistrocurso);
         /// <summary>
         /// Atualizar a situação do registro 

@@ -46,6 +46,26 @@ namespace SenaiRH_G2.Controllers
 
 
         /// <summary>
+        /// Listar um comentario pelo seu idcurso
+        /// </summary>
+        /// <param name="IdUsuario">id Usuario</param>
+        /// <returns></returns>
+        [HttpGet("Favorito/{IdUsuario}")]
+        public IActionResult ListarPorIdFavoritoDesconto(int IdUsuario)
+        {
+            try
+            {
+                return Ok(_favoritoDesconto.ListarPorIdFavoritoDesconto(IdUsuario));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
+        /// <summary>
         /// Buscar um desconto nos favoritos pelo seu id
         /// </summary>
         /// <param name="Id">d do curso favorito</param>

@@ -43,7 +43,8 @@ namespace SenaiRH_G2.Repositories
             Registrocurso registrocurso = new Registrocurso();
             registrocurso.IdUsuario = novoRegistrocurso.IdUsuario;
             registrocurso.IdCurso = novoRegistrocurso.IdCurso;
-            registrocurso.IdSituacaoAtividade = novoRegistrocurso.IdSituacaoAtividade = 2;
+            novoRegistrocurso.IdSituacaoAtividade = 2;
+            registrocurso.IdSituacaoAtividade = (byte)novoRegistrocurso.IdSituacaoAtividade;
 
             usuario.IdUsuario = registrocurso.IdUsuario;
             curso.IdCurso = registrocurso.IdCurso;
@@ -94,13 +95,21 @@ namespace SenaiRH_G2.Repositories
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
                     Nome = p.IdUsuarioNavigation.Nome,
-                    SaldoMoeda = p.IdUsuarioNavigation.SaldoMoeda
+                    SaldoMoeda = p.IdUsuarioNavigation.SaldoMoeda,
+                    Email = p.IdUsuarioNavigation.Email,
+                    Cpf = p.IdUsuarioNavigation.Cpf,
+                    IdCargoNavigation = new Cargo()
+                    {
+                        IdCargo = p.IdUsuarioNavigation.IdCargoNavigation.IdCargo,
+                        NomeCargo = p.IdUsuarioNavigation.IdCargoNavigation.NomeCargo
+                    }
                 },
                 IdCursoNavigation = new Curso()
                 {
                     IdCurso = p.IdCursoNavigation.IdCurso,
                     NomeCurso = p.IdCursoNavigation.NomeCurso,
-                    ValorCurso = p.IdCursoNavigation.ValorCurso
+                    ValorCurso = p.IdCursoNavigation.ValorCurso,
+                    SiteCurso = p.IdCursoNavigation.SiteCurso,
                 },
                 IdSituacaoAtividadeNavigation = new Situacaoatividade()
                 {
@@ -168,6 +177,44 @@ namespace SenaiRH_G2.Repositories
                 }
             }
 
+        }
+
+        public List<Registrocurso> ListarRegistroCursoPorIdSituação(int Id)
+        {
+            List<Registrocurso> registrocursos = new();
+            foreach (var registro in ctx.Registrocursos.Select(p => new Registrocurso
+            {
+                IdRegistroCurso = p.IdRegistroCurso,
+                IdSituacaoAtividade = p.IdSituacaoAtividade,
+                IdCurso = p.IdCurso,
+                IdUsuario = p.IdUsuario,
+                IdCursoNavigation = new Curso
+                {
+                    IdCurso = p.IdCursoNavigation.IdCurso,
+                    NomeCurso = p.IdCursoNavigation.NomeCurso,
+                    SiteCurso = p.IdCursoNavigation.SiteCurso
+                },
+                IdUsuarioNavigation = new Usuario
+                {
+                    IdUsuario = p.IdUsuarioNavigation.IdUsuario,
+                    Nome = p.IdUsuarioNavigation.Nome,
+                    Cpf = p.IdUsuarioNavigation.Cpf,
+                    Email = p.IdUsuarioNavigation.Email,
+                    IdCargoNavigation = new Cargo
+                    {
+                        IdCargo = p.IdUsuarioNavigation.IdCargoNavigation.IdCargo,
+                        NomeCargo = p.IdUsuarioNavigation.IdCargoNavigation.NomeCargo
+                    },
+                }
+            }).ToList())
+            {
+                if(registro.IdSituacaoAtividade == Id)
+                {
+                    registrocursos.Add(registro);
+                }
+                
+            }
+            return registrocursos;
         }
     }
 }

@@ -124,8 +124,24 @@ namespace SenaiRH_G2.Repositories
             //Lista de comentario do curso 
             List<Comentariocurso> comentarioCurso = new();
 
+<<<<<<< HEAD
             //Repetição dos comentarios que tem no curso
             foreach (var comentario in ctx.Comentariocursos)
+=======
+            foreach (var comentario in ctx.Comentariocursos.Select(p => new Comentariocurso
+            {
+                IdComentarioCurso = p.IdComentarioCurso,
+                IdCurso = p.IdCurso,
+                IdUsuario = p.IdUsuario,
+                ComentarioCurso1 = p.ComentarioCurso1,
+                AvaliacaoComentario = p.AvaliacaoComentario,
+                IdUsuarioNavigation = new Usuario
+                {
+                    IdUsuario = p.IdUsuarioNavigation.IdUsuario,
+                    Nome = p.IdUsuarioNavigation.Nome,
+                }
+            }).ToList())
+>>>>>>> 4386ac277116cf15d81a4cdc6079ba0d99603610
             {
                 //Verificando se o id passado é igual a um id curso
                 if (comentario.IdCurso == Id)

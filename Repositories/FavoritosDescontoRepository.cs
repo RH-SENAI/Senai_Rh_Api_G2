@@ -49,6 +49,73 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Descontofavorito> ListarPorIdFavoritoDesconto(int Id)
+        {
+            List<Descontofavorito> descontofavoritos = new();
+
+            foreach (var favorito in ctx.Descontofavoritos.Select(p => new Descontofavorito()
+            {
+                IdDescontoFavorito = p.IdDescontoFavorito,
+                IdDesconto = p.IdDesconto,
+                IdUsuario = p.IdUsuario,
+                IdUsuarioNavigation = new Usuario
+                {
+                    Nome = p.IdUsuarioNavigation.Nome,
+                    Email = p.IdUsuarioNavigation.Email,
+                    Cpf = p.IdUsuarioNavigation.Cpf,
+                    SaldoMoeda = p.IdUsuarioNavigation.SaldoMoeda
+                },
+                IdDescontoNavigation = new Desconto
+                {
+                    IdDesconto = p.IdDescontoNavigation.IdDesconto,
+                    IdEmpresa = p.IdDescontoNavigation.IdEmpresa,
+                    NomeDesconto = p.IdDescontoNavigation.NomeDesconto,
+                    DescricaoDesconto = p.IdDescontoNavigation.DescricaoDesconto,
+                    CaminhoImagemDesconto = p.IdDescontoNavigation.CaminhoImagemDesconto,
+                    ValidadeDesconto = p.IdDescontoNavigation.ValidadeDesconto,
+                    ValorDesconto = p.IdDescontoNavigation.ValorDesconto,
+                    NumeroCupom = p.IdDescontoNavigation.NumeroCupom,
+                    MediaAvaliacaoDesconto = p.IdDescontoNavigation.MediaAvaliacaoDesconto,
+                    IdEmpresaNavigation = new Empresa()
+                    {
+
+                        NomeEmpresa = p.IdDescontoNavigation.IdEmpresaNavigation.NomeEmpresa,
+                        EmailEmpresa = p.IdDescontoNavigation.IdEmpresaNavigation.EmailEmpresa,
+                        TelefoneEmpresa = p.IdDescontoNavigation.IdEmpresaNavigation.TelefoneEmpresa,
+                        IdLocalizacaoNavigation = new Localizacao()
+                        {
+                            Numero = p.IdDescontoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.Numero,
+                            IdCep = p.IdDescontoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCep,
+                            IdCepNavigation = new Cep()
+                            {
+                                IdCep = p.IdDescontoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.IdCep,
+                                Cep1 = p.IdDescontoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.Cep1
+                            },
+                            IdLogradouroNavigation = new Logradouro()
+                            {
+                                NomeLogradouro = p.IdDescontoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdLogradouroNavigation.NomeLogradouro
+                            },
+                            IdEstadoNavigation = new Estado()
+                            {
+                                NomeEstado = p.IdDescontoNavigation.IdEmpresaNavigation.IdLocalizacaoNavigation.IdEstadoNavigation.NomeEstado
+                            }
+
+                        }
+
+
+                    }
+                }
+            }).ToList())
+            {
+                if (favorito.IdUsuario == Id)
+                {
+                    descontofavoritos.Add(favorito);
+                }
+            }
+
+            return descontofavoritos;
+        }
+
         /// <summary>
         /// Listar os descontos favoritos de um determinado usuario
         /// </summary>

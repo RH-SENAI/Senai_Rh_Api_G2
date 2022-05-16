@@ -31,5 +31,6 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="Id">id do favorito a ser buscado</param>
         /// <returns></returns>
         Descontofavorito BuscarDescontoFavoritoPorId(int Id);
+        List<Descontofavorito> ListarPorIdFavoritoDesconto(int Id);
     }
 }
