@@ -10,6 +10,9 @@ namespace SenaiRH_G2.Repositories
 {
     public class ComentarioCursoRepository : IComentarioCursoRepository
     {
+        /// <summary>
+        /// Instanciando um contexto
+        /// </summary>
         senaiRhContext ctx = new senaiRhContext();
 
 
@@ -20,7 +23,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public Comentariocurso ListarComentarioPorId(int Id)
         {
-
+            //Buscando um comentari curso pelo id passado
             return ctx.Comentariocursos.FirstOrDefault(c => c.IdComentarioCurso == Id);
         }
 
@@ -30,29 +33,43 @@ namespace SenaiRH_G2.Repositories
         /// <param name="NovoComentario">Dados no novo comentario</param>
         public void CadastrarComentarioCurso(Comentariocurso NovoComentario)
         {
+            //Instanciando um curso
             Curso curso = new Curso();
+            //Intanciando um comentarioCurso
             Comentariocurso comentariocurso = new Comentariocurso();
+
+            //Definindo os valores dos atributos
             comentariocurso.IdUsuario = NovoComentario.IdUsuario;
             comentariocurso.IdCurso = NovoComentario.IdCurso;
             comentariocurso.ComentarioCurso1 = NovoComentario.ComentarioCurso1;
             comentariocurso.AvaliacaoComentario = NovoComentario.AvaliacaoComentario;
-
             curso.IdCurso = NovoComentario.IdCurso;
 
+            //Buscando um curso atraves do id curso
             Curso buscarMediaCurso = ctx.Cursos.FirstOrDefault(c => c.IdCurso == curso.IdCurso);
 
+            //Verificação se a media for igual a o ele vai entrar no if
             if (buscarMediaCurso.MediaAvaliacaoCurso == 0)
             {
+                //Definindo que o valor nao mudara  
                 buscarMediaCurso.MediaAvaliacaoCurso += NovoComentario.AvaliacaoComentario;
+                //Alterando o valor da media
                 ctx.Cursos.Update(buscarMediaCurso);
+                //Cadastrando um novo comentario ao curso
                 ctx.Comentariocursos.Add(NovoComentario);
+                //Salvando o cadastro
                 ctx.SaveChanges();
             }
+            //caso a media for diferente que 0 ele entrara no else
             else
             {
+                //Definindo o valor da media
                 buscarMediaCurso.MediaAvaliacaoCurso = (buscarMediaCurso.MediaAvaliacaoCurso + NovoComentario.AvaliacaoComentario) / 2;
+                //Alterando esse valor da media
                 ctx.Cursos.Update(buscarMediaCurso);
+                //Cadastrando um comentario
                 ctx.Comentariocursos.Add(NovoComentario);
+                //Salvando o cadastro 
                 ctx.SaveChanges();
             }
         }
@@ -65,6 +82,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public List<Comentariocurso> ListarComenatarioCurso()
         {
+            //Listar todos os comentarios do curso , colocando um select com aapenas oa atrubutos que devem ser listados
             return ctx.Comentariocursos
                                 .Select(p => new Comentariocurso
                                 {
@@ -90,22 +108,33 @@ namespace SenaiRH_G2.Repositories
         /// <param name="Id">Id do comentario</param>
         public void ExcluirComentarioCurso(int Id)
         {
+            //Excluir um comentario pelo id passado
             ctx.Comentariocursos.Remove(ListarComentarioPorId(Id));
+            //Salvando a exclusao
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Buscaar um comentario pelo seu id do curso
+        /// </summary>
+        /// <param name="Id">id do curso a ser buscado</param>
+        /// <returns></returns>
         public List<Comentariocurso> ListarComentarioPorIdCurso(int Id)
         {
+            //Lista de comentario do curso 
             List<Comentariocurso> comentarioCurso = new();
 
+            //Repetição dos comentarios que tem no curso
             foreach (var comentario in ctx.Comentariocursos)
             {
+                //Verificando se o id passado é igual a um id curso
                 if (comentario.IdCurso == Id)
                 {
                     comentarioCurso.Add(comentario);
                 }
             }
 
+            //retornando a lista de curso 
             return comentarioCurso;
         }
 

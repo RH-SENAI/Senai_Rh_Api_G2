@@ -10,7 +10,9 @@ namespace SenaiRH_G2.Repositories
 {
     public class BairroRepository : IBairroRepository
     {
-
+        /// <summary>
+        /// Instancando um contexto
+        /// </summary>
         senaiRhContext ctx = new senaiRhContext();
 
         /// <summary>
@@ -20,6 +22,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public Bairro BuscarPorId(int id)
         {
+            //Buscando um bairro pelo id passado
             return ctx.Bairros.FirstOrDefault(c => c.IdBairro == id);
         }
 
@@ -31,10 +34,12 @@ namespace SenaiRH_G2.Repositories
         {
             Bairro bairro = new Bairro()
             {
+                //passando os atributos para cadastrar 
                 NomeBairro = novoBairro.NomeBairro
             };
-
+            //Cadastrando um bairro
             ctx.Bairros.Add(bairro);
+            //Salvando o cadastro
             ctx.SaveChanges();
         }
 
@@ -44,8 +49,11 @@ namespace SenaiRH_G2.Repositories
         /// <param name="id">Id do bairro a ser excluido</param>
         public void ExcluirBairro(int id)
         {
+            //Buscado um bairro pelo seu id 
             Bairro buscarPorId = ctx.Bairros.FirstOrDefault(c => c.IdBairro == id);
+            //Excluido
             ctx.Bairros.Remove(buscarPorId);
+            //Salvando a alteração
             ctx.SaveChanges();
         }
 
@@ -55,6 +63,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public List<Bairro> ListarTodos()
         {
+            //Listar todos os bairros , com os atributos idBairro e nomeBairro
             return ctx.Bairros.Select(p => new Bairro
             {
                 IdBairro = p.IdBairro,

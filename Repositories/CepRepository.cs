@@ -10,7 +10,9 @@ namespace SenaiRH_G2.Repositories
 {
     public class CepRepository : ICepRepository
     {
-
+        /// <summary>
+        /// Instacando um contexto
+        /// </summary>
         senaiRhContext ctx = new senaiRhContext();
 
         /// <summary>
@@ -20,6 +22,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public Cep BuscarPorId(int id)
         {
+            //Buscando um cep pelo id passado
             return ctx.Ceps.FirstOrDefault(c => c.IdCep == id);
         }
 
@@ -31,10 +34,13 @@ namespace SenaiRH_G2.Repositories
         {
             Cep cep = new Cep()
             {
+                //Passando os atributos para cadastrar
                 Cep1 = novoCep.Cep1
             };
 
+            //Cadastrando um cep
             ctx.Ceps.Add(cep);
+            //Salvando o cadastro
             ctx.SaveChanges();
         }
 
@@ -44,8 +50,11 @@ namespace SenaiRH_G2.Repositories
         /// <param name="id">Id do cep a ser excluido</param>
         public void ExcluirCep(int id)
         {
+            //Buscando o cep pelo id passado 
             Cep buscarPorId = ctx.Ceps.FirstOrDefault(c => c.IdCep == id);
+            //Excluindo o cep buscado
             ctx.Ceps.Remove(buscarPorId);
+            //Salvando as alterações
             ctx.SaveChanges();
         }
 
@@ -55,9 +64,10 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public List<Cep> ListarTodos()
         {
+            //Listado todos os cep, com os atributos, IdCep e Cep1(numero do cep)
             return ctx.Ceps.Select(p => new Cep
             {
-
+                //Atributos passados
                 IdCep = p.IdCep,
                 Cep1 = p.Cep1
 

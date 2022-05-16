@@ -10,7 +10,9 @@ namespace SenaiRH_G2.Repositories
 {
     public class CidadeRepository : ICidadeRepository
     {
-
+        /// <summary>
+        /// Instanciando um contexto
+        /// </summary>
         senaiRhContext ctx = new senaiRhContext();
 
         /// <summary>
@@ -20,6 +22,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public Cidade BuscarPorId(int id)
         {
+            //Buscando uma cidade pelo id passado
             return ctx.Cidades.FirstOrDefault(c => c.IdCidade == id);
         }
 
@@ -31,10 +34,13 @@ namespace SenaiRH_G2.Repositories
         {
             Cidade cidade = new Cidade()
             {
+                //passando os atributos para cadastrar 
                 NomeCidade = novoCidade.NomeCidade
             };
 
+            //Cadasntrando uma cidade
             ctx.Cidades.Add(cidade);
+            //Salvando o cadastro 
             ctx.SaveChanges();
         }
 
@@ -44,8 +50,11 @@ namespace SenaiRH_G2.Repositories
         /// <param name="id">Id da cidade a ser excluida</param>
         public void ExcluirCidade(int id)
         {
+            //Buscando uma cidade pelo id passado
             Cidade buscarPorId = ctx.Cidades.FirstOrDefault(c => c.IdCidade == id);
+            //Excluir a cidade buacada
             ctx.Cidades.Remove(buscarPorId);
+            //Salvando a exclusao
             ctx.SaveChanges();
         }
 
@@ -55,6 +64,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public List<Cidade> ListarTodos()
         {
+            //Listar todas as cidades, com os atributos, idCidade, nomeCidade
             return ctx.Cidades.Select(p => new Cidade
             {
                 IdCidade = p.IdCidade,
