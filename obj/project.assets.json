@@ -8372,24 +8372,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samue\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\43690999863.INFOSCS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samue\\Desktop\\Desgrama\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "projectUniqueName": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
       "projectName": "SenaiRH_G2",
-      "projectPath": "C:\\Users\\samue\\Desktop\\Desgrama\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
-      "packagesPath": "C:\\Users\\samue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\samue\\Desktop\\Desgrama\\Senai_Rh_Api_G2\\obj\\",
+      "projectPath": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "packagesPath": "C:\\Users\\43690999863.INFOSCS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\samue\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\43690999863.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8476,7 +8471,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

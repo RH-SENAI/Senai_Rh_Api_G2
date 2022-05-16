@@ -13,6 +13,7 @@ namespace SenaiRH_G2.Interfaces
         List<Registrocurso> ListarTodos();
         void ExcluirRegistrocurso(int id);
         Registrocurso BuscarPorId(int id);
+        List<Registrocurso> ListarRegistroCursoPorIdSituação(int Id);
         void CadastrarRegistrocurso(RegistroCursoCadastrarViewModel novoRegistrocurso);
         void AtualizarSituacao(int idRegistroCurso);
         void EnviaEmailDescricao(string email);

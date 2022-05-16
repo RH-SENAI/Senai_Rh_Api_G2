@@ -53,6 +53,26 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+        /// <summary>
+        /// Listar um registro cursos pelo seu idSituacaoAtividade
+        /// </summary>
+        /// <param name="IdSituacaoAtividade">id Comentario</param>
+        /// <returns></returns>
+        [HttpGet("RegistroCursos/{IdSituacaoAtividade}")]
+        public IActionResult ListarRegistroCursoPorIdSituação(int IdSituacaoAtividade)
+        {
+            try
+            {
+                return Ok(_registrocursoRepository.ListarRegistroCursoPorIdSituação(IdSituacaoAtividade));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
 
         /// <summary>
         /// Buscar um registro de cursos pelo seu id
