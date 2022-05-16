@@ -43,7 +43,8 @@ namespace SenaiRH_G2.Repositories
             Registrocurso registrocurso = new Registrocurso();
             registrocurso.IdUsuario = novoRegistrocurso.IdUsuario;
             registrocurso.IdCurso = novoRegistrocurso.IdCurso;
-            registrocurso.IdSituacaoAtividade = novoRegistrocurso.IdSituacaoAtividade = 2;
+            novoRegistrocurso.IdSituacaoAtividade = 2;
+            registrocurso.IdSituacaoAtividade = (byte)novoRegistrocurso.IdSituacaoAtividade;
 
             usuario.IdUsuario = registrocurso.IdUsuario;
             curso.IdCurso = registrocurso.IdCurso;
