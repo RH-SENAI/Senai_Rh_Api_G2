@@ -442,6 +442,419 @@
             </summary>
             <param name="email"></param>
         </member>
+        <member name="M:SenaiRH_G2.Interfaces.IBairroRepository.ListarTodos">
+            <summary>
+            Listar todos os bairros 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IBairroRepository.ExcluirBairro(System.Int32)">
+            <summary>
+            Excluir um bairro pelo seu id
+            </summary>
+            <param name="id">id do bairro a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IBairroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um bairro pelo seu id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IBairroRepository.CadastrarBairro(SenaiRH_G2.Domains.Bairro)">
+            <summary>
+            cadastrar um novo bairro 
+            </summary>
+            <param name="novoBairro">dados de cadastro de um bairro</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICepRepository.ListarTodos">
+            <summary>
+            Listar todos os ceps
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICepRepository.ExcluirCep(System.Int32)">
+            <summary>
+            Excluir um cep pelo seu id
+            </summary>
+            <param name="id">id do cep a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICepRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um cep pelo seu id 
+            </summary>
+            <param name="id">id do cep a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICepRepository.CadastrarCep(SenaiRH_G2.Domains.Cep)">
+            <summary>
+            Cadastrar um novo cep
+            </summary>
+            <param name="novoCep">Dados do cep a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICidadeRepository.ListarTodos">
+            <summary>
+            Listar todos as cidades 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICidadeRepository.ExcluirCidade(System.Int32)">
+            <summary>
+            Excluir uma cidade pelo seu id
+            </summary>
+            <param name="id">id da cidade a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICidadeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar uma cidade pelo seu id
+            </summary>
+            <param name="id">id da cidade a ser buscada</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICidadeRepository.CadastrarCidade(SenaiRH_G2.Domains.Cidade)">
+            <summary>
+            Cadastrar uma nova cidade 
+            </summary>
+            <param name="novoCidade">dados da cidade a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioCursoRepository.ListarComenatarioCurso">
+            <summary>
+            Listar todos os comentarios de um curso
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioCursoRepository.ListarComentarioPorId(System.Int32)">
+            <summary>
+            Buscar um comentario de um curso atraves de seu id
+            </summary>
+            <param name="Id">id do cometario a ser buscado </param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioCursoRepository.ListarComentarioPorIdCurso(System.Int32)">
+            <summary>
+            Buscar um comentario de um curso atravaes de um id do curso
+            </summary>
+            <param name="Id">id do curso a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioCursoRepository.ExcluirComentarioCurso(System.Int32)">
+            <summary>
+            Excluir um comentario de um curso atraves do id
+            </summary>
+            <param name="Id">id do comentario a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioCursoRepository.CadastrarComentarioCurso(SenaiRH_G2.Domains.Comentariocurso)">
+            <summary>
+            Cadastrar um comentario de um curso
+            </summary>
+            <param name="NovoComentario">Dados de um comentario a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioDescontoRepository.ListarComenatarioDesconto">
+            <summary>
+            Listar todos os comentario de desconto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioDescontoRepository.CadastrarComentarioDesconto(SenaiRH_G2.Domains.Comentariodesconto)">
+            <summary>
+            Cadastrar um novo comentario do desconto
+            </summary>
+            <param name="NovoComentario">dados do cometario a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioDescontoRepository.ListarComentarioPorIdDesconto(System.Int32)">
+            <summary>
+            Buscar um comentario desconto pelo seu idDesconto
+            </summary>
+            <param name="Id">id do desconto a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioDescontoRepository.ListarComentarioPorId(System.Int32)">
+            <summary>
+            Buscar um comentario desconto pelo seu id
+            </summary>
+            <param name="Id">id do comentario a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioDescontoRepository.ExcluirComentarioDesconto(System.Int32)">
+            <summary>
+            Excluir um comentario desconto
+            </summary>
+            <param name="Id">id do comentario a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICursoRepository.ListarTodos">
+            <summary>
+            Listar todos os cursos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICursoRepository.ExcluirCurso(System.Int32)">
+            <summary>
+            Excluir um curso pelo seu id 
+            </summary>
+            <param name="id">id do curso a sex excludo</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICursoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um curso pelo seu id
+            </summary>
+            <param name="id">id do curso a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICursoRepository.CadastrarCurso(SenaiRH_G2.ViewModels.CursoCadastroViewModel)">
+            <summary>
+            Cadastrar um curso 
+            </summary>
+            <param name="novoCurso">dados dos cursos a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IDescontoRepository.ListarTodos">
+            <summary>
+            LIstar todos s descontos 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IDescontoRepository.ExcluirDesconto(System.Int32)">
+            <summary>
+            Excluir um desconto pelo seu id
+            </summary>
+            <param name="idDesconto">id do desconto a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IDescontoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um desconto pelo seu id 
+            </summary>
+            <param name="id">id do desconto a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IDescontoRepository.CadastrarDesconto(SenaiRH_G2.ViewModels.DescontoCadastroViewModel)">
+            <summary>
+            Cadastrar um novo Desconto 
+            </summary>
+            <param name="novoDesconto">Dados do desconto a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEmpresaRepository.ListarTodos">
+            <summary>
+            Listar todas as empresas 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEmpresaRepository.ExcluirEmpresa(System.Int32)">
+            <summary>
+            Excluir uma empresa atraves de seu id
+            </summary>
+            <param name="id">id da empresa a ser excluida </param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEmpresaRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar uma empresa atraves de seu id
+            </summary>
+            <param name="id">id da empresa a ser buscada </param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEmpresaRepository.CadastrarEmpresa(SenaiRH_G2.ViewModels.EmpresaCadastroViewModel)">
+            <summary>
+            Cadastrar uma nova empresa 
+            </summary>
+            <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEstadoRepository.ListarTodos">
+            <summary>
+            Listar todos os estados 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEstadoRepository.ExcluirEstado(System.Int32)">
+            <summary>
+            Excluir um estado pelo seu id 
+            </summary>
+            <param name="id">id do estado a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEstadoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um estado pelo seu id 
+            </summary>
+            <param name="id">id do estado a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEstadoRepository.CadastrarEstado(SenaiRH_G2.Domains.Estado)">
+            <summary>
+            Cadastrar um novo estado
+            </summary>
+            <param name="novoEstado">Dados do estado a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosCursoRepository.ListarTodos">
+            <summary>
+            Lstar todos os Favoritos curso
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosCursoRepository.AdcionarFavoritos(SenaiRH_G2.Domains.Cursofavorito)">
+            <summary>
+            Cadastrar um favoritos curso
+            </summary>
+            <param name="Novofavorito">Dados do do curso a ser favoritado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosCursoRepository.ExcluirFavoritos(System.Int32)">
+            <summary>
+            Excluir um favorito curso atraves de seu id
+            </summary>
+            <param name="Id">id do favorito a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosCursoRepository.BuscarCursoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um favorito curso atraves de seu id
+            </summary>
+            <param name="Id">id do favorito a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosDescontoRepository.ListarTodos">
+            <summary>
+            Listar todos os favoritos Desconto 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosDescontoRepository.AdcionarFavoritos(SenaiRH_G2.Domains.Descontofavorito)">
+            <summary>
+            Cadastrar um novo favorito desconto
+            </summary>
+            <param name="Novofavorito">Dados do favorito a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosDescontoRepository.ExcluirFavoritos(System.Int32)">
+            <summary>
+            Excluir um favorito pelo seu id 
+            </summary>
+            <param name="Id">id do favorito a ser excluido </param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IFavoritosDescontoRepository.BuscarDescontoFavoritoPorId(System.Int32)">
+            <summary>
+            Buscar um favorito desconto pelo seu id
+            </summary>
+            <param name="Id">id do favorito a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILocalizacaoRepository.ListarTodos">
+            <summary>
+            Listar todos as localizações
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILocalizacaoRepository.ExcluirLocalizacao(System.Int32)">
+            <summary>
+            Excluir uma localização pelo seu id
+            </summary>
+            <param name="id">id da localização a ser excluida</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILocalizacaoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar uma localização pelo seu id
+            </summary>
+            <param name="id">id da localização a ser buscada</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILocalizacaoRepository.CadastrarLocalizacao(SenaiRH_G2.Domains.Localizacao)">
+            <summary>
+            Cadastrar uma localização 
+            </summary>
+            <param name="novoLocalizacao">Dados da localização a ser cadastrada</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILogradouroRepository.ListarTodos">
+            <summary>
+            Listar todos os logradouros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILogradouroRepository.ExcluirLogradouro(System.Int32)">
+            <summary>
+            Excluir um logradouro pelo seu id
+            </summary>
+            <param name="id">id do logradouro a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILogradouroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um logradouro pelo seu id
+            </summary>
+            <param name="id">id do logradouro a ser busscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ILogradouroRepository.CadastrarLogradouro(SenaiRH_G2.Domains.Logradouro)">
+            <summary>
+            Cadastrar um logradouro 
+            </summary>
+            <param name="novoLogradouro">Dados do logradouro a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrocursoRepository.ListarTodos">
+            <summary>
+            Listar todos os registros de curso 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrocursoRepository.ExcluirRegistrocurso(System.Int32)">
+            <summary>
+            Excluir um registro de um curso pelo seu id
+            </summary>
+            <param name="id">id do registro a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrocursoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um registro de um curso pelo seu id
+            </summary>
+            <param name="id">id do registro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrocursoRepository.CadastrarRegistrocurso(SenaiRH_G2.ViewModels.RegistroCursoCadastrarViewModel)">
+            <summary>
+            Cadastrar um registro de curso
+            </summary>
+            <param name="novoRegistrocurso">Dados do registro a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrocursoRepository.ListarRegistroCursoPorIdSituação(System.Int32)">
+            <summary>
+            Listar registro atraves de seu idSituação
+            </summary>
+            <param name="Id">id Siuacao a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrocursoRepository.AtualizarSituacao(System.Int32)">
+            <summary>
+            Atualizar a situação do registro 
+            </summary>
+            <param name="idRegistroCurso">id do registro do curso a ser alterado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrocursoRepository.EnviaEmailDescricao(System.String)">
+            <summary>
+            Enviar umemail de confirmação de cadastro em um curso
+            </summary>
+            <param name="email">Email do usuario a ser direcionado o email</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrodescontoRepository.ListarTodos">
+            <summary>
+            Listar Todos os registros de desconto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrodescontoRepository.ExcluirRegistrodesconto(System.Int32)">
+            <summary>
+            Excluir um registro de um desconto pelo seu id
+            </summary>
+            <param name="id">id do registro a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrodescontoRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um registro de desconto pelo seu id
+            </summary>
+            <param name="id">id do registro a ser buscado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IRegistrodescontoRepository.CadastrarRegistrodesconto(SenaiRH_G2.ViewModels.RegistroDescontoCadastrarViewModel)">
+            <summary>
+            Cadastrar um registro desconto 
+            </summary>
+            <param name="novoRegistrodesconto">Dados do registro a ser cadastrado</param>
+        </member>
+        <member name="F:SenaiRH_G2.Repositories.BairroRepository.ctx">
+            <summary>
+            Instancando um contexto
+            </summary>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.BairroRepository.BuscarPorId(System.Int32)">
             <summary>
             Buscar um bairro pelo seu id 
@@ -466,6 +879,11 @@
             Listar todos os bairros
             </summary>
             <returns></returns>
+        </member>
+        <member name="F:SenaiRH_G2.Repositories.CepRepository.ctx">
+            <summary>
+            Instacando um contexto
+            </summary>
         </member>
         <member name="M:SenaiRH_G2.Repositories.CepRepository.BuscarPorId(System.Int32)">
             <summary>
@@ -492,6 +910,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="F:SenaiRH_G2.Repositories.CidadeRepository.ctx">
+            <summary>
+            Instanciando um contexto
+            </summary>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.CidadeRepository.BuscarPorId(System.Int32)">
             <summary>
             Buscar uma cidade pelo seu id 
@@ -517,6 +940,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="F:SenaiRH_G2.Repositories.ComentarioCursoRepository.ctx">
+            <summary>
+            Instanciando um contexto
+            </summary>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ListarComentarioPorId(System.Int32)">
             <summary>
             Listar comentarios pelo seu id 
@@ -541,6 +969,13 @@
             Excluir um comentario 
             </summary>
             <param name="Id">Id do comentario</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioCursoRepository.ListarComentarioPorIdCurso(System.Int32)">
+            <summary>
+            Buscaar um comentario pelo seu id do curso
+            </summary>
+            <param name="Id">id do curso a ser buscado</param>
+            <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.CadastrarComentarioDesconto(SenaiRH_G2.Domains.Comentariodesconto)">
             <summary>
