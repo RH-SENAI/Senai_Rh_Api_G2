@@ -182,28 +182,29 @@ namespace SenaiRH_G2.Repositories
         public List<Registrocurso> ListarRegistroCursoPorIdSituação(int Id)
         {
             List<Registrocurso> registrocursos = new();
-            foreach (var registro in ctx.Registrocursos.Select(p => new Registrocurso 
+            foreach (var registro in ctx.Registrocursos.Select(p => new Registrocurso
             {
                 IdRegistroCurso = p.IdRegistroCurso,
+                IdSituacaoAtividade = p.IdSituacaoAtividade,
                 IdCurso = p.IdCurso,
                 IdUsuario = p.IdUsuario,
-                IdCursoNavigation = new Curso()
+                IdCursoNavigation = new Curso
                 {
                     IdCurso = p.IdCursoNavigation.IdCurso,
                     NomeCurso = p.IdCursoNavigation.NomeCurso,
                     SiteCurso = p.IdCursoNavigation.SiteCurso
                 },
-                IdUsuarioNavigation = new Usuario()
+                IdUsuarioNavigation = new Usuario
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
                     Nome = p.IdUsuarioNavigation.Nome,
                     Cpf = p.IdUsuarioNavigation.Cpf,
                     Email = p.IdUsuarioNavigation.Email,
-                    IdCargoNavigation = new Cargo()
+                    IdCargoNavigation = new Cargo
                     {
                         IdCargo = p.IdUsuarioNavigation.IdCargoNavigation.IdCargo,
                         NomeCargo = p.IdUsuarioNavigation.IdCargoNavigation.NomeCargo
-                    }
+                    },
                 }
             }).ToList())
             {
@@ -211,6 +212,7 @@ namespace SenaiRH_G2.Repositories
                 {
                     registrocursos.Add(registro);
                 }
+                
             }
             return registrocursos;
         }
