@@ -288,6 +288,18 @@ namespace SenaiRH_G2.Contexts
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
 
+                entity.Property(e => e.Negativo)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("negativo");
+
+                entity.Property(e => e.Neutro)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("neutro");
+
+                entity.Property(e => e.Positivo)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("positivo");
+
                 entity.HasOne(d => d.IdCursoNavigation)
                     .WithMany(p => p.Comentariocursos)
                     .HasForeignKey(d => d.IdCurso)

@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "SenaiRH_G2/1.0.0": {
         "dependencies": {
+          "Azure.AI.TextAnalytics": "5.1.1",
           "Azure.Storage.Blobs": "12.11.0",
           "MailKit": "3.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.14",
@@ -330,6 +331,22 @@
         },
         "compile": {
           "SenaiRH_G2.dll": {}
+        }
+      },
+      "Azure.AI.TextAnalytics/5.1.1": {
+        "dependencies": {
+          "Azure.Core": "1.22.0",
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.AI.TextAnalytics.dll": {
+            "assemblyVersion": "5.1.1.0",
+            "fileVersion": "5.100.121.56903"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.AI.TextAnalytics.dll": {}
         }
       },
       "Azure.Core/1.22.0": {
@@ -3627,6 +3644,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Azure.AI.TextAnalytics/5.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ReO5vV3EA2Rll13CpdeLBro69zi9665GYgVMpygMxPbrf3vVijxjIQSRUWzLKsATfXicpGkRoNByn46H604gog==",
+      "path": "azure.ai.textanalytics/5.1.1",
+      "hashPath": "azure.ai.textanalytics.5.1.1.nupkg.sha512"
     },
     "Azure.Core/1.22.0": {
       "type": "package",

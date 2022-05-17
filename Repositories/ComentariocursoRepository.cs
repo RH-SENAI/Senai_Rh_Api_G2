@@ -1,4 +1,5 @@
-﻿using SenaiRH_G2.Contexts;
+﻿using senai_gp3_webApi.SentimentAnalisys;
+using SenaiRH_G2.Contexts;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
 using System;
@@ -35,8 +36,19 @@ namespace SenaiRH_G2.Repositories
         {
             //Instanciando um curso
             Curso curso = new Curso();
+
             //Intanciando um comentarioCurso
             Comentariocurso comentariocurso = new Comentariocurso();
+
+            SentimentAnalysis sentimentAnalisys = new();
+
+            // Pega o score da IA
+            var analiseSentimento = sentimentAnalisys.AnalisarTexto(NovoComentario.ComentarioCurso1);
+
+            // Atribui os scores
+            NovoComentario.Positivo = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Positive);
+            NovoComentario.Negativo = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Negative);
+            NovoComentario.Neutro = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Negative);
 
             //Definindo os valores dos atributos
             comentariocurso.IdUsuario = NovoComentario.IdUsuario;

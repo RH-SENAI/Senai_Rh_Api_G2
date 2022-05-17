@@ -1,4 +1,5 @@
-﻿using SenaiRH_G2.Contexts;
+﻿using senai_gp3_webApi.SentimentAnalisys;
+using SenaiRH_G2.Contexts;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
 using System;
@@ -21,6 +22,17 @@ namespace SenaiRH_G2.Repositories
         {
 
             Desconto desconto = new Desconto();
+
+            SentimentAnalysis sentimentAnalisys = new();
+
+            // Pega o score da IA
+            var analiseSentimento = sentimentAnalisys.AnalisarTexto(NovoComentario.ComentarioDesconto1);
+
+            // Atribui os scores
+            NovoComentario.Positivo = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Positive);
+            NovoComentario.Negativo = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Negative);
+            NovoComentario.Neutro = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Negative);
+
             Comentariodesconto comentariodesconto = new Comentariodesconto();
             comentariodesconto.IdUsuario = NovoComentario.IdUsuario;
             comentariodesconto.IdDesconto = NovoComentario.IdDesconto;

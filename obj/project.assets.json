@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Azure.AI.TextAnalytics/5.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.16.0",
+          "Microsoft.Bcl.AsyncInterfaces": "1.0.0",
+          "System.Text.Json": "4.6.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.AI.TextAnalytics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.AI.TextAnalytics.dll": {}
+        }
+      },
       "Azure.Core/1.22.0": {
         "type": "package",
         "dependencies": {
@@ -2443,6 +2457,22 @@
     }
   },
   "libraries": {
+    "Azure.AI.TextAnalytics/5.1.1": {
+      "sha512": "ReO5vV3EA2Rll13CpdeLBro69zi9665GYgVMpygMxPbrf3vVijxjIQSRUWzLKsATfXicpGkRoNByn46H604gog==",
+      "type": "package",
+      "path": "azure.ai.textanalytics/5.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.ai.textanalytics.5.1.1.nupkg.sha512",
+        "azure.ai.textanalytics.nuspec",
+        "lib/netstandard2.0/Azure.AI.TextAnalytics.dll",
+        "lib/netstandard2.0/Azure.AI.TextAnalytics.xml",
+        "pkgicon.png"
+      ]
+    },
     "Azure.Core/1.22.0": {
       "sha512": "ze/xRCHSSDe5TIk5vBDbVrauW1EN7UIbnBvIBfMH8KSt/I9+/7yPAjTBDgNBk0IwG6WBV+BBHp4IUtS/PGAQwQ==",
       "type": "package",
@@ -8359,6 +8389,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Azure.AI.TextAnalytics >= 5.1.1",
       "Azure.Storage.Blobs >= 12.11.0",
       "MailKit >= 3.2.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.14",
@@ -8372,19 +8403,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\47460654892.INFOSCS\\.nuget\\packages\\": {}
+    "C:\\Users\\Vinicius\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
       "projectName": "SenaiRH_G2",
-      "projectPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
-      "packagesPath": "C:\\Users\\47460654892.INFOSCS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\obj\\",
+      "projectPath": "C:\\Users\\Vinicius\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vinicius\\Desktop\\Senai_Rh_Api_G2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\47460654892.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8410,6 +8441,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Azure.AI.TextAnalytics": {
+            "target": "Package",
+            "version": "[5.1.1, )"
+          },
           "Azure.Storage.Blobs": {
             "target": "Package",
             "version": "[12.11.0, )"
@@ -8463,6 +8498,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.16, 5.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8471,7 +8512,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
