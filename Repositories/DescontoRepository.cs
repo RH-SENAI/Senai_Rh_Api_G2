@@ -10,6 +10,9 @@ namespace SenaiRH_G2.Repositories
     public class DescontoRepository : IDescontoRepository
     {
 
+        /// <summary>
+        /// Instanciando um contexto
+        /// </summary>
         senaiRhContext ctx = new senaiRhContext();
 
         /// <summary>
@@ -19,6 +22,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public Desconto BuscarPorId(int id)
         {
+            //Buscando um desconto pelo id passado
             return ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
         }
 
@@ -29,8 +33,10 @@ namespace SenaiRH_G2.Repositories
         /// <param name="novoDesconto">dados do desconto a ser cadastrado</param>
         public void CadastrarDesconto(DescontoCadastroViewModel novoDesconto)
         {
+            //Instanciando um desconto
             Desconto desconto = new Desconto()
             {
+                //Passando os atributos para cadastro
                 IdEmpresa = novoDesconto.IdEmpresa,
                 NomeDesconto = novoDesconto.NomeDesconto,
                 DescricaoDesconto = novoDesconto.DescricaoDesconto,
@@ -40,8 +46,9 @@ namespace SenaiRH_G2.Repositories
                 NumeroCupom = novoDesconto.NumeroCupom,
                 MediaAvaliacaoDesconto = novoDesconto.MediaAvaliacaoDesconto = 0
             };
-
+            //Cadastrando um desconto 
             ctx.Descontos.Add(desconto);
+            //Salvando o cadastro
             ctx.SaveChanges();
         }
 
@@ -53,8 +60,10 @@ namespace SenaiRH_G2.Repositories
 
         public void ExcluirDesconto(int idDesconto)
         {
+            //Buscando um desconto atraves do idDesconto passado
             Desconto desconto = ctx.Descontos.FirstOrDefault(c => c.IdDesconto == idDesconto);
 
+            //Excluindo os comentarios relacionado a esse desconto
             foreach (var comentario in ctx.Comentariodescontos)
             {
                 if(comentario.IdDesconto == desconto.IdDesconto)

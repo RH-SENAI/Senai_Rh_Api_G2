@@ -60,10 +60,10 @@ namespace SenaiRH_G2.Repositories
             //Buscando um curso atraves do id curso
             Curso buscarMediaCurso = ctx.Cursos.FirstOrDefault(c => c.IdCurso == curso.IdCurso);
 
-            //Verificação se a media for igual a o ele vai entrar no if
+            //Verificação se a media for igual a 0 ele vai entrar no if
             if (buscarMediaCurso.MediaAvaliacaoCurso == 0)
             {
-                //Definindo que o valor nao mudara  
+                //A soma da mediaAvaliaçãoCurso mais AvaliacaoCurso  
                 buscarMediaCurso.MediaAvaliacaoCurso += NovoComentario.AvaliacaoComentario;
                 //Alterando o valor da media
                 ctx.Cursos.Update(buscarMediaCurso);
@@ -157,7 +157,7 @@ namespace SenaiRH_G2.Repositories
                 }
             }
 
-            //retornando a lista de curso 
+            //retornando a lista de comentarioCurso 
             return comentarioCurso;
         }
 
