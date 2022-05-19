@@ -1027,6 +1027,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="F:SenaiRH_G2.Repositories.DescontoRepository.ctx">
+            <summary>
+            Instanciando um contexto
+            </summary>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.DescontoRepository.BuscarPorId(System.Int32)">
             <summary>
             Bsucar um desconto pelo seu id
