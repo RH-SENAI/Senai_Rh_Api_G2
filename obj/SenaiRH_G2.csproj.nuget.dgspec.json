@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\43690999863.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\43690999863.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+        "projectName": "SenaiRH_G2",
+        "projectPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+        "packagesPath": "C:\\Users\\47460654892.INFOSCS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\47460654892.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 665185a0ff95e33c445d7356cfa596c130e164c9
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -105,7 +122,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+>>>>>>> 665185a0ff95e33c445d7356cfa596c130e164c9
         }
       }
     }

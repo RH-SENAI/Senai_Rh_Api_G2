@@ -11,7 +11,7 @@ namespace SenaiRH_G2.Repositories
 {
     public class CursoRepository : ICursoRepository
     {
-
+        //Instanciando um contexto 
         senaiRhContext ctx = new senaiRhContext();
 
 
@@ -22,6 +22,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public Curso BuscarPorId(int id)
         {
+            //Buscando um curso pelo id passado 
             return ctx.Cursos.FirstOrDefault(c => c.IdCurso == id);
         }
 
@@ -32,9 +33,12 @@ namespace SenaiRH_G2.Repositories
         /// <param name="novoCurso">dados desse novo curso a ser cadastrado</param>
         public void CadastrarCurso(CursoCadastroViewModel novoCurso)
         {
+            //Definindo o valor do atrbuto Idsituacao
             novoCurso.IdSituacaoInscricao = 1;
+            //Indtanciando um curso
             Curso curso = new Curso()
             {
+                //passando os atribudos para cadastrar
                 IdEmpresa = novoCurso.IdEmpresa,
                 NomeCurso = novoCurso.NomeCurso,
                 DescricaoCurso = novoCurso.DescricaoCurso,
@@ -47,8 +51,9 @@ namespace SenaiRH_G2.Repositories
                 IdSituacaoInscricao = (byte)novoCurso.IdSituacaoInscricao,
                 ValorCurso = (int)novoCurso.ValorCurso
             };
-
+            //cadastrando um curso 
             ctx.Cursos.Add(curso);
+            //salvando o cadastro
             ctx.SaveChanges();
             
         }
@@ -59,7 +64,10 @@ namespace SenaiRH_G2.Repositories
         /// <param name="id">id do curso a ser excluido</param>
         public void ExcluirCurso(int id)
         {
+            //buscando um curso pelo id passado
             Curso curso = ctx.Cursos.FirstOrDefault(c => c.IdCurso == id);
+
+            //Excluindo os comentarios relacionado a esse curso
             foreach (var comentario in ctx.Comentariocursos)
             {
                 if (comentario.IdCurso == curso.IdCurso)
@@ -67,6 +75,7 @@ namespace SenaiRH_G2.Repositories
                     ctx.Comentariocursos.Remove(comentario);
                 }
             }
+            //Excluindo os registros relacionad a esse curso
             foreach (var registro in ctx.Registrocursos)
             {
                 if (registro.IdCurso == curso.IdCurso)
@@ -74,6 +83,7 @@ namespace SenaiRH_G2.Repositories
                     ctx.Registrocursos.Remove(registro);
                 }
             }
+            //Excluindo os favoritos relaconado a esse curso
             foreach (var favoritos in ctx.Cursofavoritos)
             {
                 if (favoritos.IdCurso == curso.IdCurso)
@@ -81,7 +91,9 @@ namespace SenaiRH_G2.Repositories
                     ctx.Cursofavoritos.Remove(favoritos);
                 }
             }
+            //Excluindo o curso buscado
             ctx.Cursos.Remove(curso);
+            //Salvado a exclusão
             ctx.SaveChanges();
         }
 
@@ -91,6 +103,7 @@ namespace SenaiRH_G2.Repositories
         /// <returns></returns>
         public List<Curso> ListarTodos()
         {
+            //Listando os cursos usando um select para selecionar quais atributos iram listar
             return ctx.Cursos
                     .Select(p => new Curso
                 {

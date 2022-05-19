@@ -7,4 +7,8 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = SenaiRH_G2
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\43690999863.INFOSCS\Desktop\Senai_Rh_Api_G2\
+=======
+build_property.ProjectDir = C:\Users\47460654892.INFOSCS\Documents\Projetos\SENAI RH\Senai_Rh_Api_G2\
+>>>>>>> 665185a0ff95e33c445d7356cfa596c130e164c9
