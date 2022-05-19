@@ -48,7 +48,7 @@ namespace SenaiRH_G2.Repositories
             // Atribui os scores
             NovoComentario.Positivo = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Positive);
             NovoComentario.Negativo = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Negative);
-            NovoComentario.Neutro = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Negative);
+            NovoComentario.Neutro = Convert.ToDecimal(analiseSentimento.ConfidenceScores.Neutral);
 
             //Definindo os valores dos atributos
             comentariocurso.IdUsuario = NovoComentario.IdUsuario;
