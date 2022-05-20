@@ -31,5 +31,7 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="novoBairro">dados de cadastro de um bairro</param>
         void CadastrarBairro(Bairro novoBairro);
 
+        List<Bairro> ListarBairro(string bairro);
+
     }
 }

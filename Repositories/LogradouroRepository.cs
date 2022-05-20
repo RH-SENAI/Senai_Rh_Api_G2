@@ -49,6 +49,23 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Logradouro> ListarLogradouro(string logradouro)
+        {
+            List<Logradouro> listarLogradouro = new();
+            foreach (var buscarlogradouro in ctx.Logradouros.Select(p => new Logradouro()
+            {
+                IdLogradouro = p.IdLogradouro,
+                NomeLogradouro = p.NomeLogradouro
+            }).ToList())
+            {
+                if (buscarlogradouro.NomeLogradouro == logradouro)
+                {
+                    listarLogradouro.Add(buscarlogradouro);
+                }
+            }
+            return listarLogradouro;
+        }
+
 
         /// <summary>
         /// Listar todos os logradouros

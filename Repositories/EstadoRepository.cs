@@ -49,6 +49,23 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Estado> ListarEstado(string estado)
+        {
+            List<Estado> listarEstado = new();
+            foreach (var buscarestado in ctx.Estados.Select(p => new Estado()
+            {
+                IdEstado = p.IdEstado,
+                NomeEstado = p.NomeEstado
+            }).ToList())
+            {
+                if (buscarestado.NomeEstado == estado)
+                {
+                    listarEstado.Add(buscarestado);
+                }
+            }
+            return listarEstado;
+        }
+
         /// <summary>
         /// Listar todos estados
         /// </summary>

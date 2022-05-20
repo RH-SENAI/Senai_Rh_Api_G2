@@ -31,5 +31,7 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="novoLogradouro">Dados do logradouro a ser cadastrado</param>
         void CadastrarLogradouro(Logradouro novoLogradouro);
 
+        List<Logradouro> ListarLogradouro(string logradouro);
+
     }
 }

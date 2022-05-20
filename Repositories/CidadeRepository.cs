@@ -58,6 +58,23 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Cidade> ListarCidade(string cidade)
+        {
+            List<Cidade> listarCidade = new();
+            foreach (var buscarcidade in ctx.Cidades.Select(p => new Cidade()
+            {
+                IdCidade = p.IdCidade,
+                NomeCidade = p.NomeCidade
+            }).ToList())
+            {
+                if (buscarcidade.NomeCidade == cidade)
+                {
+                    listarCidade.Add(buscarcidade);
+                }
+            }
+            return listarCidade;
+        }
+
         /// <summary>
         /// Listar todas as cidades
         /// </summary>

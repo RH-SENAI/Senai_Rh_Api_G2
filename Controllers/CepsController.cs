@@ -51,6 +51,24 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+
+        [HttpGet("BuscarCep/{Cep1}")]
+        public IActionResult ListarCep(string Cep1)
+        {
+            try
+            {
+                return Ok(_cepRepository.ListarCep(Cep1));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
+
+
         /// <summary>
         /// Buscar um cep pelo seu id 
         /// </summary>

@@ -58,6 +58,23 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Cep> ListarCep(string cep)
+        {
+            List<Cep> listarCep = new();
+            foreach (var buscarcep in ctx.Ceps.Select(p => new Cep()
+            {
+               IdCep = p.IdCep,
+               Cep1 = p.Cep1
+            }).ToList())
+            {
+                if (buscarcep.Cep1 == cep)
+                {
+                    listarCep.Add(buscarcep);
+                }
+            }
+            return listarCep;
+        }
+
         /// <summary>
         /// Listar todos os cep
         /// </summary>

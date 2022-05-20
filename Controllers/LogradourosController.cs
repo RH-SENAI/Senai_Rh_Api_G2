@@ -52,6 +52,22 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+        [HttpGet("BuscarLogradouro/{NomeLogradouro}")]
+        public IActionResult ListarLogradouro(string NomeLogradouro)
+        {
+            try
+            {
+                return Ok(_logradouroRepository.ListarLogradouro(NomeLogradouro));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
+
         /// <summary>
         /// Buscar um logradouro pelo seu id
         /// </summary>

@@ -30,5 +30,7 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="novoCep">Dados do cep a ser cadastrado</param>
         void CadastrarCep(Cep novoCep);
 
+        List<Cep> ListarCep(string cep);
+
     }
 }

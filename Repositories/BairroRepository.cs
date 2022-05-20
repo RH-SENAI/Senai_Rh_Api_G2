@@ -57,6 +57,23 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Bairro> ListarBairro(string bairro)
+        {
+            List<Bairro> listarBairro = new();
+            foreach (var buscarbairro in ctx.Bairros.Select(p => new Bairro()
+            {
+                IdBairro = p.IdBairro,
+                NomeBairro = p.NomeBairro
+            }).ToList())
+            {
+                if (buscarbairro.NomeBairro == bairro)
+                {
+                    listarBairro.Add(buscarbairro);
+                }
+            }
+            return listarBairro;
+        }
+
         /// <summary>
         /// Listar todos os bairros
         /// </summary>

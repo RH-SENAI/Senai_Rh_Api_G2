@@ -51,6 +51,24 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+
+
+        [HttpGet("BuscarBairro/{NomeBairro}")]
+        public IActionResult ListarBairro(string NomeBairro)
+        {
+            try
+            {
+                return Ok(_bairroRepository.ListarBairro(NomeBairro));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
+
         /// <summary>
         /// Buscar um bairro pelo seu id 
         /// </summary>

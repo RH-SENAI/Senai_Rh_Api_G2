@@ -85,6 +85,24 @@ namespace SenaiRH_G2.Controllers
 
         }
 
+
+        [HttpGet("BuscarEstado/{NomeEstado}")]
+        public IActionResult ListarEstado(string NomeEstado)
+        {
+            try
+            {
+                return Ok(_estadoRepository.ListarEstado(NomeEstado));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
+
+
         /// <summary>
         /// Cadasrar u novo estado
         /// </summary>

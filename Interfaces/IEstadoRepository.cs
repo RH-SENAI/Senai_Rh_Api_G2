@@ -30,5 +30,7 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="novoEstado">Dados do estado a ser cadastrado</param>
         void CadastrarEstado(Estado novoEstado);
 
+        List<Estado> ListarEstado(string estado);
+
     }
 }

@@ -30,5 +30,7 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="novoCidade">dados da cidade a ser cadastrada</param>
         void CadastrarCidade(Cidade novoCidade);
 
+        List<Cidade> ListarCidade(string cidade);
+
     }
 }

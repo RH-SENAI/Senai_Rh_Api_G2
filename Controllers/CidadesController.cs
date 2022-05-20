@@ -62,6 +62,20 @@ namespace SenaiRH_G2.Controllers
             return Ok(_cidadeRepository.BuscarPorId(id));
         }
 
+        [HttpGet("BuscarCidade/{NomeCidade}")]
+        public IActionResult ListarCidade(string NomeCidade)
+        {
+            try
+            {
+                return Ok(_cidadeRepository.ListarCidade(NomeCidade));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
 
         /// <summary>
         /// Excluir uma cidade
