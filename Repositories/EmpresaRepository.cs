@@ -1,4 +1,5 @@
-﻿using SenaiRH_G2.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using SenaiRH_G2.Contexts;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
 using SenaiRH_G2.ViewModels;
@@ -30,10 +31,13 @@ namespace SenaiRH_G2.Repositories
         /// <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
         public void CadastrarEmpresa(EmpresaCadastroViewModel novoEmpresa)
         {
+            int idLocalizacao = ctx.Localizacaos.FirstOrDefault(l => l.IdCepNavigation.Cep1 == novoEmpresa.Cep && l.Numero == novoEmpresa.Numero).IdLocalizacao;
+            
+
             Empresa empresa = new Empresa()
             {
 
-                IdLocalizacao = novoEmpresa.IdLocalizacao,
+                IdLocalizacao = idLocalizacao,
                 NomeEmpresa = novoEmpresa.NomeEmpresa,
                 EmailEmpresa = novoEmpresa.EmailEmpresa,
                 TelefoneEmpresa = novoEmpresa.TelefoneEmpresa,

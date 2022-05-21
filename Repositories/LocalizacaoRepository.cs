@@ -1,6 +1,7 @@
 ﻿using SenaiRH_G2.Contexts;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,22 +28,78 @@ namespace SenaiRH_G2.Repositories
         /// Cadastrar um nova localizacao
         /// </summary>
         /// <param name="novoLocalizacao">Dados da localizacao a ser cadastrada</param>
-        public void CadastrarLocalizacao(Localizacao novoLocalizacao)
+        public void CadastrarLocalizacao(LocalizacaoViewModel novoLocalizacao)
         {
-            Localizacao localizacao = new Localizacao()
-            {
-                IdCep = novoLocalizacao.IdCep,
-                IdBairro = novoLocalizacao.IdBairro,
-                IdLogradouro = novoLocalizacao.IdLogradouro,
-                IdCidade = novoLocalizacao.IdCidade,
-                IdEstado = novoLocalizacao.IdEstado,
-                Numero = novoLocalizacao.Numero
 
+            // Cadastra os dados que vieram da localização
+            if (ctx.Ceps.FirstOrDefault(c => c.Cep1 == novoLocalizacao.Cep) == null)
+            {
+                CepRepository cepRepository = new();
+                Cep cepDomain = new();
+                cepDomain.Cep1 = novoLocalizacao.Cep;
+                cepRepository.CadastrarCep(cepDomain);
+            }
+
+
+
+            if(ctx.Estados.FirstOrDefault(e => e.NomeEstado == novoLocalizacao.Estado) == null)
+            {
+                EstadoRepository estadoRepository = new();
+                Estado estadoDomain = new();
+                estadoDomain.NomeEstado = novoLocalizacao.Estado;
+                estadoRepository.CadastrarEstado(estadoDomain);
+            }
+
+            if(ctx.Cidades.FirstOrDefault(c => c.NomeCidade == novoLocalizacao.Cidade) == null)
+            {
+                CidadeRepository cidadeRepository = new();
+                Cidade cidadeDomain = new();
+                cidadeDomain.NomeCidade = novoLocalizacao.Cidade;
+                cidadeRepository.CadastrarCidade(cidadeDomain);
+            }
+
+            if(ctx.Bairros.FirstOrDefault(b => b.NomeBairro == novoLocalizacao.Bairro) == null)
+            {
+                BairroRepository bairroRepository = new();
+                Bairro bairroDomain = new();
+                bairroDomain.NomeBairro = novoLocalizacao.Bairro;
+                bairroRepository.CadastrarBairro(bairroDomain);
+            }
+
+            if (ctx.Logradouros.FirstOrDefault(l => l.NomeLogradouro == novoLocalizacao.Logradouro) == null)
+            {
+                LogradouroRepository logradouroRepository = new();
+                Logradouro logradouroDomain = new();
+                logradouroDomain.NomeLogradouro = novoLocalizacao.Bairro;
+                logradouroRepository.CadastrarLogradouro(logradouroDomain);
+            }
+
+
+            // Pega os dados que acabaram de ser cadastrador
+            int idCep = ctx.Ceps.FirstOrDefault(c => c.Cep1 == novoLocalizacao.Cep).IdCep;
+            int idEstado = ctx.Estados.FirstOrDefault(e => e.NomeEstado == novoLocalizacao.Estado).IdEstado;
+            int idCidade = ctx.Cidades.FirstOrDefault(c => c.NomeCidade == novoLocalizacao.Cidade).IdCidade;
+            int idBairro = ctx.Bairros.FirstOrDefault(b => b.NomeBairro == novoLocalizacao.Bairro).IdBairro;
+            int idLogradouro = ctx.Logradouros.FirstOrDefault(l => l.NomeLogradouro == novoLocalizacao.Logradouro).IdLogradouro;
+
+            // Cadastar uma localização com os id's já armazenados
+
+            Localizacao localizacao = new()
+            {
+                IdCidade = Convert.ToByte(idCidade),
+                IdLogradouro = idLogradouro,
+                IdBairro = idBairro,
+                IdCep = Convert.ToByte(idCep),
+                IdEstado = Convert.ToByte(idEstado),
+                Numero = novoLocalizacao.Numero
             };
 
             ctx.Localizacaos.Add(localizacao);
             ctx.SaveChanges();
+
+
         }
+
 
         /// <summary>
         /// Excluir uma localizacao 

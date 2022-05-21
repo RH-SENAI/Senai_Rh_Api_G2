@@ -19,6 +19,12 @@ namespace SenaiRH_G2.ViewModels
         [Required(ErrorMessage = "Todos os campos devem ser preenchidos !")]
         public string TelefoneEmpresa { get; set; }
 
+        [Required(ErrorMessage = "Todos os campos devem ser preenchidos !")]
+
+        public string Numero { get; set; }
+        [Required(ErrorMessage = "Todos os campos devem ser preenchidos !")]
+        public string Cep { get; set; }
+
         public string CaminhoImagemEmpresa { get; set; }
 
     }

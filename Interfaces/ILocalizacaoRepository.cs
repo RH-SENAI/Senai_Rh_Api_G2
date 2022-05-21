@@ -1,4 +1,5 @@
 ﻿using SenaiRH_G2.Domains;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace SenaiRH_G2.Interfaces
         /// Cadastrar uma localização 
         /// </summary>
         /// <param name="novoLocalizacao">Dados da localização a ser cadastrada</param>
-        void CadastrarLocalizacao(Localizacao novoLocalizacao);
+        void CadastrarLocalizacao(LocalizacaoViewModel novoLocalizacao);
 
     }
 }

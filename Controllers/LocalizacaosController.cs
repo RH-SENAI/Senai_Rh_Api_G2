@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SenaiRH_G2.Domains;
 using SenaiRH_G2.Interfaces;
+using SenaiRH_G2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,7 +95,7 @@ namespace SenaiRH_G2.Controllers
         /// </summary>
         /// <param name="novoLocalizacao">Dados da localizacao a ser cadastrada</param>
         [HttpPost("Cadastrar")]
-        public IActionResult CadastrarLocalizacao(Localizacao novoLocalizacao)
+        public IActionResult CadastrarLocalizacao(LocalizacaoViewModel novoLocalizacao)
         {
 
             try

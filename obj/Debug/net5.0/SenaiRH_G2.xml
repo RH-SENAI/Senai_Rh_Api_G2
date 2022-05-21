@@ -340,7 +340,7 @@
             </summary>
             <param name="id">Id da localizacao a ser excluida</param>
         </member>
-        <member name="M:SenaiRH_G2.Controllers.LocalizacaosController.CadastrarLocalizacao(SenaiRH_G2.Domains.Localizacao)">
+        <member name="M:SenaiRH_G2.Controllers.LocalizacaosController.CadastrarLocalizacao(SenaiRH_G2.ViewModels.LocalizacaoViewModel)">
             <summary>
             Cadastrar um nova localizacao
             </summary>
@@ -750,7 +750,7 @@
             <param name="id">id da localização a ser buscada</param>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Interfaces.ILocalizacaoRepository.CadastrarLocalizacao(SenaiRH_G2.Domains.Localizacao)">
+        <member name="M:SenaiRH_G2.Interfaces.ILocalizacaoRepository.CadastrarLocalizacao(SenaiRH_G2.ViewModels.LocalizacaoViewModel)">
             <summary>
             Cadastrar uma localização 
             </summary>
@@ -1164,7 +1164,7 @@
             <param name="id">Id da localizacao</param>
             <returns></returns>
         </member>
-        <member name="M:SenaiRH_G2.Repositories.LocalizacaoRepository.CadastrarLocalizacao(SenaiRH_G2.Domains.Localizacao)">
+        <member name="M:SenaiRH_G2.Repositories.LocalizacaoRepository.CadastrarLocalizacao(SenaiRH_G2.ViewModels.LocalizacaoViewModel)">
             <summary>
             Cadastrar um nova localizacao
             </summary>
