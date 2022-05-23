@@ -49,6 +49,11 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Buscar um estado pelo sesu nome
+        /// </summary>
+        /// <param name="estado">Nome do estado a ser buscado</param>
+        /// <returns></returns>
         public List<Estado> ListarEstado(string estado)
         {
             List<Estado> listarEstado = new();

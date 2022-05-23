@@ -36,5 +36,11 @@ namespace SenaiRH_G2.Interfaces
         /// </summary>
         /// <param name="Id">id do comentario a ser excluido</param>
         void ExcluirComentarioDesconto(int Id);
+        /// <summary>
+        /// Buscar os comentarios descnto pelo id usuario
+        /// </summary>
+        /// <param name="id">Id do usuario a ser buscado</param>
+        /// <returns></returns>
+        List<Comentariodesconto> ListarComenatarioDescontoPorUsuario(int id);
     }
 }

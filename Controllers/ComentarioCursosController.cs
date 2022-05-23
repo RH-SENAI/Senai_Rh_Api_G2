@@ -138,10 +138,31 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
+        /// <summary>
+        /// Listar todos os comentario de um unico usuario 
+        /// </summary>
+        /// <param name="idUsuario">id do usuario a ser buscado</param>
+        /// <returns></returns>
+        /// 
+
+        [HttpGet("Comentario/Usuario/{idUsuario}")]
+        public IActionResult ListarComenatarioCursoPorUsuario(int idUsuario)
+        {
+            try
+            {
+                return Ok(_comentarioCurso.ListarComenatarioCursoPorUsuario(idUsuario));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
 
 
 
 
 
+
+        }    
     }
 }

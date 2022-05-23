@@ -35,7 +35,14 @@ namespace SenaiRH_G2.Interfaces
         /// </summary>
         /// <param name="NovoComentario">Dados de um comentario a ser cadastrado</param>
         void CadastrarComentarioCurso(Comentariocurso NovoComentario);
-        
+
+        /// <summary>
+        /// Listar todos os comentario de um usuario apenas
+        /// </summary>
+        /// <param name="id">id do usuario a ser buscada</param>
+        /// <returns></returns>
+        List<Comentariocurso> ListarComenatarioCursoPorUsuario(int id);
+
 
     }
 }

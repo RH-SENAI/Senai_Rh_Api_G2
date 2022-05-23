@@ -52,9 +52,9 @@ namespace SenaiRH_G2.Controllers
         }
 
         /// <summary>
-        /// Buscar ym estado pelo seu id
+        /// Buscar um estado pelo seu id
         /// </summary>
-        /// <param name="id">Id do estado a e buscado</param>
+        /// <param name="id">Id do estado a ser buscado</param>
         /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
@@ -85,7 +85,11 @@ namespace SenaiRH_G2.Controllers
 
         }
 
-
+        /// <summary>
+        /// Buscar um estado pelo seu Nome
+        /// </summary>
+        /// <param name="NomeEstado">Nome do estado a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("BuscarEstado/{NomeEstado}")]
         public IActionResult ListarEstado(string NomeEstado)
         {
@@ -104,7 +108,7 @@ namespace SenaiRH_G2.Controllers
 
 
         /// <summary>
-        /// Cadasrar u novo estado
+        /// cadastrar um novo estado
         /// </summary>
         /// <param name="novoEstado">Dados do id a ser buscado</param>
         [HttpPost("Cadastrar")]

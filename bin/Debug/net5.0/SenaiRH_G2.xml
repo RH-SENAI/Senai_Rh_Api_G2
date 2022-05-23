@@ -115,6 +115,14 @@
             <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
             <returns></returns>
         </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioCursosController.ListarComenatarioCursoPorUsuario(System.Int32)">
+            <summary>
+            Listar todos os comentario de um unico usuario 
+            </summary>
+            <param name="idUsuario">id do usuario a ser buscado</param>
+            <returns></returns>
+            
+        </member>
         <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComenatarioDesconto">
             <summary>
             Listar todos os comentarios dos descontos
@@ -150,6 +158,14 @@
             <param name="idDesconto">id do desconto cujo comentario faz parte </param>
             <param name="idUsuario">Id do usuario que cadastrou esse comentario</param>
             <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.ComentarioDescontosController.ListarComenatarioDescontoPorUsuario(System.Int32)">
+            <summary>
+            Listar todos os comentario de um unico usuario 
+            </summary>
+            <param name="idUsuario">id do usuario a ser buscado</param>
+            <returns></returns>
+            
         </member>
         <member name="M:SenaiRH_G2.Controllers.CursosController.ListarTodos">
             <summary>
@@ -237,9 +253,9 @@
         </member>
         <member name="M:SenaiRH_G2.Controllers.EstadosController.BuscarPorId(System.Int32)">
             <summary>
-            Buscar ym estado pelo seu id
+            Buscar um estado pelo seu id
             </summary>
-            <param name="id">Id do estado a e buscado</param>
+            <param name="id">Id do estado a ser buscado</param>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Controllers.EstadosController.ExcluirCidade(System.Int32)">
@@ -247,9 +263,16 @@
             Excluir um estado
             </summary>
         </member>
+        <member name="M:SenaiRH_G2.Controllers.EstadosController.ListarEstado(System.String)">
+            <summary>
+            Buscar um estado pelo seu Nome
+            </summary>
+            <param name="NomeEstado">Nome do estado a ser buscado</param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Controllers.EstadosController.CadastrarEstado(SenaiRH_G2.Domains.Estado)">
             <summary>
-            Cadasrar u novo estado
+            cadastrar um novo estado
             </summary>
             <param name="novoEstado">Dados do id a ser buscado</param>
         </member>
@@ -549,6 +572,13 @@
             </summary>
             <param name="NovoComentario">Dados de um comentario a ser cadastrado</param>
         </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioCursoRepository.ListarComenatarioCursoPorUsuario(System.Int32)">
+            <summary>
+            Listar todos os comentario de um usuario apenas
+            </summary>
+            <param name="id">id do usuario a ser buscada</param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Interfaces.IComentarioDescontoRepository.ListarComenatarioDesconto">
             <summary>
             Listar todos os comentario de desconto
@@ -580,6 +610,13 @@
             Excluir um comentario desconto
             </summary>
             <param name="Id">id do comentario a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IComentarioDescontoRepository.ListarComenatarioDescontoPorUsuario(System.Int32)">
+            <summary>
+            Buscar os comentarios descnto pelo id usuario
+            </summary>
+            <param name="id">Id do usuario a ser buscado</param>
+            <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Interfaces.ICursoRepository.ListarTodos">
             <summary>
@@ -680,6 +717,13 @@
             Cadastrar um novo estado
             </summary>
             <param name="novoEstado">Dados do estado a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.IEstadoRepository.ListarEstado(System.String)">
+            <summary>
+            Listar um estado pelo seu Nome
+            </summary>
+            <param name="estado">nome do estado as ser buscado</param>
+            <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Interfaces.IFavoritosCursoRepository.ListarTodos">
             <summary>
@@ -995,6 +1039,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.ListarComenatarioDescontoPorUsuario(System.Int32)">
+            <summary>
+            Listar comentarios de um unico usuario 
+            </summary>
+            <param name="id">id do usuario a ser buscado</param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.ComentarioDescontoRepository.ListarComentarioPorId(System.Int32)">
             <summary>
             Listar comentarios pelo seu id 
@@ -1100,6 +1151,13 @@
             Excluir um estado
             </summary>
             <param name="id">Id do estado a ser excludo</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.EstadoRepository.ListarEstado(System.String)">
+            <summary>
+            Buscar um estado pelo sesu nome
+            </summary>
+            <param name="estado">Nome do estado a ser buscado</param>
+            <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Repositories.EstadoRepository.ListarTodos">
             <summary>

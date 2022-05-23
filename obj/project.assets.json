@@ -8403,19 +8403,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vinicius\\.nuget\\packages\\": {}
+    "C:\\Users\\47460654892.INFOSCS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "projectUniqueName": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
       "projectName": "SenaiRH_G2",
-      "projectPath": "C:\\Users\\Vinicius\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
-      "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vinicius\\Desktop\\Senai_Rh_Api_G2\\obj\\",
+      "projectPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "packagesPath": "C:\\Users\\47460654892.INFOSCS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\47460654892.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8498,12 +8498,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.16, 5.0.16]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8512,7 +8506,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

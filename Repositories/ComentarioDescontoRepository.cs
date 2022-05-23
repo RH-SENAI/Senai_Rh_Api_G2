@@ -111,6 +111,31 @@ namespace SenaiRH_G2.Repositories
         }
 
         /// <summary>
+        /// Listar comentarios de um unico usuario 
+        /// </summary>
+        /// <param name="id">id do usuario a ser buscado</param>
+        /// <returns></returns>
+        public List<Comentariodesconto> ListarComenatarioDescontoPorUsuario(int id)
+        {
+            return ctx.Comentariodescontos
+                                .Select(p => new Comentariodesconto
+                                {
+                                    IdComentarioDesconto = p.IdComentarioDesconto,
+                                    IdDesconto = p.IdDesconto,
+                                    IdUsuario = p.IdUsuario,
+                                    AvaliacaoDesconto = p.AvaliacaoDesconto,
+                                    ComentarioDesconto1 = p.ComentarioDesconto1,
+                                    IdUsuarioNavigation = new Usuario
+                                    {
+                                        Nome = p.IdUsuarioNavigation.Nome
+                                    }
+
+                                })
+                                .Where(d => d.IdUsuario == id)
+                            .ToList();
+        }
+
+        /// <summary>
         /// Listar comentarios pelo seu id 
         /// </summary>
         /// <param name="Id">id comentario</param>

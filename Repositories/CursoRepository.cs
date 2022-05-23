@@ -23,7 +23,58 @@ namespace SenaiRH_G2.Repositories
         public Curso BuscarPorId(int id)
         {
             //Buscando um curso pelo id passado 
-            return ctx.Cursos.FirstOrDefault(c => c.IdCurso == id);
+            return ctx.Cursos
+                .Select(p => new Curso
+                {
+                    IdCurso = p.IdCurso,
+                    IdEmpresa = p.IdEmpresa,
+                    NomeCurso = p.NomeCurso,
+                    DescricaoCurso = p.DescricaoCurso,
+                    SiteCurso = p.SiteCurso,
+                    ModalidadeCurso = p.ModalidadeCurso,
+                    CaminhoImagemCurso = p.CaminhoImagemCurso,
+                    CargaHoraria = p.CargaHoraria,
+                    DataFinalizacao = p.DataFinalizacao,
+                    MediaAvaliacaoCurso = p.MediaAvaliacaoCurso,
+                    ValorCurso = p.ValorCurso,
+                    IdSituacaoInscricao = p.IdSituacaoInscricao,
+                    IdSituacaoInscricaoNavigation = new Situacaoatividade()
+                    {
+                        NomeSituacaoAtividade = p.IdSituacaoInscricaoNavigation.NomeSituacaoAtividade,
+                        IdSituacaoAtividade = p.IdSituacaoInscricaoNavigation.IdSituacaoAtividade,
+                    },
+                    IdEmpresaNavigation = new Empresa()
+                    {
+
+                        NomeEmpresa = p.IdEmpresaNavigation.NomeEmpresa,
+                        EmailEmpresa = p.IdEmpresaNavigation.EmailEmpresa,
+                        TelefoneEmpresa = p.IdEmpresaNavigation.TelefoneEmpresa,
+                        IdLocalizacaoNavigation = new Localizacao()
+                        {
+                            Numero = p.IdEmpresaNavigation.IdLocalizacaoNavigation.Numero,
+                            IdCep = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCep,
+                            IdCepNavigation = new Cep()
+                            {
+                                IdCep = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.IdCep,
+                                Cep1 = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.Cep1
+                            },
+                            IdLogradouroNavigation = new Logradouro()
+                            {
+                                NomeLogradouro = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdLogradouroNavigation.NomeLogradouro
+                            },
+                            IdEstadoNavigation = new Estado()
+                            {
+                                NomeEstado = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdEstadoNavigation.NomeEstado
+                            }
+
+                        }
+
+
+                    }
+
+
+                })
+                .FirstOrDefault(c => c.IdCurso == id);
         }
 
 
@@ -106,8 +157,7 @@ namespace SenaiRH_G2.Repositories
             //Listando os cursos usando um select para selecionar quais atributos iram listar
             return ctx.Cursos
                     .Select(p => new Curso
-                {
-                    
+                    {                     
                     IdCurso = p.IdCurso,
                     IdEmpresa = p.IdEmpresa,
                     NomeCurso = p.NomeCurso,
