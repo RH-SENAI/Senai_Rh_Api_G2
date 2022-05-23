@@ -51,7 +51,11 @@ namespace SenaiRH_G2.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Listar um cep pelo seu numero
+        /// </summary>
+        /// <param name="Cep1">numero do cep a ser buscado</param>
+        /// <returns></returns>
         [HttpGet("BuscarCep/{Cep1}")]
         public IActionResult ListarCep(string Cep1)
         {

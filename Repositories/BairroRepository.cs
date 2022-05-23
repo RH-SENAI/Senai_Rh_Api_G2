@@ -57,6 +57,11 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Listar um bairro pelo seu id
+        /// </summary>
+        /// <param name="bairro">Nome do bairro a ser buscado </param>
+        /// <returns></returns>
         public List<Bairro> ListarBairro(string bairro)
         {
             List<Bairro> listarBairro = new();

@@ -58,6 +58,11 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Listar um cep pelo seu numero
+        /// </summary>
+        /// <param name="cep">numero do cep a ser buscado</param>
+        /// <returns></returns>
         public List<Cep> ListarCep(string cep)
         {
             List<Cep> listarCep = new();

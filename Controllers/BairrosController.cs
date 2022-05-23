@@ -52,7 +52,11 @@ namespace SenaiRH_G2.Controllers
         }
 
 
-
+        /// <summary>
+        /// Listar um bairro pelo seu id
+        /// </summary>
+        /// <param name="NomeBairro">Nome do bairro a ser buscado </param>
+        /// <returns></returns>
         [HttpGet("BuscarBairro/{NomeBairro}")]
         public IActionResult ListarBairro(string NomeBairro)
         {

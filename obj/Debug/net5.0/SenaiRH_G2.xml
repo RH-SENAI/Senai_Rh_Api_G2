@@ -10,6 +10,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SenaiRH_G2.Controllers.BairrosController.ListarBairro(System.String)">
+            <summary>
+            Listar um bairro pelo seu id
+            </summary>
+            <param name="NomeBairro">Nome do bairro a ser buscado </param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Controllers.BairrosController.BuscarPorId(System.Int32)">
             <summary>
             Buscar um bairro pelo seu id 
@@ -33,6 +40,13 @@
             <summary>
             Listar todos os cep
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SenaiRH_G2.Controllers.CepsController.ListarCep(System.String)">
+            <summary>
+            Listar um cep pelo seu numero
+            </summary>
+            <param name="Cep1">numero do cep a ser buscado</param>
             <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Controllers.CepsController.BuscarPorId(System.Int32)">
@@ -490,6 +504,13 @@
             </summary>
             <param name="novoBairro">dados de cadastro de um bairro</param>
         </member>
+        <member name="M:SenaiRH_G2.Interfaces.IBairroRepository.ListarBairro(System.String)">
+            <summary>
+            Listar um bairro pelo seu id
+            </summary>
+            <param name="bairro">Nome do bairro a ser buscado </param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Interfaces.ICepRepository.ListarTodos">
             <summary>
             Listar todos os ceps
@@ -514,6 +535,13 @@
             Cadastrar um novo cep
             </summary>
             <param name="novoCep">Dados do cep a ser cadastrado</param>
+        </member>
+        <member name="M:SenaiRH_G2.Interfaces.ICepRepository.ListarCep(System.String)">
+            <summary>
+            Listar um cep pelo seu numero
+            </summary>
+            <param name="cep">numero do cep a ser buscado</param>
+            <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Interfaces.ICidadeRepository.ListarTodos">
             <summary>
@@ -918,6 +946,13 @@
             </summary>
             <param name="id">Id do bairro a ser excluido</param>
         </member>
+        <member name="M:SenaiRH_G2.Repositories.BairroRepository.ListarBairro(System.String)">
+            <summary>
+            Listar um bairro pelo seu id
+            </summary>
+            <param name="bairro">Nome do bairro a ser buscado </param>
+            <returns></returns>
+        </member>
         <member name="M:SenaiRH_G2.Repositories.BairroRepository.ListarTodos">
             <summary>
             Listar todos os bairros
@@ -947,6 +982,13 @@
             Escluir um cep
             </summary>
             <param name="id">Id do cep a ser excluido</param>
+        </member>
+        <member name="M:SenaiRH_G2.Repositories.CepRepository.ListarCep(System.String)">
+            <summary>
+            Listar um cep pelo seu numero
+            </summary>
+            <param name="cep">numero do cep a ser buscado</param>
+            <returns></returns>
         </member>
         <member name="M:SenaiRH_G2.Repositories.CepRepository.ListarTodos">
             <summary>
