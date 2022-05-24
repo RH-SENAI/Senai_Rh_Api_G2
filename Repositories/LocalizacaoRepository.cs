@@ -70,7 +70,7 @@ namespace SenaiRH_G2.Repositories
             {
                 LogradouroRepository logradouroRepository = new();
                 Logradouro logradouroDomain = new();
-                logradouroDomain.NomeLogradouro = novoLocalizacao.Bairro;
+                logradouroDomain.NomeLogradouro = novoLocalizacao.Logradouro;
                 logradouroRepository.CadastrarLogradouro(logradouroDomain);
             }
 

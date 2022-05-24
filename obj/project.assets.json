@@ -8403,19 +8403,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\47460654892.INFOSCS\\.nuget\\packages\\": {}
+    "C:\\Users\\52645548890.INFOSCS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "projectUniqueName": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
       "projectName": "SenaiRH_G2",
-      "projectPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
-      "packagesPath": "C:\\Users\\47460654892.INFOSCS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\47460654892.INFOSCS\\Documents\\Projetos\\SENAI RH\\Senai_Rh_Api_G2\\obj\\",
+      "projectPath": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\SenaiRH_G2.csproj",
+      "packagesPath": "C:\\Users\\52645548890.INFOSCS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Senai_Rh_Api_G2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\47460654892.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\52645548890.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8498,6 +8498,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.12, 5.0.12]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8506,7 +8512,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

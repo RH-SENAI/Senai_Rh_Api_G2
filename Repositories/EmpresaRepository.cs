@@ -31,13 +31,30 @@ namespace SenaiRH_G2.Repositories
         /// <param name="novoEmpresa">Dados da empresa a ser cadastrada</param>
         public void CadastrarEmpresa(EmpresaCadastroViewModel novoEmpresa)
         {
-            int idLocalizacao = ctx.Localizacaos.FirstOrDefault(l => l.IdCepNavigation.Cep1 == novoEmpresa.Cep && l.Numero == novoEmpresa.Numero).IdLocalizacao;
-            
+            Localizacao localizacao = ctx.Localizacaos.FirstOrDefault(l => l.IdLogradouroNavigation.NomeLogradouro == novoEmpresa.Logradouro && l.Numero == novoEmpresa.Numero);
 
-            Empresa empresa = new Empresa()
+            if (localizacao == null)
+            {
+                LocalizacaoViewModel novaLocalizacao = new()
+                {
+                    Bairro = novoEmpresa.Bairro,
+                    Cep = novoEmpresa.Cep,
+                    Logradouro = novoEmpresa.Logradouro,
+                    Numero = novoEmpresa.Numero,
+                    Estado = novoEmpresa.Estado,
+                    Cidade = novoEmpresa.Cidade
+                };
+
+                LocalizacaoRepository localizacaoRepository = new();
+                localizacaoRepository.CadastrarLocalizacao(novaLocalizacao);
+            }
+
+            int idLocalizacaoCadastrada = ctx.Localizacaos.FirstOrDefault(l => l.IdLogradouroNavigation.NomeLogradouro == novoEmpresa.Logradouro && l.Numero == novoEmpresa.Numero).IdLocalizacao;
+
+            Empresa empresa = new()
             {
 
-                IdLocalizacao = idLocalizacao,
+                IdLocalizacao = idLocalizacaoCadastrada,
                 NomeEmpresa = novoEmpresa.NomeEmpresa,
                 EmailEmpresa = novoEmpresa.EmailEmpresa,
                 TelefoneEmpresa = novoEmpresa.TelefoneEmpresa,
