@@ -73,6 +73,21 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+        [HttpGet("RegistroCursos/IdUsuario/{IdUsuario}")]
+        public IActionResult ListarRegistrocursoPorUsuario(int IdUsuario)
+        {
+            try
+            {
+                return Ok(_registrocursoRepository.ListarRegistrocursoPorUsuario(IdUsuario));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
 
         /// <summary>
         /// Buscar um registro de cursos pelo seu id

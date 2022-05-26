@@ -65,6 +65,22 @@ namespace SenaiRH_G2.Controllers
         }
 
 
+
+        [HttpGet("RegistroDescontos/IdUsuario/{IdUsuario}")]
+        public IActionResult ListarRegistrodescontoPorUsuario(int IdUsuario)
+        {
+            try
+            {
+                return Ok(_registrodescontoRepository.ListarRegistrodescontoPorUsuario(IdUsuario));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+        }
+
+
         /// <summary>
         /// Cadastrar um registro de desconto
         /// </summary>

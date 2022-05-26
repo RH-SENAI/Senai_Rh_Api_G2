@@ -31,5 +31,7 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="novoRegistrodesconto">Dados do registro a ser cadastrado</param>
         void CadastrarRegistrodesconto(RegistroDescontoCadastrarViewModel novoRegistrodesconto);
 
+        List<Registrodesconto> ListarRegistrodescontoPorUsuario(int id);
+
     }
 }

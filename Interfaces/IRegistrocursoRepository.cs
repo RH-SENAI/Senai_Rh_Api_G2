@@ -36,6 +36,8 @@ namespace SenaiRH_G2.Interfaces
         /// <param name="Id">id Siuacao a ser buscado</param>
         /// <returns></returns>
         List<Registrocurso> ListarRegistroCursoPorIdSituação(int Id);
+
+        List<Registrocurso> ListarRegistrocursoPorUsuario(int id);
         /// <summary>
         /// Atualizar a situação do registro 
         /// </summary>

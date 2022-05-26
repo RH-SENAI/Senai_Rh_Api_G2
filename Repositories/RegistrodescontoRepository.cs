@@ -70,6 +70,19 @@ namespace SenaiRH_G2.Repositories
             ctx.SaveChanges();
         }
 
+        public List<Registrodesconto> ListarRegistrodescontoPorUsuario(int id)
+        {
+            List<Registrodesconto> registrodesconto = new();
+            foreach (var registro in ctx.Registrodescontos)
+            {
+                if (registro.IdUsuario == id)
+                {
+                    registrodesconto.Add(registro);
+                }
+            }
+            return registrodesconto;
+        }
+
 
         /// <summary>
         /// Listar todos os registros de desconto

@@ -216,5 +216,18 @@ namespace SenaiRH_G2.Repositories
             }
             return registrocursos;
         }
+
+        public List<Registrocurso> ListarRegistrocursoPorUsuario(int id)
+        {
+            List<Registrocurso> registrocursos = new();
+            foreach (var registro in ctx.Registrocursos)
+            {
+                if (registro.IdUsuario == id)
+                {
+                    registrocursos.Add(registro);
+                }
+            }
+            return registrocursos;
+        }
     }
 }
