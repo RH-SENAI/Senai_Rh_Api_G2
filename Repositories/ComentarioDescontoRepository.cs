@@ -101,6 +101,9 @@ namespace SenaiRH_G2.Repositories
                                     IdUsuario = p.IdUsuario,
                                     AvaliacaoDesconto = p.AvaliacaoDesconto,
                                     ComentarioDesconto1 = p.ComentarioDesconto1,
+                                    Positivo = p.Positivo,
+                                    Neutro = p.Neutro,
+                                    Negativo = p.Negativo,
                                     IdUsuarioNavigation = new Usuario
                                     {
                                         Nome = p.IdUsuarioNavigation.Nome
@@ -125,6 +128,9 @@ namespace SenaiRH_G2.Repositories
                                     IdUsuario = p.IdUsuario,
                                     AvaliacaoDesconto = p.AvaliacaoDesconto,
                                     ComentarioDesconto1 = p.ComentarioDesconto1,
+                                    Positivo = p.Positivo,
+                                    Neutro = p.Neutro,
+                                    Negativo = p.Negativo,
                                     IdUsuarioNavigation = new Usuario
                                     {
                                         Nome = p.IdUsuarioNavigation.Nome
@@ -159,6 +165,9 @@ namespace SenaiRH_G2.Repositories
                 IdUsuario = p.IdUsuario,
                 ComentarioDesconto1 = p.ComentarioDesconto1,
                 AvaliacaoDesconto = p.AvaliacaoDesconto,
+                Positivo = p.Positivo,
+                Neutro = p.Neutro,
+                Negativo = p.Negativo,
                 IdUsuarioNavigation = new Usuario
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,

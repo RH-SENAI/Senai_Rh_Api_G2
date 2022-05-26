@@ -25,7 +25,24 @@ namespace SenaiRH_G2.Repositories
         public Comentariocurso ListarComentarioPorId(int Id)
         {
             //Buscando um comentari curso pelo id passado
-            return ctx.Comentariocursos.FirstOrDefault(c => c.IdComentarioCurso == Id);
+            return ctx.Comentariocursos.
+                Select(p => new Comentariocurso
+                {
+                    IdComentarioCurso = p.IdComentarioCurso,
+                    IdCurso = p.IdCurso,
+                    IdUsuario = p.IdUsuario,
+                    AvaliacaoComentario = p.AvaliacaoComentario,
+                    ComentarioCurso1 = p.ComentarioCurso1,
+                    Positivo = p.Positivo,
+                    Neutro = p.Neutro,
+                    Negativo = p.Negativo,
+                    IdUsuarioNavigation = new Usuario
+                    {
+                        Nome = p.IdUsuarioNavigation.Nome
+                    }
+
+                })
+                .FirstOrDefault(c => c.IdComentarioCurso == Id);
         }
 
         /// <summary>
@@ -103,6 +120,9 @@ namespace SenaiRH_G2.Repositories
                                     IdUsuario = p.IdUsuario,
                                     AvaliacaoComentario = p.AvaliacaoComentario,
                                     ComentarioCurso1 = p.ComentarioCurso1,
+                                    Positivo = p.Positivo,
+                                    Neutro = p.Neutro,
+                                    Negativo = p.Negativo,
                                     IdUsuarioNavigation = new Usuario
                                     {
                                         Nome = p.IdUsuarioNavigation.Nome
@@ -143,6 +163,9 @@ namespace SenaiRH_G2.Repositories
                 IdUsuario = p.IdUsuario,
                 ComentarioCurso1 = p.ComentarioCurso1,
                 AvaliacaoComentario = p.AvaliacaoComentario,
+                Positivo = p.Positivo,
+                Neutro = p.Neutro,
+                Negativo = p.Negativo,
                 IdUsuarioNavigation = new Usuario
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
@@ -171,6 +194,9 @@ namespace SenaiRH_G2.Repositories
                                     IdUsuario = p.IdUsuario,
                                     AvaliacaoComentario = p.AvaliacaoComentario,
                                     ComentarioCurso1 = p.ComentarioCurso1,
+                                    Negativo = p.Negativo,
+                                    Neutro = p.Neutro,
+                                    Positivo = p.Positivo,
                                     IdUsuarioNavigation = new Usuario
                                     {
                                         Nome = p.IdUsuarioNavigation.Nome
