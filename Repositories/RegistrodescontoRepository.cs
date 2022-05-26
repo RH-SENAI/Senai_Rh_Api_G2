@@ -73,7 +73,36 @@ namespace SenaiRH_G2.Repositories
         public List<Registrodesconto> ListarRegistrodescontoPorUsuario(int id)
         {
             List<Registrodesconto> registrodesconto = new();
-            foreach (var registro in ctx.Registrodescontos)
+            foreach (var registro in ctx.Registrodescontos.Select(p => new Registrodesconto
+            {
+                IdRegistroDesconto = p.IdRegistroDesconto,
+                IdDesconto = p.IdDesconto,
+                IdUsuario = p.IdUsuario,
+                IdDescontoNavigation = new Desconto
+                {
+                    IdDesconto = p.IdDesconto,
+                    IdEmpresa = p.IdDescontoNavigation.IdEmpresa,
+                    NomeDesconto = p.IdDescontoNavigation.NomeDesconto,
+                    DescricaoDesconto = p.IdDescontoNavigation.DescricaoDesconto,
+                    CaminhoImagemDesconto = p.IdDescontoNavigation.CaminhoImagemDesconto,
+                    ValidadeDesconto = p.IdDescontoNavigation.ValidadeDesconto,
+                    ValorDesconto = p.IdDescontoNavigation.ValorDesconto,
+                    NumeroCupom = p.IdDescontoNavigation.NumeroCupom,
+                    MediaAvaliacaoDesconto = p.IdDescontoNavigation.MediaAvaliacaoDesconto
+                },
+                IdUsuarioNavigation = new Usuario
+                {
+                    IdUsuario = p.IdUsuarioNavigation.IdUsuario,
+                    Nome = p.IdUsuarioNavigation.Nome,
+                    Cpf = p.IdUsuarioNavigation.Cpf,
+                    Email = p.IdUsuarioNavigation.Email,
+                    IdCargoNavigation = new Cargo
+                    {
+                        IdCargo = p.IdUsuarioNavigation.IdCargoNavigation.IdCargo,
+                        NomeCargo = p.IdUsuarioNavigation.IdCargoNavigation.NomeCargo
+                    },
+                }
+            }).ToList())
             {
                 if (registro.IdUsuario == id)
                 {

@@ -190,9 +190,17 @@ namespace SenaiRH_G2.Repositories
                 IdUsuario = p.IdUsuario,
                 IdCursoNavigation = new Curso
                 {
-                    IdCurso = p.IdCursoNavigation.IdCurso,
+                    IdCurso = p.IdCurso,
+                    IdEmpresa = p.IdCursoNavigation.IdEmpresa,
                     NomeCurso = p.IdCursoNavigation.NomeCurso,
-                    SiteCurso = p.IdCursoNavigation.SiteCurso
+                    DescricaoCurso = p.IdCursoNavigation.DescricaoCurso,
+                    SiteCurso = p.IdCursoNavigation.SiteCurso,
+                    ModalidadeCurso = p.IdCursoNavigation.ModalidadeCurso,
+                    CaminhoImagemCurso = p.IdCursoNavigation.CaminhoImagemCurso,
+                    CargaHoraria = p.IdCursoNavigation.CargaHoraria,
+                    DataFinalizacao = p.IdCursoNavigation.DataFinalizacao,
+                    MediaAvaliacaoCurso = p.IdCursoNavigation.MediaAvaliacaoCurso,
+                    ValorCurso = p.IdCursoNavigation.ValorCurso,
                 },
                 IdUsuarioNavigation = new Usuario
                 {
@@ -220,7 +228,31 @@ namespace SenaiRH_G2.Repositories
         public List<Registrocurso> ListarRegistrocursoPorUsuario(int id)
         {
             List<Registrocurso> registrocursos = new();
-            foreach (var registro in ctx.Registrocursos)
+            foreach (var registro in ctx.Registrocursos.Select(p => new Registrocurso
+            {
+                IdRegistroCurso = p.IdRegistroCurso,
+                IdSituacaoAtividade = p.IdSituacaoAtividade,
+                IdCurso = p.IdCurso,
+                IdUsuario = p.IdUsuario,
+                IdCursoNavigation = new Curso
+                {
+                    IdCurso = p.IdCursoNavigation.IdCurso,
+                    NomeCurso = p.IdCursoNavigation.NomeCurso,
+                    SiteCurso = p.IdCursoNavigation.SiteCurso
+                },
+                IdUsuarioNavigation = new Usuario
+                {
+                    IdUsuario = p.IdUsuarioNavigation.IdUsuario,
+                    Nome = p.IdUsuarioNavigation.Nome,
+                    Cpf = p.IdUsuarioNavigation.Cpf,
+                    Email = p.IdUsuarioNavigation.Email,
+                    IdCargoNavigation = new Cargo
+                    {
+                        IdCargo = p.IdUsuarioNavigation.IdCargoNavigation.IdCargo,
+                        NomeCargo = p.IdUsuarioNavigation.IdCargoNavigation.NomeCargo
+                    },
+                }
+            }).ToList())
             {
                 if (registro.IdUsuario == id)
                 {
