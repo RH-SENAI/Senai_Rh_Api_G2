@@ -23,7 +23,45 @@ namespace SenaiRH_G2.Repositories
         public Desconto BuscarPorId(int id)
         {
             //Buscando um desconto pelo id passado
-            return ctx.Descontos.FirstOrDefault(c => c.IdDesconto == id);
+            return ctx.Descontos
+                .Select(p => new Desconto
+                {
+                    IdDesconto = p.IdDesconto,
+                    IdEmpresa = p.IdEmpresa,
+                    NomeDesconto = p.NomeDesconto,
+                    DescricaoDesconto = p.DescricaoDesconto,
+                    CaminhoImagemDesconto = p.CaminhoImagemDesconto,
+                    ValidadeDesconto = p.ValidadeDesconto,
+                    ValorDesconto = p.ValorDesconto,
+                    NumeroCupom = p.NumeroCupom,
+                    MediaAvaliacaoDesconto = p.MediaAvaliacaoDesconto,
+                    IdEmpresaNavigation = new Empresa()
+                    {
+
+                        NomeEmpresa = p.IdEmpresaNavigation.NomeEmpresa,
+                        EmailEmpresa = p.IdEmpresaNavigation.EmailEmpresa,
+                        TelefoneEmpresa = p.IdEmpresaNavigation.TelefoneEmpresa,
+                        IdLocalizacaoNavigation = new Localizacao()
+                        {
+                            Numero = p.IdEmpresaNavigation.IdLocalizacaoNavigation.Numero,
+                            IdCep = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCep,
+                            IdCepNavigation = new Cep()
+                            {
+                                IdCep = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.IdCep,
+                                Cep1 = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdCepNavigation.Cep1
+                            },
+                            IdLogradouroNavigation = new Logradouro()
+                            {
+                                NomeLogradouro = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdLogradouroNavigation.NomeLogradouro
+                            },
+                            IdEstadoNavigation = new Estado()
+                            {
+                                NomeEstado = p.IdEmpresaNavigation.IdLocalizacaoNavigation.IdEstadoNavigation.NomeEstado
+                            }
+                        }
+                    }
+                })    
+                .FirstOrDefault(c => c.IdDesconto == id);
         }
 
 
