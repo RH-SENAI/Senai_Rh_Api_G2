@@ -61,6 +61,7 @@ namespace SenaiRH_G2
                                 builder =>
                                 {
                                     builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyOrigin()
                                     .AllowAnyHeader()
                                     .AllowAnyMethod();
                                 });
